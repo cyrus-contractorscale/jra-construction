@@ -8,10 +8,11 @@ import { Container } from "@/components/ui/Container";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" }, // Assuming a #projects anchor will be added later
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Blog", href: "#blog" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Testimonials", href: "/testimonials" },
+  // Blog removed from menu
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export function MainNav() {
@@ -48,6 +49,19 @@ export function MainNav() {
           />
         </Link>
 
+        {/* Desktop buttons */}
+        <div className="hidden items-center justify-self-end gap-4 lg:flex">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-white/10"
+          >
+            Get Your Online Estimate
+            <span aria-hidden="true" className="ml-2 text-xl leading-none">
+              &#x2197;
+            </span>
+          </Link>
+        </div>
+
         <button
           type="button"
           onClick={() => setMobileMenuOpen(true)}
@@ -65,12 +79,6 @@ export function MainNav() {
           </svg>
         </button>
 
-        <Link
-          href="#contact"
-          className="hidden justify-self-end rounded-full border border-white/35 px-4 py-2 text-[14px] font-semibold text-white transition hover:bg-white/10 lg:inline-flex lg:px-6"
-        >
-          Online Estimate
-        </Link>
       </Container>
 
       <div

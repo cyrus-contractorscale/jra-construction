@@ -11,42 +11,42 @@ const services = [
     category: "CUSTOM HOMES",
     body: "Want to build a new home? We take you from concept to completion, building homes that perfectly fit your lifestyle and needs.",
     image:
-      "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?auto=format&fit=crop&w=1200&q=80",
+          "/custom-home-services.webp",
   },
   {
     title: "Home Renovations",
     category: "RENOVATIONS",
     body: "Time to update your home? Our home renovation services refresh and renew every part of your space, making your home look and feel brand new.",
     image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80",
+          "/home-renovation-services.webp",
   },
   {
     title: "Home Extensions",
     category: "EXTENSIONS",
     body: "Feeling cramped in your current home? Our home extension services add space seamlessly, giving you the extra room you need without the hassle of relocating.",
     image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+          "/home-extension-services.jpg",
   },
   {
     title: "Kitchen Renovations",
     category: "KITCHENS",
     body: "Does your kitchen need an upgrade? Our kitchen renovation services transform your kitchen into a space that is both functional and stylish, making it the true heart of your home.",
     image:
-      "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=1200&q=80",
+          "/kitchen-services.webp",
   },
   {
     title: "Quantity Surveying",
     category: "QS SERVICES",
     body: "Maximize your projects value and understand the true cost before getting started.",
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+          "/quantity_surveying-services.jpg",
   },
   {
     title: "Bathroom Renovations",
     category: "BATHROOM",
     body: "Ready for a new bathroom? Our bathroom renovation services turn your bathroom into a relaxing retreat, enhancing both its comfort and style.",
     image:
-      "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=80",
+          "/bathroom-services.webp",
   },
 ];
 
