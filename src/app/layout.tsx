@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
+import { MainNav } from "@/components/layout/MainNav";
+import { Footer } from "@/components/sections/Footer";
+
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans-body",
   subsets: ["latin"],
@@ -26,11 +29,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${plusJakarta.variable} ${lora.variable} h-full scroll-smooth antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
-    </html>
+      <html
+        lang="en"
+        className={`${plusJakarta.variable} ${lora.variable} h-full scroll-smooth antialiased`}
+      >
+        <body className="min-h-full flex flex-col font-sans">
+          <MainNav />
+          {children}
+          <Footer />
+        </body>
+      </html>
   );
 }

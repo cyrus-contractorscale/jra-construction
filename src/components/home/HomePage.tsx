@@ -1,7 +1,6 @@
 import { About } from "@/components/sections/About";
 import { Blog } from "@/components/sections/Blog";
 import { Faq } from "@/components/sections/Faq";
-import { Footer } from "@/components/sections/Footer";
 import { FormCta } from "@/components/sections/FormCta";
 import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -25,7 +24,6 @@ export function HomePage() {
         <Blog />
         <Faq />
       </main>
-      <Footer />
     </>
   );
 }
