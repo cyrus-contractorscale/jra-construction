@@ -8,6 +8,7 @@ import { Statement } from "@/components/sections/Statement";
 import { Services } from "@/components/sections/Services";
 import { ServicesMarquee } from "@/components/sections/ServicesMarquee";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { Guarantee } from "@/components/sections/Guarantee";
 
 export function HomePage() {
   return (
@@ -22,6 +23,7 @@ export function HomePage() {
         <FormCta />
         <Testimonials />
         <Blog />
+        <Guarantee />
         <Faq />
       </main>
     </>

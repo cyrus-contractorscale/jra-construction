@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
 const testimonials = [
   {
@@ -63,7 +64,7 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="scroll-mt-24 overflow-hidden bg-[#f9fafb] py-16 sm:py-20">
       <Container>
-        <div className="space-y-4 text-center">
+        <AnimateOnScroll variant="fade-up" className="space-y-4 text-center">
           <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[56px] font-extrabold leading-[1.04] tracking-tight text-[#0f2744]">
             Trusted by Homeowners Across Auckland
           </h2>
@@ -71,7 +72,7 @@ export function Testimonials() {
             See what our clients have to say about their experience building their dream homes and
             investments with our expert team.
           </p>
-        </div>
+        </AnimateOnScroll>
       </Container>
 
       <div className="mt-10 space-y-4">

@@ -8,7 +8,7 @@ export function FormCta() {
       className="scroll-mt-24 bg-[#0f2744] bg-cover bg-center bg-no-repeat py-14 sm:py-16"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(15,39,68,0.86), rgba(15,39,68,0.86)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2200&q=80')",
+          "linear-gradient(rgba(15,39,68,0.86), rgba(15,39,68,0.86)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
       }}
     >
       <Container className="grid gap-8 lg:grid-cols-[1fr_520px] lg:items-start">
