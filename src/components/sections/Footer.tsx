@@ -168,49 +168,49 @@ export function Footer() {
             <h3 className="text-[18px] font-bold text-white sm:text-[19px]">Services</h3>
             <ul className="mt-5 space-y-3 text-[15px]">
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/custom-homes" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Custom Homes
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/home-renovations" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Home Renovations
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/home-extensions" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Home Extensions
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/kitchen-renovations" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Kitchen Renovations
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/quantity-surveying" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Quantity Surveying
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/bathroom-renovations" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Bathroom Renovations
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/granny-flats" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Granny Flats
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/minor-dwellings" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Minor Dwellings
                 </Link>
