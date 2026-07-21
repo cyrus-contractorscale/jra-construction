@@ -35,7 +35,7 @@ export function HowItWorks() {
             </svg>
             How It Works
           </p>
-          <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[52px] font-extrabold leading-[1.02] tracking-tight text-[#0f2744]">
+          <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[52px] font-extrabold leading-[1.02] tracking-tight text-[#293a57]">
             Our Custom Home Building Process
           </h2>
         </AnimateOnScroll>
@@ -48,7 +48,7 @@ export function HowItWorks() {
                   <span className="absolute left-1/2 top-[39px] z-0 hidden h-px w-[calc(100%+2rem)] bg-[#d8e0eb] lg:block" />
                 ) : null}
                 <div className="relative z-10 mx-auto flex w-full max-w-[260px] items-center justify-center">
-                  <div className="flex h-[78px] w-[78px] items-center justify-center rounded-full bg-[#0f2744] shadow-[0_8px_18px_rgba(15,39,68,0.18)] transition duration-300 hover:shadow-[0_12px_28px_rgba(15,39,68,0.32)] hover:scale-110">
+                  <div className="flex h-[78px] w-[78px] items-center justify-center rounded-full bg-[#293a57] shadow-[0_8px_18px_rgba(41,58,87,0.18)] transition duration-300 hover:shadow-[0_12px_28px_rgba(41,58,87,0.32)] hover:scale-110">
                     <StepIcon type={item.icon} />
                   </div>
                   <span className="-ml-3 mt-12 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#446288] text-[12px] font-bold text-white">

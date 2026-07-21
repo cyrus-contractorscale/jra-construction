@@ -17,6 +17,12 @@
 /.next/
 /out/
 
+# cloudflare / opennext build output
+/.open-next/
+
+# wrangler local state
+/.wrangler/
+
 # production
 /build
 
@@ -32,6 +38,7 @@ yarn-error.log*
 # env files
 .env*
 !.env.example
+!.env.production
 
 # vercel
 .vercel

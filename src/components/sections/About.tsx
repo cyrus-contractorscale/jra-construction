@@ -2,37 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
 export function About() {
-  const imageWrapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function onScroll() {
-      const el = imageWrapRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-      const clamped = Math.max(0, Math.min(1, progress));
-      const translateY = (clamped - 0.5) * 48;
-      el.style.transform = `translateY(${translateY}px)`;
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <section id="about" className="scroll-mt-28 bg-white pt-0 pb-10 sm:pb-14">
+    <section id="about" className="scroll-mt-28 bg-white py-14 sm:py-20">
       <Container className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
-        <AnimateOnScroll variant="fade-right" className="min-w-0">
-          <div
-            ref={imageWrapRef}
-            className="relative h-[520px] w-full overflow-hidden rounded-[40px] shadow-xl shadow-zinc-900/10 ring-1 ring-zinc-900/5 sm:h-[620px] xl:h-[700px]"
-            style={{ willChange: "transform", transition: "transform 0.1s linear" }}
-          >
+        {/* Sticky image: follows the reader while the text column scrolls */}
+        <AnimateOnScroll variant="fade-right" className="min-w-0 lg:sticky lg:top-36 lg:self-start">
+          <div className="relative h-[520px] w-full overflow-hidden rounded-[40px] shadow-xl shadow-zinc-900/10 ring-1 ring-zinc-900/5 sm:h-[620px]">
             <Image
               src="/jra-about.png"
               alt="Builder marking timber onsite"
@@ -56,63 +35,72 @@ export function About() {
                   strokeLinejoin="round"
                 />
               </svg>
-              About Us
+              Who We Are
             </div>
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-up" delay={100}>
-            <h2 className="mt-5 font-[ui-sans-serif,system-ui,sans-serif] text-[44px] font-extrabold leading-[1.02] tracking-tight text-[#0f2744] sm:text-[56px]">
-              Built on clarity, craft, and accountability
+            <h2 className="mt-5 font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.05] tracking-tight text-[#293a57] sm:text-[50px]">
+              JRA Construction: Your Trusted Building Partner
             </h2>
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-up" delay={200}>
-            <div className="mt-7 space-y-5 text-[22px] leading-[1.52] text-[#3f5162]">
+            <div className="mt-7 space-y-5 text-[17px] leading-[1.65] text-[#3f5162]">
               <p>
-                JRA Construction is a full-service construction and management company specialising
-                in residential renovations, extensions, and alterations across New Zealand. We focus
-                on clear planning from the start and disciplined execution through every stage so your
-                project runs smoothly and stays aligned.
+                At JRA Construction, we are a full-service Auckland building company specialising in
+                custom homes, renovations, and extensions. From Avondale extension work to Balmoral
+                renovation projects and premium Auckland villa upgrades, we help homeowners improve
+                layout, add space, and protect project budgets without compromising workmanship.
               </p>
               <p>
-                We work closely with you to make practical decisions early, maintain clear
-                communication throughout the build, and ensure every detail meets a high standard.
+                We believe that communication is key to a successful build, which is why we
+                prioritise having a direct point of contact for every project. Our 24-hour callback
+                policy and consistent project updates keep clients informed from the first
+                consultation through handover.
+              </p>
+              <p>
+                Quality service is at the core of everything we do at JRA Construction. We ensure
+                that all work and sub-trades meet our high expectations and current standards, then
+                finish each project with a thorough walk-through using our JRA Quality Checklist.
+              </p>
+              <p>
+                We also prioritise safety at all times, ensuring that not only our staff but anyone
+                in and around our sites is protected. As partners with HazardCo, we use site safety
+                plans alongside our own to maintain a clean, well-managed environment on every
+                project.
+              </p>
+              <p>
+                If you are ready to take the first step towards your dream project, contact us today
+                to schedule a FREE consultation.
               </p>
             </div>
           </AnimateOnScroll>
 
-          <ul className="mt-8 space-y-4 text-[18px] text-[#22384f]">
-            {[
-              "Clear planning and defined scope before construction begins",
-              "Direct communication with consistent updates throughout the project",
-              "Quality workmanship that meets current standards and expectations",
-            ].map((text, i) => (
-              <AnimateOnScroll key={text} variant="fade-up" delay={300 + i * 80}>
-                <li className="flex items-start gap-3">
-                  <svg viewBox="0 0 24 24" className="mt-0.5 h-5 w-5 shrink-0 text-[#1d314a]" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                    <path d="M8.3 12.2l2.2 2.2 5.1-5.1" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span>{text}</span>
-                </li>
-              </AnimateOnScroll>
-            ))}
-          </ul>
-
-          <AnimateOnScroll variant="fade-up" delay={560}>
-            <p className="mt-8 text-[30px] font-extrabold leading-[1.2] text-[#0f2744]">
-              If you want a builder who takes ownership from plans through to completion, book a free
-              consultation and we&apos;ll walk through your project with you.
-            </p>
+          <AnimateOnScroll variant="fade-up" delay={400}>
+            <div className="mt-8">
+              <h3 className="text-[24px] font-extrabold tracking-tight text-[#293a57]">Joe Allen</h3>
+              <p className="mt-1 text-[15px] font-semibold uppercase tracking-wide text-[#5f7286]">
+                Director
+              </p>
+            </div>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variant="fade-up" delay={660}>
-            <Link
-              href="#"
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#0f2744] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#16385f]"
-            >
-              Read More About Us
-            </Link>
+          <AnimateOnScroll variant="fade-up" delay={500}>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-[#293a57] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Consultation
+              </Link>
+              <a
+                href="tel:0212769971"
+                className="inline-flex items-center justify-center rounded-full border border-[#293a57]/30 px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57]/5"
+              >
+                Call Us (021) 276 9971
+              </a>
+            </div>
           </AnimateOnScroll>
         </div>
       </Container>

@@ -121,8 +121,10 @@ export function Footer() {
               />
             </Link>
             <p className="max-w-sm text-[15px] leading-relaxed text-[#aeb8c4]">
-              JRA Construction builds custom homes and renovations in Auckland with clear
-              communication, disciplined execution, and lasting quality craftsmanship.
+              JRA Construction is a customer-focused Auckland building company specialising in
+              custom homes, renovations, extensions, and quantity surveying. We combine transparent
+              project management, fixed-price clarity, and quality workmanship to help Auckland
+              homeowners build with confidence.
             </p>
             <div className="mt-7 flex gap-3">
               <a
@@ -204,15 +206,27 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/granny-flats" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/services/home-maintenance" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  Granny Flats
+                  Home Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/construction-management" className="group flex items-center gap-2 transition hover:text-white">
+                  <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Construction Management
                 </Link>
               </li>
               <li>
                 <Link href="/services/minor-dwellings" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Minor Dwellings
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/granny-flats" className="group flex items-center gap-2 transition hover:text-white">
+                  <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  Granny Flats
                 </Link>
               </li>
             </ul>
@@ -228,37 +242,37 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/about" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#testimonials" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/testimonials" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/contact" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="#service-areas" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/service-areas" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Service Areas
                 </Link>
               </li>
               <li>
-                <Link href="#faq" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/faq" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link href="#blog" className="group flex items-center gap-2 transition hover:text-white">
+                <Link href="/blog" className="group flex items-center gap-2 transition hover:text-white">
                   <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   Blog
                 </Link>
@@ -275,29 +289,24 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="tel:+64000000000"
+                  href="tel:+64212769971"
                   className="group flex items-center gap-3 transition hover:text-white"
                 >
                   <IconPhone className="mt-0.5 h-5 w-5 shrink-0 text-[#8fa3b8]" />
-                  +64 000 000 000
+                  (021) 276 9971
                 </Link>
+              </li>
+              <li className="flex gap-3">
+                <IconClock className="mt-0.5 h-5 w-5 shrink-0 text-[#8fa3b8]" />
+                <span>7:30am – 5:30pm (Mon–Fri)</span>
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="group flex items-center gap-3 transition hover:text-white"
-                >
-                  <IconClock className="mt-0.5 h-5 w-5 shrink-0 text-[#8fa3b8]" />
-                  9AM – 5PM (Mon–Fri)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="mailto:info@jraconstruction.co.nz"
+                  href="mailto:joe@jraconstruction.co.nz"
                   className="group flex items-center gap-3 break-all transition hover:text-white"
                 >
                   <IconEmail className="mt-0.5 h-5 w-5 shrink-0 text-[#8fa3b8]" />
-                  info@jraconstruction.co.nz
+                  joe@jraconstruction.co.nz
                 </Link>
               </li>
             </ul>
@@ -310,12 +319,12 @@ export function Footer() {
               © Copyright JRA Construction 2026. All Right Reserved.
             </p>
             <p className="text-[14px] text-[#aeb8c4] lg:text-right">
-              <Link href="#" className="transition hover:text-white">
+              <Link href="/privacy-policy" className="transition hover:text-white">
                 Privacy Policy
               </Link>
               <span className="mx-2 text-white/25">|</span>
-              <Link href="#" className="transition hover:text-white">
-                Terms &amp; Conditions
+              <Link href="/sitemap" className="transition hover:text-white">
+                Sitemap
               </Link>
             </p>
           </div>

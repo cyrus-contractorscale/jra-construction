@@ -53,7 +53,7 @@ const faqs = [
 
 function QuestionMarkIcon() {
   return (
-    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#c5d0dc] bg-white text-[13px] font-bold text-[#0f2744]">
+    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#c5d0dc] bg-white text-[13px] font-bold text-[#293a57]">
       ?
     </span>
   );
@@ -103,9 +103,9 @@ export function Faq() {
         <AnimateOnScroll variant="fade-up" className="mb-10 space-y-5 sm:mb-12">
           <div className="inline-flex items-center gap-2.5 rounded-[10px] border border-[#dfe7ef] bg-[#fafbfc] px-3.5 py-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#4f6678]">
             <QuestionMarkIcon />
-            <span className="text-[#0f2744]">FAQ</span>
+            <span className="text-[#293a57]">FAQ</span>
           </div>
-          <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.1] tracking-tight text-[#0f2744] sm:text-[48px] lg:text-[52px]">
+          <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[48px] lg:text-[52px]">
             Frequently Asked Questions
           </h2>
         </AnimateOnScroll>
@@ -122,8 +122,8 @@ export function Faq() {
                 <div
                   className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
                     isOpen
-                      ? "border-[#0f2744] bg-[#0f2744] shadow-lg shadow-[#0f2744]/15"
-                      : "border-[#eef2f6] bg-[#f9fafb] hover:border-[#c8d5e2] hover:shadow-md hover:shadow-[#0f2744]/5 hover:-translate-y-0.5"
+                      ? "border-[#293a57] bg-[#293a57] shadow-lg shadow-[#293a57]/15"
+                      : "border-[#eef2f6] bg-[#f9fafb] hover:border-[#c8d5e2] hover:shadow-md hover:shadow-[#293a57]/5 hover:-translate-y-0.5"
                   }`}
                 >
                   <button
@@ -134,7 +134,7 @@ export function Faq() {
                   >
                     <span
                       className={`text-[16px] font-semibold leading-snug sm:text-[17px] transition-colors duration-200 ${
-                        isOpen ? "text-white" : "text-[#0f2744]"
+                        isOpen ? "text-white" : "text-[#293a57]"
                       }`}
                     >
                       {item.question}
@@ -143,7 +143,7 @@ export function Faq() {
                       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xl font-light leading-none transition-all duration-300 sm:h-10 sm:w-10 ${
                         isOpen
                           ? "rotate-45 bg-white/15 text-white"
-                          : "bg-[#eef2f6] text-[#0f2744] hover:bg-[#e2e8f0]"
+                          : "bg-[#eef2f6] text-[#293a57] hover:bg-[#e2e8f0]"
                       }`}
                       aria-hidden
                     >

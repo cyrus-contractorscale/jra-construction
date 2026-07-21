@@ -10,6 +10,41 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans-body);
   --font-serif: var(--font-serif-display);
+
+  /* ── Estimate funnel: brand palette (JRA Construction blue) ── */
+  --color-brand-50:  #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #293a57;
+  --color-brand-600: #1e2d47;
+  --color-brand-700: #0d4f8a;
+  --color-brand-800: #0a3d6b;
+  --color-brand-900: #082d4e;
+
+  /* ── Estimate funnel: ink (slate) palette ── */
+  --color-ink-50:  #f8fafc;
+  --color-ink-100: #f1f5f9;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1e293b;
+  --color-ink-900: #0f172a;
+  --color-ink-950: #020617;
+
+  /* ── Estimate funnel: fonts ── */
+  --font-heading: var(--font-montserrat), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-price:   var(--font-montserrat), var(--font-poppins), ui-sans-serif, sans-serif;
+
+  /* ── Estimate funnel: shadows ── */
+  --shadow-card:      0 1px 2px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06);
+  --shadow-cardHover: 0 4px 16px rgba(15,23,42,0.10), 0 1px 3px rgba(15,23,42,0.06);
+  --shadow-glass:     0 4px 24px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-glassHover:0 8px 40px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.06);
 }
 
 body {
@@ -18,18 +53,64 @@ body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-p {
+/* Scope base p/heading styles to the main site only — not estimate funnel */
+.site-layout p {
   font-size: 16px;
   line-height: 1.6em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Blog card date + category meta line */
+.site-layout p.blog-meta {
+  font-size: 12px;
+}
+
+/* ── Long-form article body (blog posts) ── */
+.article-body a {
+  color: #293a57;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(41, 58, 87, 0.35);
+  text-underline-offset: 3px;
+}
+.article-body a:hover {
+  text-decoration-color: #293a57;
+}
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.article-body table th,
+.article-body table td {
+  border: 1px solid #dfe7ef;
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  color: #3f5162;
+}
+.article-body table th {
+  background-color: #f0f5fa;
+  font-weight: 700;
+  color: #293a57;
+}
+.article-body table tr:nth-child(even) td {
+  background-color: #f9fbfd;
+}
+
+.site-layout h1,
+.site-layout h2,
+.site-layout h3,
+.site-layout h4,
+.site-layout h5,
+.site-layout h6 {
   font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Fluid H1 sizing — mirrors text-5xl → text-7xl but as a smooth continuous scale */
+.h1-fluid {
+  font-size: clamp(3rem, 4.5vw + 1.5rem, 4.5rem);
+  line-height: 1.05;
 }
 
 .section-tab {
@@ -40,7 +121,7 @@ h6 {
   border: 1px solid #dfe7ef;
   background-color: #fff;
   padding: 0.375rem 0.875rem;
-  font-size: 12px;
+  font-size: 12px !important;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -174,4 +255,49 @@ h6 {
     /* One segment width; must match --marquee-segments on .testimonials-track */
     transform: translateX(calc(-100% / var(--marquee-segments, 6)));
   }
+}
+
+/* ── Estimate funnel animations ─────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fadeUpSm {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fadeInOnly {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulseBar {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.animate-fadeUp     { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fadeUpSm   { animation: fadeUpSm 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-fadeInOnly { animation: fadeInOnly 0.8s ease both; }
+.animate-pulseBar   { animation: pulseBar 1.2s ease-in-out infinite; }
+
+.scrollbar-none                    { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; }
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.05);
 }

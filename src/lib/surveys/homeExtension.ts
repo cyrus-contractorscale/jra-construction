@@ -1,0 +1,105 @@
+import type { Survey } from "../types";
+import {
+  addressQuestion,
+  budgetQuestion,
+  contactQuestion,
+  designerQuestion,
+  finishQuestion,
+  financingQuestion,
+  livingDuringWorksQuestion,
+  opt,
+  ownerQuestion,
+  plansQuestion,
+  sizeQuestion,
+  timelineQuestion,
+  yesNo,
+} from "./shared";
+
+export const homeExtension: Survey = {
+  id: "homeExtension",
+  label: "Home Extension",
+  description: "Add more space to your existing home.",
+  questions: [
+    {
+      id: "extensionType",
+      type: "single",
+      title: "What type of extension are you planning?",
+      subText: "Let us know how you're looking to expand your home.",
+      ghlFieldKey: "extensionType",
+      required: true,
+      options: opt([
+        "Ground-floor (outward)",
+        "Second-storey",
+        "Wrap-around (both)",
+      ]),
+    },
+    {
+      id: "spaceUse",
+      type: "single",
+      title: "What will the new space be used for?",
+      subText: "This helps us understand your layout needs.",
+      ghlFieldKey: "spaceUse",
+      required: true,
+      options: opt([
+        "Extra bedroom(s)",
+        "Living area",
+        "Master suite",
+        "Granny flat / secondary dwelling",
+        "Multi-purpose",
+      ]),
+    },
+    {
+      id: "bathroomIncluded",
+      type: "single",
+      title: "Will a bathroom be included in the extension?",
+      subText: "This helps us understand plumbing and fit-out requirements.",
+      ghlFieldKey: "bathroomIncluded",
+      required: true,
+      options: yesNo,
+    },
+    {
+      id: "kitchenIncluded",
+      type: "single",
+      title: "Will a kitchen or kitchenette be included?",
+      subText: "Let us know if your extension will include a cooking area.",
+      ghlFieldKey: "kitchenIncluded",
+      required: true,
+      options: yesNo,
+    },
+    sizeQuestion({
+      title: "What is the approximate size of your extension?",
+      subText: "Provide the estimated size of the new space in square metres.",
+      guide: [
+        { label: "One Bedroom", value: "12 sqm" },
+        { label: "Living Room", value: "28 sqm" },
+        { label: "Average Second Storey Addition", value: "46 sqm" },
+        { label: "2 Beds + Living + Bathroom", value: "75 sqm" },
+      ],
+    }),
+    finishQuestion,
+    {
+      ...livingDuringWorksQuestion,
+      title: "Will you be living in the home during construction?",
+    },
+    ownerQuestion,
+    timelineQuestion,
+    {
+      ...designerQuestion,
+      subText: "Let us know if your design process has already begun.",
+    },
+    plansQuestion,
+    financingQuestion,
+    budgetQuestion([
+      "Under $100,000",
+      "$100,000 - $200,000",
+      "$200,000 - $350,000",
+      "$350,000 - $500,000",
+      "$500,000+",
+    ]),
+    contactQuestion,
+    addressQuestion(
+      "Where is your property located?",
+      "Provide the address of the property where the extension will be built."
+    ),
+  ],
+};

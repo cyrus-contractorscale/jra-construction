@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jra-construction",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-05-22",
+  "compatibility_flags": [
+    // Enable Node.js APIs (required for Next.js)
+    "nodejs_compat",
+    // Allow fetch to public URLs
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      // Must match the "name" field above
+      "service": "jra-construction"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "JRA_ESTIMATE",
+      // TODO: create with `wrangler kv namespace create JRA_ESTIMATE` and paste the id
+      "id": "REPLACE_WITH_JRA_KV_NAMESPACE_ID"
+    }
+  ],
+  "vars": {
+    "NEXT_PUBLIC_BOOKING_URL":        "/contact",
+    "NEXT_PUBLIC_GHL_TRACKING_SRC":   "https://link.contractorscale.com/js/external-tracking.js",
+    "NEXT_PUBLIC_GHL_TRACKING_ID":    "tk_5268635886654abf8064450caaa49c91",
+    "GHL_API_VERSION":                "2021-07-28"
+    // TODO: add GHL_PIT_TOKEN and GHL_LOCATION_ID for the JRA sub-account
+    // via `wrangler secret put` or dashboard vars before enabling lead submission.
+  }
+}

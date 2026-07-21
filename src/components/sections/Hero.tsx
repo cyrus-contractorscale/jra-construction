@@ -6,16 +6,17 @@ import { Container } from "@/components/ui/Container";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const heroSlides = ["/jra-slider-1.png", "/jra-slider-2.png"];
-const baseHeading = "Build Your Dream";
-const fadedFirstLine = " Home";
-const fadedSecondLine = "With JRA Construction";
+const baseHeading = "Build your dream";
+const fadedFirstLine = " home";
+const fadedSecondLine = "with JRA Construction";
 const revealText = `${fadedFirstLine}${fadedSecondLine}`;
-const customerImages = [
-  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80",
-  "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=160&q=80",
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80",
-  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&q=80",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80",
+const awardLogos = [
+  { src: "/awards/reverelogo.png", alt: "reverelogo" },
+  { src: "/awards/logo-silver.png", alt: "logo silver" },
+  { src: "/awards/lgo-gold.png", alt: "lgo gold" },
+  { src: "/awards/lgo-regional.png", alt: "lgo regional" },
+  { src: "/awards/logo-silver-2022.png", alt: "logo silver 2022" },
+  { src: "/awards/logo-top100.png", alt: "logo top100" },
 ];
 
 export function Hero() {
@@ -181,6 +182,9 @@ export function Hero() {
 
             <Container className="relative z-10 py-28 sm:py-36 lg:py-44">
                 <div className="w-full space-y-6 text-center text-white">
+                    <p className="w-full text-[12px] font-bold uppercase tracking-[0.18em] text-white/85 sm:text-[13px] sm:whitespace-nowrap">
+                        Home Builders in Auckland for Custom Homes, Renovations and Extensions
+                    </p>
                     <h1 className="w-full font-[ui-sans-serif,system-ui,sans-serif] text-4xl font-extrabold uppercase leading-[1.05] tracking-tight [text-shadow:0_3px_18px_rgba(0,0,0,0.38)] sm:text-5xl lg:text-[72px]">
                         {baseHeading}
                         <span className="whitespace-pre transition-opacity duration-150">
@@ -197,53 +201,32 @@ export function Hero() {
                             {secondLineReveal.hidden}
                         </span>
                     </h1>
-                    <p className="mx-auto max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base">
-                        Our quantity surveying services ensure your budget is well looked after. Reputable
-                        builders in Auckland blend expert craftsmanship with precise surveying, ensuring your
-                        dream home is built flawlessly within budget.
+                    <p className="mx-auto max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
+                        Planning a custom home, renovation, or home extension in Auckland? JRA Construction
+                        combines licensed building expertise with in-house quantity surveying, fixed-price
+                        clarity, and hands-on project management so you can build with confidence from
+                        concept through completion.
                     </p>
                     <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-center">
                         <Link
-                            href="#contact"
+                            href="/contact"
                             className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-zinc-900 shadow-lg shadow-black/30 transition hover:bg-zinc-100"
                         >
-                            Start Your Project
+                            Free Consultation
                         </Link>
                         <Link
-                            href="#services"
+                            href="/estimate"
                             className="inline-flex items-center justify-center rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
                         >
-                            View Services
+                            Online Estimate
                         </Link>
                     </div>
                 </div>
             </Container>
 
             <Container className="pointer-events-none absolute inset-x-0 bottom-6 z-20">
-                <div className="flex items-end justify-between gap-6">
-                    <div className="pointer-events-auto text-white">
-                        <div className="flex items-center -space-x-2.5">
-                            {customerImages.map((src, index) => (
-                                <div
-                                    key={src}
-                                    className="relative h-14 w-14 overflow-hidden rounded-full border-[3px] border-white shadow-lg shadow-black/30"
-                                >
-                                    <Image
-                                        src={src}
-                                        alt={`Satisfied customer ${index + 1}`}
-                                        fill
-                                        className="object-cover"
-                                        sizes="56px"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                        <p className="mt-3 text-[18px] font-extrabold leading-none tracking-tight">7K+</p>
-                        <p className="mt-1 text-[12px] font-medium tracking-wide text-white/95">
-                            Satisfied Customers
-                        </p>
-                    </div>
-
+                <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-end sm:justify-between">
+                    {/* Left: Play Video */}
                     <button
                         type="button"
                         onClick={() => setIsVideoOpen(true)}
@@ -254,6 +237,20 @@ export function Hero() {
                         </span>
                         <span className="text-[14px] font-semibold leading-none">Play Video</span>
                     </button>
+
+                    {/* Right: award logos */}
+                    <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-3 sm:justify-end sm:gap-4">
+                        {awardLogos.map((logo) => (
+                            <Image
+                                key={logo.src}
+                                src={logo.src}
+                                alt={logo.alt}
+                                width={80}
+                                height={80}
+                                className="h-14 w-auto object-contain drop-shadow-lg sm:h-20"
+                            />
+                        ))}
+                    </div>
                 </div>
             </Container>
 

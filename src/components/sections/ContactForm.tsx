@@ -31,7 +31,7 @@ export function ContactForm() {
         autoComplete="name"
         value={values.name}
         onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
-        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-900 outline-none transition focus:border-[#0f2744]"
+        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-900 outline-none transition focus:border-[#293a57]"
         placeholder="Full Name*"
       />
 
@@ -46,7 +46,7 @@ export function ContactForm() {
         autoComplete="email"
         value={values.email}
         onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
-        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-900 outline-none transition focus:border-[#0f2744]"
+        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-900 outline-none transition focus:border-[#293a57]"
         placeholder="Email*"
       />
 
@@ -60,7 +60,7 @@ export function ContactForm() {
         autoComplete="tel"
         value={values.phone}
         onChange={(e) => setValues((v) => ({ ...v, phone: e.target.value }))}
-        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-900 outline-none transition focus:border-[#0f2744]"
+        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-900 outline-none transition focus:border-[#293a57]"
         placeholder="Phone*"
       />
 
@@ -72,7 +72,7 @@ export function ContactForm() {
         name="workType"
         value={values.workType}
         onChange={(e) => setValues((v) => ({ ...v, workType: e.target.value }))}
-        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-500 outline-none transition focus:border-[#0f2744]"
+        className="h-10 rounded-md border border-zinc-200 bg-zinc-50 px-3 text-[13px] text-zinc-500 outline-none transition focus:border-[#293a57]"
       >
         <option value="">Type of Work?</option>
         <option value="custom-home">Custom Home</option>
@@ -90,7 +90,7 @@ export function ContactForm() {
         rows={3}
         value={values.message}
         onChange={(e) => setValues((v) => ({ ...v, message: e.target.value }))}
-        className="resize-none rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-[13px] text-zinc-900 outline-none transition focus:border-[#0f2744]"
+        className="resize-none rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-[13px] text-zinc-900 outline-none transition focus:border-[#293a57]"
         placeholder="Give as much detail as possible*"
       />
 

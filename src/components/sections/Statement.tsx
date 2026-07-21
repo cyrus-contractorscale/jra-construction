@@ -1,162 +1,97 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Container } from "@/components/ui/Container";
+import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
-const fixedHeadingStart = "Build Right Contractors";
-const revealLineOne = " in";
-const revealLineTwo = "Auckland By JRA";
-const revealLineThree = "Construction";
-const revealText = `${revealLineOne}${revealLineTwo}${revealLineThree}`;
+const advantages = [
+  "Regulatory Compliance: Our operations are in full compliance with local building codes, providing peace of mind and reducing legal liabilities.",
+  "Guaranteed Quality: Our certifications and licenses are not just formalities; they represent our promise of high-quality, durable construction.",
+  "Expertise in Complex Projects: Our team's capability in managing and executing complex projects comes from rigorous training and extensive experience, ensuring each project's success.",
+  "Reliability and Timeline Adherence: We maintain professional reliability by strictly adhering to project timelines and budget, preventing any unforeseen expenses.",
+  "Boosting Property Value: The superior quality of our construction not only meets but often exceeds standards, significantly enhancing the resale value of your property.",
+];
 
+/* Live-site "Award-Winning Auckland Builders" section:
+   navy #293A57 background + Neighborhood-Development.webp + 90% overlay.
+   Text is centered, white. Mirrors jraconstruction.co.nz element f724bf3. */
 export function Statement() {
-  const [revealedLetters, setRevealedLetters] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const touchStartY = useRef<number | null>(null);
-  const totalRevealLetters = revealText.length;
-
-  const firstLineReveal = useMemo(() => {
-    const lineCount = Math.min(revealedLetters, revealLineOne.length);
-    return {
-      visible: revealLineOne.slice(0, lineCount),
-      hidden: revealLineOne.slice(lineCount),
-    };
-  }, [revealedLetters]);
-
-  const secondLineReveal = useMemo(() => {
-    const secondLineCount = Math.max(0, revealedLetters - revealLineOne.length);
-    const clamped = Math.min(secondLineCount, revealLineTwo.length);
-    return {
-      visible: revealLineTwo.slice(0, clamped),
-      hidden: revealLineTwo.slice(clamped),
-    };
-  }, [revealedLetters]);
-
-  const thirdLineReveal = useMemo(() => {
-    const consumed = revealLineOne.length + revealLineTwo.length;
-    const thirdLineCount = Math.max(0, revealedLetters - consumed);
-    const clamped = Math.min(thirdLineCount, revealLineThree.length);
-    return {
-      visible: revealLineThree.slice(0, clamped),
-      hidden: revealLineThree.slice(clamped),
-    };
-  }, [revealedLetters]);
-
-  useEffect(() => {
-    function canControlReveal() {
-      const section = sectionRef.current;
-      if (!section) return false;
-      const rect = section.getBoundingClientRect();
-      return rect.top <= window.innerHeight * 0.55 && rect.bottom > window.innerHeight * 0.35;
-    }
-
-    function updateRevealFromDelta(deltaY: number) {
-      const step = Math.max(1, Math.round(Math.abs(deltaY) / 45));
-      setRevealedLetters((prev) => {
-        if (deltaY > 0) {
-          return Math.min(totalRevealLetters, prev + step);
-        }
-        if (deltaY < 0) {
-          return Math.max(0, prev - step);
-        }
-        return prev;
-      });
-    }
-
-    function onWheel(event: WheelEvent) {
-      if (!canControlReveal()) return;
-      const delta = event.deltaY;
-      const scrollingDown = delta > 0;
-      const scrollingUp = delta < 0;
-      const shouldLockDown = scrollingDown && revealedLetters < totalRevealLetters;
-      const shouldLockUp = scrollingUp && revealedLetters > 0;
-
-      if (!shouldLockDown && !shouldLockUp) return;
-      event.preventDefault();
-      updateRevealFromDelta(delta);
-    }
-
-    function onTouchStart(event: TouchEvent) {
-      touchStartY.current = event.touches[0]?.clientY ?? null;
-    }
-
-    function onTouchMove(event: TouchEvent) {
-      if (!canControlReveal() || touchStartY.current === null) return;
-      const currentY = event.touches[0]?.clientY ?? touchStartY.current;
-      const delta = touchStartY.current - currentY;
-      const swipingDown = delta > 0;
-      const swipingUp = delta < 0;
-      const shouldLockDown = swipingDown && revealedLetters < totalRevealLetters;
-      const shouldLockUp = swipingUp && revealedLetters > 0;
-
-      if (!shouldLockDown && !shouldLockUp) return;
-      event.preventDefault();
-      updateRevealFromDelta(delta);
-      touchStartY.current = currentY;
-    }
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (!canControlReveal()) return;
-      const downKeys = ["ArrowDown", "PageDown", " ", "Spacebar"];
-      const upKeys = ["ArrowUp", "PageUp"];
-      const isDown = downKeys.includes(event.key);
-      const isUp = upKeys.includes(event.key);
-      if (!isDown && !isUp) return;
-
-      const shouldLockDown = isDown && revealedLetters < totalRevealLetters;
-      const shouldLockUp = isUp && revealedLetters > 0;
-      if (!shouldLockDown && !shouldLockUp) return;
-
-      event.preventDefault();
-      updateRevealFromDelta(isDown ? 55 : -55);
-    }
-
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [revealedLetters, totalRevealLetters]);
 
   return (
-    <section ref={sectionRef} className="bg-white py-14 sm:py-20">
-      <Container>
-        <div className="grid gap-10 lg:grid-cols-[35%_65%] lg:items-start lg:gap-16">
-          <div className="max-w-sm space-y-5">
-            <h3 className="text-[24px] font-extrabold leading-[1.1] tracking-tight text-[#102539]">
-              We Are Licensed & Certified
-              <br />
-              Home Builders in Auckland
-            </h3>
-            <p className="text-[18px] leading-[1.62] text-[#516577]">
-              As leading home builders in Auckland, we ensure quality construction, compliance with
-              local codes, and beautifully designed homes. Our expert team delivers durability and
-              value, enhancing aesthetics and ensuring safety.
-            </p>
-          </div>
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden py-16 sm:py-20"
+      style={{
+        backgroundImage:
+          "url('/neighborhood-development.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* 90% navy overlay — matches live site */}
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: "#293A57", opacity: 0.9 }}
+        aria-hidden="true"
+      />
 
-          <div className="max-w-full pt-1">
-            <h2 className="max-w-[800px] font-[ui-sans-serif,system-ui,sans-serif] text-[46px] font-extrabold leading-[1.05] tracking-tight text-[#102539] sm:text-[54px] lg:text-[68px]">
-              {fixedHeadingStart}
-              <span className="whitespace-pre">{firstLineReveal.visible}</span>
-              <span className="whitespace-pre text-[#102539]/30">{firstLineReveal.hidden}</span>
-              <br />
-              <span className="whitespace-pre">{secondLineReveal.visible}</span>
-              <span className="whitespace-pre text-[#102539]/30">{secondLineReveal.hidden}</span>
-              <br />
-              <span className="whitespace-pre">{thirdLineReveal.visible}</span>
-              <span className="whitespace-pre text-[#102539]/30">{thirdLineReveal.hidden}</span>
-            </h2>
-          </div>
-        </div>
+      <Container className="relative z-10">
+        <AnimateOnScroll variant="fade-up" className="mx-auto max-w-6xl text-center text-white">
+          <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold uppercase leading-[1.1] tracking-tight [text-shadow:0_2px_12px_rgba(0,0,0,0.35)] sm:text-[42px] lg:text-[48px]">
+            Award-Winning Auckland Builders for New Homes, Renovations and Extensions
+          </h2>
 
-        <div className="mt-14 border-b border-zinc-200" />
+          <p className="mt-6 text-[16px] leading-[1.65] text-white/85">
+            JRA Construction delivers custom homes, home renovations, home extensions, and quantity
+            surveying across Auckland. From early planning and budgeting through council consents
+            and construction, we focus on clear communication, buildability, and durable
+            workmanship.
+          </p>
+
+          <h3 className="mt-10 text-[22px] font-semibold text-white sm:text-[24px]">
+            We Are Licensed &amp; Certified Home Builders in Auckland
+          </h3>
+
+          <p className="mt-4 text-[16px] leading-[1.65] text-white/85">
+            As licensed and certified home builders in Auckland, we manage custom homes,
+            renovations, and extensions to current code and quality standards. Our team is built
+            for complex residential projects where cost control, sequencing, and finish quality all
+            matter.
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variant="fade-up" delay={150} className="mx-auto mt-10 max-w-5xl text-white">
+          <p className="text-[15px] font-bold text-white/90">
+            Advantages of Working with Certified Professionals
+          </p>
+          <ul className="mt-4 space-y-3">
+            {advantages.map((item) => {
+              const [bold, ...rest] = item.split(": ");
+              return (
+                <li key={item.slice(0, 30)} className="flex items-start gap-3 text-left">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#1FA700"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M8.5 12l2.5 2.5 4.5-5" />
+                  </svg>
+                  <span className="text-[15px] leading-[1.6] text-white/85">
+                    <strong className="font-semibold text-white">{bold}:</strong> {rest.join(": ")}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </AnimateOnScroll>
       </Container>
     </section>
   );

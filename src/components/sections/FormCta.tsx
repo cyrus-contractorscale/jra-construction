@@ -5,10 +5,10 @@ export function FormCta() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 bg-[#0f2744] bg-cover bg-center bg-no-repeat py-14 sm:py-16"
+      className="scroll-mt-24 bg-[#293a57] bg-cover bg-center bg-no-repeat py-14 sm:py-16"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(15,39,68,0.86), rgba(15,39,68,0.86)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
+          "linear-gradient(rgba(41,58,87,0.86), rgba(41,58,87,0.86)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
       }}
     >
       <Container className="grid gap-8 lg:grid-cols-[1fr_520px] lg:items-start">
@@ -19,7 +19,7 @@ export function FormCta() {
           <h2 className="mt-2 max-w-xl font-[ui-sans-serif,system-ui,sans-serif] text-[54px] font-extrabold leading-[1.02] tracking-tight text-white">
             Claim Your Free Design & Build Consultation
           </h2>
-          <p className="mt-5 text-[17px] text-zinc-200">This Design & Build Consult covers...</p>
+          <p className="mt-5 text-[17px] text-zinc-200">This Design &amp; Build Consult covers…</p>
 
           <ul className="mt-5 space-y-3 text-[16px] text-zinc-100">
             {[
