@@ -20,13 +20,13 @@
       "service": "jra-construction"
     }
   ],
-  "kv_namespaces": [
-    {
-      "binding": "JRA_ESTIMATE",
-      // TODO: create with `wrangler kv namespace create JRA_ESTIMATE` and paste the id
-      "id": "REPLACE_WITH_JRA_KV_NAMESPACE_ID"
-    }
-  ],
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "JRA_ESTIMATE",
+  //     // Run: wrangler kv namespace create JRA_ESTIMATE  — then paste the returned id below
+  //     "id": "REPLACE_WITH_JRA_KV_NAMESPACE_ID"
+  //   }
+  // ],
   "vars": {
     "NEXT_PUBLIC_BOOKING_URL":        "/contact",
     "NEXT_PUBLIC_GHL_TRACKING_SRC":   "https://link.contractorscale.com/js/external-tracking.js",
