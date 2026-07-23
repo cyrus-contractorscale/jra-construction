@@ -20,13 +20,12 @@
       "service": "jra-construction"
     }
   ],
-  // "kv_namespaces": [
-  //   {
-  //     "binding": "JRA_ESTIMATE",
-  //     // Run: wrangler kv namespace create JRA_ESTIMATE  — then paste the returned id below
-  //     "id": "REPLACE_WITH_JRA_KV_NAMESPACE_ID"
-  //   }
-  // ],
+  "kv_namespaces": [
+    {
+      "binding": "JRA_ESTIMATE",
+      "id": "f94a63714bd4471a8bd6b8653ce14357"
+    }
+  ],
   "vars": {
     "NEXT_PUBLIC_BOOKING_URL":        "https://go.jraconstruction.co.nz/book",
     "NEXT_PUBLIC_GHL_TRACKING_SRC":   "https://link.contractorscale.com/js/external-tracking.js",

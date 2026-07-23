@@ -4,8 +4,8 @@
  */
 declare global {
   interface CloudflareEnv {
-    /** KV namespace for Bear Construction estimate config (site + pricing). */
-    BEAR_ESTIMATE: KVNamespace;
+    /** KV namespace for JRA estimate config (site + pricing). */
+    JRA_ESTIMATE: KVNamespace;
   }
 }
 
