@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 
-export const runtime = "edge";
 
 /**
  * File uploads to the filesystem are not supported on Cloudflare Pages (no writable disk).

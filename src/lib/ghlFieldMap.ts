@@ -1,11 +1,9 @@
 /**
  * GoHighLevel field mapping for JRA Construction.
+ * Location: J3MyzsoPYhafh3FWfabM
  *
- * TODO(JRA): the custom-field IDs below were inherited from the
- * bear-construction template (Location fifdlJb4VJ9ykoHVmSar). Before enabling
- * lead submission, re-verify every ID via GET /locations/:id/customFields
- * against the JRA sub-account and set GHL_PIT_TOKEN / GHL_LOCATION_ID in
- * wrangler.jsonc vars.
+ * Field IDs verified live via GET /locations/J3MyzsoPYhafh3FWfabM/customFields
+ * on 2026-07-23.
  *
  * STANDARD_FIELD_KEYS are written to native GHL contact fields and must NOT be
  * placed in the customFields array.
@@ -14,9 +12,9 @@
  * computed estimate keys) to a GHL CUSTOM FIELD ID.
  *
  * Estimate output fields → GHL merge tags:
- *   estimateLow   → {{contact.quote}}          (ID hOT1CpcZ4CLH5velp97n)
- *   estimateHigh  → {{contact.pricing_estimate}} (ID nzd3xOJbgGnarEccCc9J)
- *   estimateRange → {{contact.quote_range}}     (ID ZwwxhHBqtwsLTDsDkJa7)
+ *   estimateLow   → {{contact.quote}}            (ID 7Lr7C4R5mnfpOUK3rYnn)
+ *   estimateHigh  → {{contact.pricing_estimate}}  (ID 2PmFny9KSunphGtnWop6)
+ *   estimateRange → {{contact.total_quote}}       (ID uSmI7OZqkNLcwxDySD3b)
  */
 
 export const STANDARD_FIELD_KEYS = [
@@ -38,8 +36,8 @@ export function isStandardFieldKey(key: string): key is StandardFieldKey {
 }
 
 /**
- * GHL merge-tag field keys for every mapped field, verified live via
- * GET /locations/:id/customFields. Use these in GHL emails/SMS/workflows,
+ * GHL merge-tag field keys for every mapped field, verified live against
+ * JRA's sub-account. Use in GHL emails/SMS/workflows,
  * e.g. {{contact.quote}} prints the low estimate.
  */
 export const ghlFieldKeys: Record<string, string> = {
@@ -56,8 +54,8 @@ export const ghlFieldKeys: Record<string, string> = {
 
   // ---- Shared across surveys ----
   size:               "{{contact.square_footage}}",
-  finishLevel:        "{{contact.finish_level}}",
-  budget:             "{{contact.your_proposed_budget_for_the_project}}",
+  finishLevel:        "{{contact.finish_quality}}",
+  budget:             "{{contact.budget}}",
   timeline:           "{{contact.e__when_to_start}}",
   ownerAuthorized:    "{{contact.e__legal_owner}}",
   designerSelected:   "{{contact.e__selected_designer__architect}}",
@@ -67,11 +65,11 @@ export const ghlFieldKeys: Record<string, string> = {
 
   // ---- Custom Home ----
   homeType:           "{{contact.e__i_live_in_a}}",
-  landStatus:         "{{contact.land_status}}",
+  landStatus:         "{{contact.has_land}}",
   bedrooms:           "{{contact.2_no_of_bedrooms}}",
   bathrooms:          "{{contact.6_number_of_bathrooms}}",
   livingAreas:        "{{contact.2_number_of_living_rooms}}",
-  carSpaces:          "{{contact.car_spaces}}",
+  carSpaces:          "{{contact.5_garage__of_cars}}",
 
   // ---- Home Renovation ----
   renovationFocus:    "{{contact.e__the_purpose_of_this_project_is}}",
@@ -80,7 +78,7 @@ export const ghlFieldKeys: Record<string, string> = {
 
   // ---- Home Extension ----
   extensionType:      "{{contact.e__type_of_addition}}",
-  spaceUse:           "{{contact.extension_space_use}}",
+  spaceUse:           "{{contact.living_spaces}}",
   bathroomIncluded:   "{{contact.e__addition_include_bathroom}}",
   kitchenIncluded:    "{{contact.e__addition_kitchen_included}}",
 
@@ -92,10 +90,10 @@ export const ghlFieldKeys: Record<string, string> = {
   countertopMaterial: "{{contact.countertop_material_im_looking_for}}",
   splashbackMaterial: "{{contact.e__splashback}}",
   flooringMaterial:   "{{contact.e__floor_material}}",
-  servicesRelocate:   "{{contact.do_any_of_the_following_need_to_be_relocated}}",
+  servicesRelocate:   "{{contact.e__plumbing_needed}}",
 
   // ---- Bathroom Renovation ----
-  bathroomType:       "{{contact.e__bathroom_estimate_for}}",
+  bathroomType:       "{{contact.e__type_of_bathroom_renovation}}",
   renovationReason:   "{{contact.e__i_am_considering_a_remodel_because}}",
   bathroomCount:      "{{contact.e__the_number_of_bathrooms_i_am_looking_to_remodel_is}}",
   improvements:       "{{contact.e__the_improvement_i_am_looking_for_is}}",
@@ -107,7 +105,7 @@ export const ghlFieldKeys: Record<string, string> = {
   projectType:        "{{contact.project_type}}",
   estimateLow:        "{{contact.quote}}",
   estimateHigh:       "{{contact.pricing_estimate}}",
-  estimateRange:      "{{contact.quote_range}}",
+  estimateRange:      "{{contact.total_quote}}",
 
   // ---- Attribution / tracking (auto-captured from URL & referrer) ----
   utmSource:          "{{contact.utm_source}}",
@@ -121,70 +119,74 @@ export const ghlFieldKeys: Record<string, string> = {
   sourceUrl:          "{{contact.source_url}}",
 };
 
+/**
+ * Custom field ID map — verified against JRA GHL location J3MyzsoPYhafh3FWfabM
+ * via GET /locations/:id/customFields on 2026-07-23.
+ */
 export const ghlFieldMap: Record<string, string> = {
   // ---- Shared across surveys ----
-  size:               "SqlNmIBr6kTJq16B02t9",  // E - Square Footage / meters - number input
-  finishLevel:        "1QNXmbNuRTvr4wF2LBsN",  // Finish Level
-  budget:             "yuXtEtcC1NGjTcHRKpwf",  // Your proposed budget for the project?
-  timeline:           "3IqpfcAV3cllxa77UISa",  // When would you like to get started?
-  ownerAuthorized:    "1a6QTc62IWajYGJGZKLp",  // E - Legal Owner
-  designerSelected:   "n6wIH5TnmBu5gcLPSv0E",  // E - Selected Designer / Architect
-  completedPlans:     "tcXcJ3CGnwQhSJGstrjz",  // E - Plans completed
-  financing:          "7N4oMyPEu6gvdZ1nav8N",  // E - Finance in Place
-  livingDuringWorks:  "1XA6BiDIQu880TiejKxh",  // E - B - While my bathroom is being remodeled (shared)
+  size:               "FMPE4HedgXPiHtlncmax",  // E - Square Footage / meters - number input
+  finishLevel:        "jtBS02bLQ3CUkseSNZ1d",  // Finish Quality
+  budget:             "1IKjDFhZarBd3Cht5kAn",  // Budget
+  timeline:           "dUHtaDKfh1sM82MQkq5A",  // E - When to start
+  ownerAuthorized:    "QUB3Vi0OLADYH7SOne69",  // E - Legal Owner
+  designerSelected:   "s40cevO0sZ6yArheptx9",  // E - Selected Designer / Architect
+  completedPlans:     "xGATxA8aoEJqZwJfGATe",  // E - Plans completed
+  financing:          "7F6btd5VVX8iwDZMBP8b",  // E - Finance in Place
+  livingDuringWorks:  "BEjTmeuvagH63JcFIhUC",  // E - While my bathroom is being remodeled
 
   // ---- Custom Home ----
-  homeType:           "yl71XdgrWgPo8xNy36sd",  // E - I live in a:
-  landStatus:         "EiFctbFuGFTQsmfdoPEv",  // Land Status
-  bedrooms:           "jJtzXG6qrMcdHoSs5Afk",  // E - No. Of Bedrooms
-  bathrooms:          "DWOyMwX7DpACQXsxHfn1",  // E - Number Of Bathrooms
-  livingAreas:        "RsTvf2FwmFYDWa8OVA6L",  // E - Number Of Living Rooms
-  carSpaces:          "QRSYgf1LzDFnHLfUiEwh",  // Car Spaces
+  homeType:           "tPsLngwdrdUOPMxVZPLm",  // E - I live in a:
+  landStatus:         "taw9svKWNx2I0YoMyEJ0",  // Has Land
+  bedrooms:           "4xwKxAt2u3jsx9zVZkcL",  // E - No. Of Bedrooms
+  bathrooms:          "5SWgz90mhnIhaSsMi9Ov",  // E - Number Of Bathrooms
+  livingAreas:        "GSoWojEwvvX2CtFDAaSK",  // E - Number Of Living Rooms
+  carSpaces:          "YEwCYvD0zk0AbGy5s8SK",  // E - Garage # of cars
 
   // ---- Home Renovation ----
-  renovationFocus:    "P2Hl3gfZchIEw3zxfXJK",  // E - The purpose of this project is:
-  wallsChange:        "PBXmLN2tT8NJa5njxiha",  // e-Reno - Do you plan to add or remove any walls?
-  windowsDoors:       "reDUrcefk07AiCzPsQWX",  // e-Reno - Planning to add or replace any windows or exterior doors?
+  renovationFocus:    "oe36T9GRVLuhqbtGYoUG",  // E - The purpose of this project is:
+  wallsChange:        "o4vdK4Lt8t2l5uHXoL3r",  // e-Reno - Do you plan to add or remove any walls?
+  windowsDoors:       "MkzXYY9lzUVtSQuk7Qyp",  // e-Reno - Planning to add or replace any windows or exterior doors?
 
   // ---- Home Extension ----
-  extensionType:      "fER4LHWS1CiXNgTD0kmP",  // E - Type of addition
-  spaceUse:           "nF77cPPDkcBIbKN9lJZ2",  // Extension Space Use
-  bathroomIncluded:   "vbDJmJ1D2RwLNL4XTwUQ",  // E - Addition Include Bathroom
-  kitchenIncluded:    "IUHBl3SC98V1tCDHSzSC",  // E - Addition Kitchen Included
+  extensionType:      "thFPmVBJOWfWIDkgQzh8",  // E - Type of addition
+  spaceUse:           "CDI3BJJ1Mj248V0Bswa0",  // Living Spaces (extension space use)
+  bathroomIncluded:   "AZbGVPlnEVWXOvtYKVuM",  // E - Addition Include Bathroom
+  kitchenIncluded:    "d3eNHPWSXKiOP5SZpqFa",  // E - Addition Kitchen Included
 
   // ---- Kitchen Renovation ----
-  kitchenScope:       "4YdSJdy0p1LPTOx6F3NJ",  // E - K - The size of my kitchen is:
-  kitchenLayout:      "B4btWZDYCQ283qh6LLcn",  // E - K - The shape of my kitchen is:
-  kitchenIsland:      "XFjBoocnU0joG3YEJelE",  // E - K - I have an island
-  areasToUpdate:      "SVWMRLWpm6trLPCOLGyB",  // E - K - I would like to update
-  countertopMaterial: "Ou1yp0sZ06RlNJiSbwBm",  // E - K - Countertop Material I'm Looking For:
-  splashbackMaterial: "aZZTnbE5T2QJXMsFojrZ",  // E - K - Splashback
-  flooringMaterial:   "ka8gNJOQps0LQx9j0hYb",  // E - K - Floor Material
-  servicesRelocate:   "8thFrkkN2zY850q85hB4",  // Do any of the following need to be relocated?
+  kitchenScope:       "Tzc6gDzF0cCMjNpUnex6",  // E - The size of my kitchen is:
+  kitchenLayout:      "zjcRKPIKEiPQKTKv7ruU",  // E - The shape of my kitchen is:
+  kitchenIsland:      "otmcZ9flt7I9rGhyCs5m",  // E - I have an island:
+  areasToUpdate:      "dsN3zc5L5LGis439BXff",  // E - K - I would like to update
+  countertopMaterial: "i5UJNsrafVug60ou8QGC",  // E - Countertop Material I'm Looking For:
+  splashbackMaterial: "2BKxiu2jiWEfuwedfNjU",  // E - Splashback
+  flooringMaterial:   "nVOxr2OAtJWXwpcoCw5M",  // E - Floor Material
+  servicesRelocate:   "zQKiVlvc77LhAJCHLfK6",  // E - Plumbing Needed (closest available)
 
   // ---- Bathroom Renovation ----
-  bathroomType:       "LzfKD3e8m0Ri99lNZcsr",  // E - B - Bathroom Estimate For
-  renovationReason:   "nAcBFjcE4JHwes5rT3h5",  // E - B - I am considering a remodel because:
-  bathroomCount:      "V1oJJMsNM9UGDGF4VknO",  // E - B - Number of bathrooms - New
-  improvements:       "blDVXpDalQK66GDB01Ob",  // E - B - The improvement I am looking for is:
-  layoutPreference:   "UICKwaWqEABY2Snb4Pz0",  // E - B - The approximate size of my bathroom is:
-  manageDuringReno:   "1XA6BiDIQu880TiejKxh",  // E - B - While my bathroom is being remodeled:
-  professionalDesigns:"m53IbZ4vdsJse9Svuhul",  // Has Professional Designs
+  bathroomType:       "ovZUaUF8JDDdriU82rsa",  // E - Type of Bathroom Renovation
+  renovationReason:   "GHSfv6hMXx6pwimkxUP5",  // E - I am considering a remodel because:
+  bathroomCount:      "mjlLwzmzRTuE5qX97iQQ",  // E - Number of bathrooms - New
+  improvements:       "waWZFG7qWkuCvdnZ9BX8",  // E - The improvement I am looking for is:
+  layoutPreference:   "DiuOaSOVIcJ2QwTV0hfJ",  // E - The approximate size of my bathroom is:
+  manageDuringReno:   "BEjTmeuvagH63JcFIhUC",  // E - While my bathroom is being remodeled:
+  professionalDesigns:"",                        // has_professional_designs — not found in this sub-account
 
   // ---- Computed / meta ----
-  projectType:        "1DlQfMBMgOpmzptsa5XD",  // {{contact.project_type}}       — Project Type
-  estimateLow:        "hOT1CpcZ4CLH5velp97n",  // {{contact.quote}}               — Quote (low number)
-  estimateHigh:       "nzd3xOJbgGnarEccCc9J",  // {{contact.pricing_estimate}}    — Pricing Estimate (high number)
-  estimateRange:      "ZwwxhHBqtwsLTDsDkJa7",  // {{contact.quote_range}}         — Quote Range (formatted "$X - $Y")
+  projectType:        "oC76sZvvGf6hmqbPNh1G",  // {{contact.project_type}}
+  estimateLow:        "7Lr7C4R5mnfpOUK3rYnn",  // {{contact.quote}}          — Quote (low)
+  estimateHigh:       "2PmFny9KSunphGtnWop6",  // {{contact.pricing_estimate}} — Pricing Estimate (high)
+  estimateRange:      "uSmI7OZqkNLcwxDySD3b",  // {{contact.total_quote}}    — Total Quote (formatted range)
 
-  // ---- Attribution / tracking (auto-captured from URL & referrer) ----
-  utmSource:          "Bx7CzZUtwMRcUQY5b1uo",  // {{contact.utm_source}}
-  utmCampaign:        "Edk1N2rjAg9BGEGSxTvz",  // {{contact.utm_campaign}}
-  utmKeyword:         "G8foaHSNjbK5PNIcJYAw",  // {{contact.utm_keyword}}
-  utmContent:         "QKp1k1ImdT3ks3byYKp0",  // {{contact.utm_content}}
-  utmMatchType:       "k1vJkeEIDQF8m3WjZsUH",  // {{contact.utm_match_type}}
-  gclid:              "t310DRlCumlaczKba5Hi",  // {{contact.google_click_identifier_gclid}}
-  fbClickId:          "J9RrnTbEWQxW68jETxJR",  // {{contact.fb_click_id}}
-  sessionSource:      "GrJUuXcPCVeQabLiCsGe",  // {{contact.session_source}}
-  sourceUrl:          "U7AIIpeYliXzFoguHcGg",  // {{contact.source_url}}
+  // ---- Attribution / tracking ----
+  utmSource:          "nJH91kDI7QCTEDXoUrdm",  // {{contact.utm_source}}
+  utmCampaign:        "j8YAkoVEtHQO8QhHgJqi",  // {{contact.utm_campaign}}
+  utmKeyword:         "eTQsPIIzkk9lj8TT68LX",  // {{contact.utm_keyword}}
+  utmContent:         "SHOdkeYrUKQr5JSWFoL9",  // {{contact.utm_content}}
+  utmMatchType:       "PE78EbUihD1ldQ9URheP",  // {{contact.utm_match_type}}
+  gclid:              "H2wcY5fVyZYo4fVjR5Ql",  // {{contact.google_click_identifier_gclid}}
+  fbClickId:          "dOtvZcqgITSsDE59LLv1",  // {{contact.fb_click_id}}
+  sessionSource:      "5LumFIeRnI6Os4ALHmty",  // {{contact.session_source}}
+  sourceUrl:          "hWUDP7VwLERgMNMO4s8Z",  // {{contact.source_url}}
 };

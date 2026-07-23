@@ -3,7 +3,6 @@ import { type PricingConfig } from "@/lib/pricing";
 import { projectLabels, projectOrder } from "@/lib/pricingMeta";
 import { getPricingConfig, setPricingConfig } from "@/lib/config";
 
-export const runtime = "edge";
 
 function isValidConfig(value: unknown): value is PricingConfig {
   if (!value || typeof value !== "object") return false;

@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCustomFields, getGhlConfig } from "@/lib/ghlClient";
 
-export const runtime = "edge";
-
 /**
  * DEV HELPER: lists the GHL location's custom fields so you can copy the ids
  * into lib/ghlFieldMap.ts. Returns a trimmed { id, name, fieldKey } list.

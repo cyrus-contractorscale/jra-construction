@@ -5,8 +5,6 @@ import { buildGhlPayload } from "@/lib/ghlPayload";
 import { getSurvey } from "@/lib/surveys";
 import type { Answers, EstimateResult, ProjectType } from "@/lib/types";
 
-export const runtime = "edge";
-
 interface LeadBody {
   projectType?: ProjectType;
   answers?: Answers;
