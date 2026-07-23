@@ -99,7 +99,7 @@ export const ghlFieldKeys: Record<string, string> = {
   improvements:       "{{contact.e__the_improvement_i_am_looking_for_is}}",
   layoutPreference:   "{{contact.e__the_approximate_size_of_my_bathroom_is}}",
   manageDuringReno:   "{{contact.e__while_my_bathroom_is_being_remodeled}}",
-  professionalDesigns:"{{contact.has_professional_designs}}",
+  professionalDesigns:"{{contact.has_professional_designs}}",  // verified
 
   // ---- Computed / meta ----
   projectType:        "{{contact.project_type}}",
@@ -171,7 +171,7 @@ export const ghlFieldMap: Record<string, string> = {
   improvements:       "waWZFG7qWkuCvdnZ9BX8",  // E - The improvement I am looking for is:
   layoutPreference:   "DiuOaSOVIcJ2QwTV0hfJ",  // E - The approximate size of my bathroom is:
   manageDuringReno:   "BEjTmeuvagH63JcFIhUC",  // E - While my bathroom is being remodeled:
-  professionalDesigns:"",                        // has_professional_designs — not found in this sub-account
+  professionalDesigns:"uzIUoWwpP9dwnma6AL0S",  // {{contact.has_professional_designs}}
 
   // ---- Computed / meta ----
   projectType:        "oC76sZvvGf6hmqbPNh1G",  // {{contact.project_type}}
