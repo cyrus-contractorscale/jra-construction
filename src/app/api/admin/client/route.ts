@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { NextRequest, NextResponse } from "next/server";
 import { getSiteConfig, setSiteConfig } from "@/lib/config";
 import type { SiteConfig } from "@/lib/config";

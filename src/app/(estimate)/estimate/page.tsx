@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { EstimateSidebar } from "@/components/survey/EstimateSidebar";
 import { ProjectTypeSelect } from "@/components/survey/ProjectTypeSelect";
 import { getSiteConfig } from "@/lib/config";

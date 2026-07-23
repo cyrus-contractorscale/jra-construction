@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { ConsultContent } from "@/components/consult/ConsultContent";
 import { getSiteConfig } from "@/lib/config";
 

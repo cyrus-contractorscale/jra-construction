@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { EstimateResult } from "@/components/result/EstimateResult";
 import { getSiteConfig } from "@/lib/config";
 

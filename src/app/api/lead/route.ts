@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { NextRequest, NextResponse } from "next/server";
 import { computeEstimate, formatCurrency } from "@/lib/estimate";
 import { createContactNote, getGhlConfig, upsertContact } from "@/lib/ghlClient";

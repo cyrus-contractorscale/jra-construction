@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { NextRequest, NextResponse } from "next/server";
 import { type PricingConfig } from "@/lib/pricing";
 import { projectLabels, projectOrder } from "@/lib/pricingMeta";
