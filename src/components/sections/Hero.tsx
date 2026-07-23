@@ -3,13 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const heroSlides = ["/jra-slider-1.png", "/jra-slider-2.png"];
-const baseHeading = "Build your dream";
-const fadedFirstLine = " home";
-const fadedSecondLine = "with JRA Construction";
-const revealText = `${fadedFirstLine}${fadedSecondLine}`;
 const awardLogos = [
   { src: "/awards/reverelogo.png", alt: "reverelogo" },
   { src: "/awards/logo-silver.png", alt: "logo silver" },
@@ -21,119 +17,16 @@ const awardLogos = [
 
 export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [revealedLetters, setRevealedLetters] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
-  const touchStartY = useRef<number | null>(null);
-  const totalRevealLetters = revealText.length;
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const videoId = "NAaXgHLW51Q"; // YouTube video ID
-
-  const firstLineReveal = useMemo(() => {
-    const lineCount = Math.min(revealedLetters, fadedFirstLine.length);
-    return {
-      visible: fadedFirstLine.slice(0, lineCount),
-      hidden: fadedFirstLine.slice(lineCount),
-    };
-  }, [revealedLetters]);
-
-  const secondLineReveal = useMemo(() => {
-    const secondLineCount = Math.max(0, revealedLetters - fadedFirstLine.length);
-    const clamped = Math.min(secondLineCount, fadedSecondLine.length);
-    return {
-      visible: fadedSecondLine.slice(0, clamped),
-      hidden: fadedSecondLine.slice(clamped),
-    };
-  }, [revealedLetters]);
+  const videoId = "NAaXgHLW51Q";
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length);
     }, 6500);
-
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    function canControlReveal() {
-      const hero = heroRef.current;
-      if (!hero) return false;
-      const rect = hero.getBoundingClientRect();
-      return rect.top <= 4 && rect.bottom > window.innerHeight * 0.55;
-    }
-
-    function updateRevealFromDelta(deltaY: number) {
-      setRevealedLetters((prev) => {
-        const step = Math.max(1, Math.round(Math.abs(deltaY) / 45));
-        if (deltaY > 0) {
-          return Math.min(totalRevealLetters, prev + step);
-        }
-        if (deltaY < 0) {
-          return Math.max(0, prev - step);
-        }
-        return prev;
-      });
-    }
-
-    function onWheel(event: WheelEvent) {
-      if (!canControlReveal()) return;
-      const delta = event.deltaY;
-      const scrollingDown = delta > 0;
-      const scrollingUp = delta < 0;
-      const shouldLockDown = scrollingDown && revealedLetters < totalRevealLetters;
-      const shouldLockUp = scrollingUp && revealedLetters > 0 && window.scrollY <= 8;
-
-      if (!shouldLockDown && !shouldLockUp) return;
-      event.preventDefault();
-      updateRevealFromDelta(delta);
-    }
-
-    function onTouchStart(event: TouchEvent) {
-      touchStartY.current = event.touches[0]?.clientY ?? null;
-    }
-
-    function onTouchMove(event: TouchEvent) {
-      if (!canControlReveal() || touchStartY.current === null) return;
-      const currentY = event.touches[0]?.clientY ?? touchStartY.current;
-      const delta = touchStartY.current - currentY;
-      const swipingDown = delta > 0;
-      const swipingUp = delta < 0;
-      const shouldLockDown = swipingDown && revealedLetters < totalRevealLetters;
-      const shouldLockUp = swipingUp && revealedLetters > 0 && window.scrollY <= 8;
-
-      if (!shouldLockDown && !shouldLockUp) return;
-      event.preventDefault();
-      updateRevealFromDelta(delta);
-      touchStartY.current = currentY;
-    }
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (!canControlReveal()) return;
-      const downKeys = ["ArrowDown", "PageDown", " ", "Spacebar"];
-      const upKeys = ["ArrowUp", "PageUp"];
-      const isDown = downKeys.includes(event.key);
-      const isUp = upKeys.includes(event.key);
-      if (!isDown && !isUp) return;
-
-      const shouldLockDown = isDown && revealedLetters < totalRevealLetters;
-      const shouldLockUp = isUp && revealedLetters > 0 && window.scrollY <= 8;
-      if (!shouldLockDown && !shouldLockUp) return;
-
-      event.preventDefault();
-      updateRevealFromDelta(isDown ? 55 : -55);
-    }
-
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [revealedLetters, totalRevealLetters]);
 
   useEffect(() => {
     if (isVideoOpen) {
@@ -186,20 +79,9 @@ export function Hero() {
                         Home Builders in Auckland for Custom Homes, Renovations and Extensions
                     </p>
                     <h1 className="w-full font-[ui-sans-serif,system-ui,sans-serif] text-4xl font-extrabold uppercase leading-[1.05] tracking-tight [text-shadow:0_3px_18px_rgba(0,0,0,0.38)] sm:text-5xl lg:text-[72px]">
-                        {baseHeading}
-                        <span className="whitespace-pre transition-opacity duration-150">
-                            {firstLineReveal.visible}
-                        </span>
-                        <span className="whitespace-pre text-white/30 transition-opacity duration-150">
-                            {firstLineReveal.hidden}
-                        </span>
+                        Build your dream home
                         <br />
-                        <span className="whitespace-pre transition-opacity duration-150">
-                            {secondLineReveal.visible}
-                        </span>
-                        <span className="whitespace-pre text-white/30 transition-opacity duration-150">
-                            {secondLineReveal.hidden}
-                        </span>
+                        with JRA Construction
                     </h1>
                     <p className="mx-auto max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">
                         Planning a custom home, renovation, or home extension in Auckland? JRA Construction
