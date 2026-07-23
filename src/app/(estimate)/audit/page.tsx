@@ -590,6 +590,5 @@ export default function AuditPage() {
 
 function maskSecret(v: string | undefined): string {
   if (!v) return "Missing";
-  if (v.length <= 8) return "Configured";
-  return `${v.slice(0, 8)}••••${v.slice(-4)}`;
+  return "Configured ✓";
 }
