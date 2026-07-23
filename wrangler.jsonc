@@ -31,7 +31,7 @@
     "NEXT_PUBLIC_GHL_TRACKING_SRC":   "https://link.contractorscale.com/js/external-tracking.js",
     "NEXT_PUBLIC_GHL_TRACKING_ID":    "tk_5268635886654abf8064450caaa49c91",
     "GHL_API_VERSION":                "2021-07-28",
-    "GHL_LOCATION_ID":                "J3MyzsoPYhafh3FWfabM",
-    "GHL_PIT_TOKEN":                  "pit-99b23f07-2c99-4dd1-a769-239abe8e6f5d"
+    "GHL_LOCATION_ID":                "J3MyzsoPYhafh3FWfabM"
+    // GHL_PIT_TOKEN is a Cloudflare Secret — set via dashboard or `wrangler secret put GHL_PIT_TOKEN`
   }
 }

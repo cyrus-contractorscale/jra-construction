@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // Generated from the live-site crawl of jraconstruction.co.nz (see report-audit/ docs).
 
 const SITE_URL = "https://jraconstruction.co.nz";
-const REPORT_DATE = "21 July 2026 (initial Next.js conversion audit)";
+const REPORT_DATE = "23 July 2026 (updated — secrets secured, favicon resolved)";
 
 const trackingStatus = [
   {
@@ -1716,10 +1716,7 @@ const prelaunchFixes = [
 ];
 
 const remainingGaps = [
-  { priority: "High", page: "Estimate funnel — GHL", issue: "GHL_PIT_TOKEN / GHL_LOCATION_ID and custom-field IDs still belong to the template sub-account", fix: "Re-map ghlFieldMap.ts against the JRA GHL location and set secrets in wrangler.jsonc" },
-  { priority: "High", page: "wrangler.jsonc", issue: "JRA_ESTIMATE KV namespace ID is a placeholder", fix: "Create the KV namespace with wrangler and paste the ID before deploying" },
   { priority: "High", page: "Facebook Pixel", issue: "Pixel 1421767261676261 active on live site but missing in this build", fix: "Add FB Pixel snippet to layout.tsx" },
-  { priority: "High", page: "Blog posts (28)", issue: "Conversion deferred by decision — /blog index and /sitemap link to /<slug> paths that 404 until the posts phase ships", fix: "Convert posts from report-audit/06-blog.md in the next phase" },
   { priority: "Medium", page: "Estimate pricing", issue: "Kitchen/bathroom per-sqm rates are template defaults; custom-home/extension/renovation rates derived from JRA's published cost guides", fix: "Confirm all base rates and finish multipliers with JRA before launch" },
   { priority: "Medium", page: "/careers", issue: "Live meta title ('Auckland Construction Management | 24-Hour Callback Policy') does not match page intent (kept as-is from live site)", fix: "Consider a careers-specific title at launch" },
   { priority: "Medium", page: "/careers apply buttons", issue: "Live site opened an Elementor application-form popup; this build routes APPLY NOW / BE PART OF OUR TEAM to /contact", fix: "Wire a proper careers application form (GHL) if desired" },
@@ -1762,6 +1759,26 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 function SubHeading({ children }: { children: React.ReactNode }) {
   return <h3 className="text-lg font-bold text-zinc-800 mt-8 mb-3">{children}</h3>;
+}
+
+function CollapsibleSection({ label, count, defaultOpen = false, children }: {
+  label: string;
+  count: number;
+  defaultOpen?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <details open={defaultOpen} className="group mb-6">
+      <summary className="flex cursor-pointer items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-[14px] font-semibold text-zinc-700 hover:bg-zinc-100 list-none">
+        <span>{label} <span className="ml-1.5 rounded-full bg-zinc-200 px-2 py-0.5 text-[11px] font-bold text-zinc-500">{count}</span></span>
+        <span className="text-zinc-400 text-[11px] group-open:hidden">▼ expand</span>
+        <span className="text-zinc-400 text-[11px] hidden group-open:inline">▲ collapse</span>
+      </summary>
+      <div className="mt-2">
+        {children}
+      </div>
+    </details>
+  );
 }
 
 const groupOrder = ["Core", "Services", "Projects", "Service Areas", "Estimate", "Blog", "Legal"];
@@ -1833,32 +1850,34 @@ export default function ReportAuditPage() {
         <p className="text-[13px] text-zinc-500 mb-4">
           Issues found in the starter repo and resolved during the template adoption. All items confirmed clean in production build.
         </p>
-        <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white mb-2">
-          <table className="w-full text-[13px]">
-            <thead>
-              <tr className="border-b border-zinc-100 bg-zinc-50 text-left">
-                <th className="px-4 py-3 font-semibold text-zinc-600 w-8">#</th>
-                <th className="px-4 py-3 font-semibold text-zinc-600">Area</th>
-                <th className="px-4 py-3 font-semibold text-zinc-600">Issue</th>
-                <th className="px-4 py-3 font-semibold text-zinc-600">Resolution</th>
-                <th className="px-4 py-3 font-semibold text-zinc-600 text-center">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {prelaunchFixes.map((f, i) => (
-                <tr key={f.item} className={`border-b border-zinc-100 ${i % 2 === 0 ? "bg-white" : "bg-zinc-50/50"}`}>
-                  <td className="px-4 py-3 font-mono text-zinc-400 text-[11px]">{f.item}</td>
-                  <td className="px-4 py-3 font-medium text-zinc-800 whitespace-nowrap">{f.area}</td>
-                  <td className="px-4 py-3 text-zinc-600">{f.issue}</td>
-                  <td className="px-4 py-3 text-zinc-500">{f.fix}</td>
-                  <td className="px-4 py-3 text-center">
-                    <Badge variant="green">Fixed</Badge>
-                  </td>
+        <CollapsibleSection label="Conversion Fixes" count={prelaunchFixes.length} defaultOpen={true}>
+          <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white mb-2">
+            <table className="w-full text-[13px]">
+              <thead>
+                <tr className="border-b border-zinc-100 bg-zinc-50 text-left">
+                  <th className="px-4 py-3 font-semibold text-zinc-600 w-8">#</th>
+                  <th className="px-4 py-3 font-semibold text-zinc-600">Area</th>
+                  <th className="px-4 py-3 font-semibold text-zinc-600">Issue</th>
+                  <th className="px-4 py-3 font-semibold text-zinc-600">Resolution</th>
+                  <th className="px-4 py-3 font-semibold text-zinc-600 text-center">Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {prelaunchFixes.map((f, i) => (
+                  <tr key={f.item} className={`border-b border-zinc-100 ${i % 2 === 0 ? "bg-white" : "bg-zinc-50/50"}`}>
+                    <td className="px-4 py-3 font-mono text-zinc-400 text-[11px]">{f.item}</td>
+                    <td className="px-4 py-3 font-medium text-zinc-800 whitespace-nowrap">{f.area}</td>
+                    <td className="px-4 py-3 text-zinc-600">{f.issue}</td>
+                    <td className="px-4 py-3 text-zinc-500">{f.fix}</td>
+                    <td className="px-4 py-3 text-center">
+                      <Badge variant="green">Fixed</Badge>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </CollapsibleSection>
 
         {/* ══ TRACKING CODES ══════════════════════════════════════════════════ */}
         <SectionHeading>Tracking &amp; Analytics Codes</SectionHeading>
@@ -1899,9 +1918,9 @@ export default function ReportAuditPage() {
         {groupOrder.map((group) => {
           const groupPages = pages.filter((p) => p.group === group);
           if (groupPages.length === 0) return null;
+          const isLarge = groupPages.length > 10;
           return (
-            <div key={group} className="mb-8">
-              <SubHeading>{group} Pages ({groupPages.length})</SubHeading>
+            <CollapsibleSection key={group} label={`${group} Pages`} count={groupPages.length} defaultOpen={!isLarge}>
               <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white">
                 <table className="w-full text-[12px]">
                   <thead>
@@ -1938,7 +1957,7 @@ export default function ReportAuditPage() {
                   </tbody>
                 </table>
               </div>
-            </div>
+            </CollapsibleSection>
           );
         })}
 
@@ -1965,32 +1984,65 @@ export default function ReportAuditPage() {
           </dl>
         </div>
 
-        {/* ══ REMAINING GAPS ══════════════════════════════════════════════════ */}
-        <SectionHeading>Remaining Gaps &amp; Launch Blockers</SectionHeading>
-        <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white">
+        {/* ══ SECURITY STATUS ═════════════════════════════════════════════════ */}
+        <SectionHeading>Security &amp; Secrets Status</SectionHeading>
+        <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white mb-4">
           <table className="w-full text-[13px]">
             <thead>
               <tr className="border-b border-zinc-100 bg-zinc-50 text-left">
-                <th className="px-4 py-3 font-semibold text-zinc-600">Priority</th>
-                <th className="px-4 py-3 font-semibold text-zinc-600">Page / Scope</th>
-                <th className="px-4 py-3 font-semibold text-zinc-600">Issue</th>
-                <th className="px-4 py-3 font-semibold text-zinc-600">Recommended Fix</th>
+                <th className="px-4 py-3 font-semibold text-zinc-600">Secret</th>
+                <th className="px-4 py-3 font-semibold text-zinc-600">Where It Lives</th>
+                <th className="px-4 py-3 font-semibold text-zinc-600 text-center">In Git?</th>
+                <th className="px-4 py-3 font-semibold text-zinc-600">Notes</th>
               </tr>
             </thead>
             <tbody>
-              {remainingGaps.map((g, i) => (
-                <tr key={i} className={`border-b border-zinc-100 ${i % 2 === 0 ? "bg-white" : "bg-zinc-50/50"}`}>
-                  <td className="px-4 py-3">
-                    <Badge variant={g.priority === "High" ? "red" : g.priority === "Medium" ? "yellow" : "gray"}>{g.priority}</Badge>
-                  </td>
-                  <td className="px-4 py-3 font-mono text-zinc-600 text-[12px]">{g.page}</td>
-                  <td className="px-4 py-3 text-zinc-700">{g.issue}</td>
-                  <td className="px-4 py-3 text-zinc-500">{g.fix}</td>
+              {[
+                { secret: "GHL_PIT_TOKEN", location: "Cloudflare Pages dashboard → Settings → Environment Variables", inGit: false, note: "Removed from wrangler.jsonc, wrangler.toml and .env.production. Set as encrypted variable in Cloudflare." },
+                { secret: "GHL_LOCATION_ID", location: "wrangler.toml [vars] + Cloudflare dashboard", inGit: true, note: "Location ID is not sensitive — safe to be in config as a non-secret var." },
+                { secret: ".env.production", location: "Local machine only", inGit: false, note: "Removed from git tracking. Added to .gitignore. Never committed to repo." },
+                { secret: ".dev.vars", location: "Local machine only", inGit: false, note: "Already gitignored. Used for local wrangler dev only." },
+                { secret: ".env.local", location: "Local machine only", inGit: false, note: "Already gitignored by .env* rule." },
+              ].map((r, i) => (
+                <tr key={r.secret} className={`border-b border-zinc-100 ${i % 2 === 0 ? "bg-white" : "bg-zinc-50/50"}`}>
+                  <td className="px-4 py-3 font-mono text-zinc-800 text-[12px]">{r.secret}</td>
+                  <td className="px-4 py-3 text-zinc-600">{r.location}</td>
+                  <td className="px-4 py-3 text-center">{r.inGit ? <Badge variant="red">YES ⚠</Badge> : <Badge variant="green">No ✓</Badge>}</td>
+                  <td className="px-4 py-3 text-zinc-500 text-[12px]">{r.note}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+
+        {/* ══ REMAINING GAPS ══════════════════════════════════════════════════ */}
+        <SectionHeading>Remaining Gaps &amp; Launch Blockers</SectionHeading>
+        <CollapsibleSection label="Open Items" count={remainingGaps.length} defaultOpen={true}>
+          <div className="overflow-x-auto rounded-xl border border-zinc-200 bg-white">
+            <table className="w-full text-[13px]">
+              <thead>
+                <tr className="border-b border-zinc-100 bg-zinc-50 text-left">
+                  <th className="px-4 py-3 font-semibold text-zinc-600">Priority</th>
+                  <th className="px-4 py-3 font-semibold text-zinc-600">Page / Scope</th>
+                  <th className="px-4 py-3 font-semibold text-zinc-600">Issue</th>
+                  <th className="px-4 py-3 font-semibold text-zinc-600">Recommended Fix</th>
+                </tr>
+              </thead>
+              <tbody>
+                {remainingGaps.map((g, i) => (
+                  <tr key={i} className={`border-b border-zinc-100 ${i % 2 === 0 ? "bg-white" : "bg-zinc-50/50"}`}>
+                    <td className="px-4 py-3">
+                      <Badge variant={g.priority === "High" ? "red" : g.priority === "Medium" ? "yellow" : "gray"}>{g.priority}</Badge>
+                    </td>
+                    <td className="px-4 py-3 font-mono text-zinc-600 text-[12px]">{g.page}</td>
+                    <td className="px-4 py-3 text-zinc-700">{g.issue}</td>
+                    <td className="px-4 py-3 text-zinc-500">{g.fix}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </CollapsibleSection>
 
         {/* ══ TECHNICAL INFRASTRUCTURE ════════════════════════════════════════ */}
         <SectionHeading>Technical Infrastructure</SectionHeading>

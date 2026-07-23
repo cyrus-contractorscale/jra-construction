@@ -35,10 +35,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
+# env files — never commit secrets to git
 .env*
+.dev.vars
 !.env.example
-!.env.production
 
 # vercel
 .vercel
