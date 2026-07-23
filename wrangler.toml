@@ -1,0 +1,16 @@
+name = "jra-construction"
+pages_build_output_dir = ".open-next/assets"
+compatibility_date = "2026-05-22"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+[[kv_namespaces]]
+binding = "JRA_ESTIMATE"
+id = "f94a63714bd4471a8bd6b8653ce14357"
+
+[vars]
+NEXT_PUBLIC_BOOKING_URL = "https://go.jraconstruction.co.nz/book"
+NEXT_PUBLIC_GHL_TRACKING_SRC = "https://link.contractorscale.com/js/external-tracking.js"
+NEXT_PUBLIC_GHL_TRACKING_ID = "tk_5268635886654abf8064450caaa49c91"
+GHL_API_VERSION = "2021-07-28"
+GHL_LOCATION_ID = "J3MyzsoPYhafh3FWfabM"
+GHL_PIT_TOKEN = "pit-99b23f07-2c99-4dd1-a769-239abe8e6f5d"
