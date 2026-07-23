@@ -8,10 +8,18 @@ const ADMIN_PATHS = [
   "/api/ghl-fields",
 ];
 
+// These sub-paths must stay public (they ARE the auth mechanism)
+const PUBLIC_EXCEPTIONS = ["/api/admin/auth"];
+
 const COOKIE_NAME = "jra_admin";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Always allow the auth endpoint through
+  if (PUBLIC_EXCEPTIONS.some((p) => pathname === p || pathname.startsWith(p + "/"))) {
+    return NextResponse.next();
+  }
 
   const isAdminPath = ADMIN_PATHS.some((p) => pathname === p || pathname.startsWith(p + "/") || pathname.startsWith(p + "?"));
   if (!isAdminPath) return NextResponse.next();

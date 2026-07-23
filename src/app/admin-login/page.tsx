@@ -5,13 +5,14 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
-export default function AdminLoginPage({
+export default async function AdminLoginPage({
   searchParams,
 }: {
-  searchParams: { next?: string; error?: string };
+  searchParams: Promise<{ next?: string; error?: string }>;
 }) {
-  const next = searchParams.next ?? "/audit";
-  const hasError = searchParams.error === "1";
+  const params = await searchParams;
+  const next = params.next ?? "/audit";
+  const hasError = params.error === "1";
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-zinc-950">
