@@ -19,6 +19,8 @@ const lora = Lora({
 
 const siteUrl = "https://jraconstruction.co.nz";
 
+const isProduction = process.env.SITE_ENV === "production";
+
 export const metadata: Metadata = {
   title: {
     default: "Home Builders In Auckland | Instant Online Estimate",
@@ -54,17 +56,23 @@ export const metadata: Metadata = {
       { rel: "manifest", url: "/site.webmanifest" },
     ],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: isProduction
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      }
+    : {
+        index: false,
+        follow: false,
+        googleBot: { index: false, follow: false },
+      },
 };
 
 const localBusinessSchema = {
