@@ -5,7 +5,9 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Testimonials } from "@/components/sections/Testimonials";
 import {
-  ServiceVideo,
+  ServiceVideoPair,
+  ServiceFeatureStory,
+  ServiceStoryChecklist,
   EbookCta,
   WaysToConnect,
   FeaturedGallery,
@@ -39,22 +41,22 @@ const whyChoose = [
 ];
 
 const excellenceItems = [
-  { icon: "👤", text: "Dedicated project consultant" },
-  { icon: "🚪", text: "Bespoke storage solutions" },
-  { icon: "⚡", text: "Licensed electricians" },
-  { icon: "🔧", text: "Certified plumbers" },
-  { icon: "🛠️", text: "Expert installers for cabinetry, benchtops, and splashbacks" },
+  { text: "Dedicated project consultant" },
+  { text: "Bespoke storage solutions" },
+  { text: "Licensed electricians" },
+  { text: "Certified plumbers" },
+  { text: "Expert installers for cabinetry, benchtops, and splashbacks" },
 ];
 
 const journeyItems = [
-  { icon: "🎨", text: "Personalised kitchen design consultation" },
-  { icon: "📐", text: "Custom new style kitchen layout planning" },
-  { icon: "🪨", text: "Premium material and finish selection" },
-  { icon: "🚪", text: "Modern kitchen cabinetry customisation" },
-  { icon: "🍳", text: "Smart appliance coordination" },
-  { icon: "🔥", text: "Gas fitting and ventilation planning" },
-  { icon: "💡", text: "Contemporary lighting integration" },
-  { icon: "✅", text: "Expert kitchen renovation quality checks" },
+  { text: "Personalised kitchen design consultation" },
+  { text: "Custom new style kitchen layout planning" },
+  { text: "Premium material and finish selection" },
+  { text: "Modern kitchen cabinetry customisation" },
+  { text: "Smart appliance coordination" },
+  { text: "Gas fitting and ventilation planning" },
+  { text: "Contemporary lighting integration" },
+  { text: "Expert kitchen renovation quality checks" },
 ];
 
 const processSteps = [
@@ -88,7 +90,7 @@ const consultItems = [
 
 function CheckIcon() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-400 text-[11px] text-emerald-400">
+    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-[11px] font-bold text-[#17243b]">
       ✓
     </span>
   );
@@ -159,7 +161,7 @@ export default function KitchenRenovationsPage() {
       </section>
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
@@ -206,16 +208,12 @@ export default function KitchenRenovationsPage() {
         bookTitle="The Ultimate Guide to Home Renovation in Auckland"
       />
 
-      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
-      <ServiceVideo
-        videoId="NAaXgHLW51Q"
-        title="JRA Construction | Business Showcase"
-        eyebrow="See JRA In Action"
-      />
+      {/* ── JRA STORY + PROCESS VIDEOS ───────────────────────────── */}
+      <ServiceVideoPair />
 
       {/* ── WHY CHOOSE JRA ───────────────────────────────────────── */}
       <section
-        className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.92), rgba(41,58,87,0.92)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -246,47 +244,32 @@ export default function KitchenRenovationsPage() {
       </section>
 
       {/* ── EXCELLENCE IN KITCHEN CREATION ───────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Excellence in Kitchen Creation
-            </h2>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {excellenceItems.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-3xl">{item.icon}</span>
-                  <p className="text-[15px] font-semibold leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
+      <ServiceFeatureStory
+        heading="Excellence in Kitchen Creation"
+        items={excellenceItems.map((item) => item.text)}
+        image="/projects/sandringham-project/sandringham-renovation-kitchen-qx2xj1zhgxjebxfbuvqtgb2x8m7eqpg6roak3bjna8.webp"
+        imageAlt="Sandringham kitchen renovation"
       />
 
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
       <WaysToConnect phoneDisplay="+64 9 884 0915" phoneTel="tel:+6498840915" image="/services/kitchen-interior-1024x683.webp" imageAlt="Stylish kitchen setup" />
 
       {/* ── CRAFTING YOUR DREAM AUCKLAND KITCHEN ─────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="relative min-h-[480px] overflow-hidden rounded-[28px]">
+            <Image
+              src="/projects/queensway/Kitchen-_-Dining.jpg"
+              alt="Kitchen and dining renovation"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+            />
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100} className="flex flex-col justify-center space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Crafting Your Dream Auckland Kitchen
             </h2>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
             <p className="text-[16px] leading-[1.7] text-[#4d6277]">
               When it comes to Auckland kitchen makeovers, our portfolio showcases transformative
               solutions across diverse homes and styles. From heritage villas to contemporary
@@ -309,7 +292,7 @@ export default function KitchenRenovationsPage() {
               or targeted updates, our team brings creative vision and technical expertise to every
               project.
             </p>
-            <div className="pt-2 text-center">
+            <div className="pt-2">
               <Link
                 href="/estimate"
                 className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
@@ -322,7 +305,7 @@ export default function KitchenRenovationsPage() {
       </section>
 
       {/* ── YOUR KITCHEN TRANSFORMATION JOURNEY ──────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="space-y-12">
           <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
@@ -330,51 +313,30 @@ export default function KitchenRenovationsPage() {
             </h2>
           </AnimateOnScroll>
 
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <AnimateOnScroll variant="fade-right" className="space-y-5">
-              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-                Our proven approach to modern kitchen designs ensures seamless project delivery:
-              </p>
-              <ul className="space-y-3">
-                {journeyItems.map((item) => (
-                  <li key={item.text} className="flex items-start gap-3 text-[15px] text-[#2d4560]">
-                    <span className="text-xl">{item.icon}</span>
-                    {item.text}
-                  </li>
-                ))}
-              </ul>
-              <Link
+          <AnimateOnScroll variant="fade-up" delay={100}>
+            <ServiceStoryChecklist
+              image="/projects/sandringham-project/sandringham-kitchen-remodel-r62bylhms7jo6jabe2fnbxklgnwfkeqk4eddm6ymcg.jpg"
+              imageAlt="Custom kitchen renovation"
+              intro={<p>Our proven approach to modern kitchen designs ensures seamless project delivery:</p>}
+              items={journeyItems.map((item) => item.text)}
+              action={<Link
                 href="/estimate"
-                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-zinc-100"
               >
                 Free Online Estimate <span aria-hidden="true">→</span>
-              </Link>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll variant="fade-left" delay={150}>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
-                <Image
-                  src="/services/saint-leonards-interior-1024x683.webp"
-                  alt="Elegant dining area"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </AnimateOnScroll>
-          </div>
+              </Link>}
+            />
+          </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── MODERN KITCHEN DESIGN TRENDS ─────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Modern Kitchen Design Trends
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
             <p className="text-[17px] leading-[1.7] text-[#4d6277]">
               Renovating your kitchen with JRA means gaining insight into the latest design trends and
               innovations. We can incorporate modern kitchen trends that elevate both style and
@@ -398,13 +360,22 @@ export default function KitchenRenovationsPage() {
               style.
             </p>
           </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100} className="relative min-h-[560px] overflow-hidden rounded-[28px]">
+            <Image
+              src="/projects/laingholm-baptist-church/laingholm-church-kitchen-r62ev6z3aiqc4fcqma33sjd568cu3vz9u3si4nvhy8.jpg"
+              alt="Modern Auckland kitchen"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 42vw"
+            />
+          </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
-        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -419,7 +390,7 @@ export default function KitchenRenovationsPage() {
               </h2>
               <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
-                {consultItems.map((item) => (
+                {consultItems.map((item, i) => (
                   <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
                     <CheckIcon />
                     {item}
@@ -438,9 +409,18 @@ export default function KitchenRenovationsPage() {
       </section>
 
       {/* ── QUALITY ASSURANCE ────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="space-y-8">
-          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+      <section className="bg-white py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="relative min-h-[460px] overflow-hidden rounded-[28px]">
+            <Image
+              src="/projects/sandringham-project/sandringham-kitchen-renovation-r62bxola50amw6m3q67penvgo6el303ybvjdtibee8.jpg"
+              alt="Finished kitchen renovation"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 42vw"
+            />
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" className="space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Quality Assurance
             </h2>
@@ -469,7 +449,7 @@ export default function KitchenRenovationsPage() {
       </section>
 
       {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-16 sm:py-20">
+      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-14 sm:py-16">
         <Container className="space-y-14">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <p className="section-tab mx-auto w-fit">Services</p>
@@ -478,13 +458,15 @@ export default function KitchenRenovationsPage() {
             </h2>
           </AnimateOnScroll>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 lg:grid-cols-2">
             {processSteps.map((s, i) => (
               <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                <div className={`grid h-full grid-cols-[64px_1fr] overflow-hidden rounded-2xl border border-[#e8edf2] ${i % 2 === 0 ? "bg-white" : "bg-[#eef2f5]"}`}>
+                  <span className="flex items-start justify-center border-r border-[#293a57]/10 pt-6 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/45">{s.step}</span>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                    <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                  </div>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -506,7 +488,7 @@ export default function KitchenRenovationsPage() {
       />
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">

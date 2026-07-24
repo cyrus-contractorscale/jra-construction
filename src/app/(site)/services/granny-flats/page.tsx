@@ -5,7 +5,9 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Testimonials } from "@/components/sections/Testimonials";
 import {
-  ServiceVideo,
+  ServiceVideoPair,
+  ServiceFeatureStory,
+  ServiceStoryChecklist,
   EbookCta,
   WaysToConnect,
   FeaturedGallery,
@@ -32,11 +34,11 @@ const ourDifference = [
 ];
 
 const whatYouGet = [
-  { icon: "👤", text: "Dedicated Project Manager" },
-  { icon: "📡", text: "Real-Time Progress Updates" },
-  { icon: "🎨", text: "Professional Design Consultation" },
-  { icon: "🏛️", text: "Council Compliance Expertise" },
-  { icon: "✅", text: "Quality Assurance & Warranty Coverage" },
+  { text: "Dedicated Project Manager" },
+  { text: "Real-Time Progress Updates" },
+  { text: "Professional Design Consultation" },
+  { text: "Council Compliance Expertise" },
+  { text: "Quality Assurance & Warranty Coverage" },
 ];
 
 const grannyFlatForms = [
@@ -87,7 +89,7 @@ const faqs = [
 
 function CheckIcon() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-400 text-[11px] text-emerald-400">
+    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-[11px] font-bold text-[#17243b]">
       ✓
     </span>
   );
@@ -158,10 +160,10 @@ export default function GrannyFlatsPage() {
       </section>
 
       {/* ── INTRO ────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl">
-          <AnimateOnScroll variant="fade-up">
-            <div className="space-y-5">
+      <section className="bg-white py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right">
+            <div className="space-y-5 lg:pr-4">
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
                 Granny flats are quickly becoming a popular solution for Auckland homeowners who need
                 more usable space without moving or doing a{" "}
@@ -190,6 +192,17 @@ export default function GrannyFlatsPage() {
               </div>
             </div>
           </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={120}>
+            <div className="relative min-h-[560px] overflow-hidden rounded-[28px] shadow-[0_28px_70px_rgba(41,58,87,0.16)]">
+              <Image
+                src="/services/Cabin-Facade-Wooded-683x1024.webp"
+                alt="Granny flat exterior"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
@@ -200,16 +213,12 @@ export default function GrannyFlatsPage() {
         bookTitle="The Homeowner’s Guide to Granny Flats and Minor Dwellings in Auckland"
       />
 
-      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
-      <ServiceVideo
-        videoId="NAaXgHLW51Q"
-        title="JRA Construction | Business Showcase"
-        eyebrow="See JRA In Action"
-      />
+      {/* ── JRA STORY + PROCESS VIDEOS ───────────────────────────── */}
+      <ServiceVideoPair />
 
       {/* ── WHY CHOOSE JRA: OUR DIFFERENCE ───────────────────────── */}
       <section
-        className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.92), rgba(41,58,87,0.92)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -240,32 +249,11 @@ export default function GrannyFlatsPage() {
       </section>
 
       {/* ── WHAT YOU GET WITH EVERY PROJECT ──────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              What You Get with Every Project
-            </h2>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {whatYouGet.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-3xl">{item.icon}</span>
-                  <p className="text-[15px] font-semibold leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
+      <ServiceFeatureStory
+        heading="What You Get with Every Project"
+        items={whatYouGet.map((item) => item.text)}
+        image="/services/Te-Wiata-Place-Avondale-Project-15.jpg"
+        imageAlt="Avondale granny flat interior"
       />
 
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
@@ -275,7 +263,7 @@ export default function GrannyFlatsPage() {
       />
 
       {/* ── WHAT IS A GRANNY FLAT? ───────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <AnimateOnScroll variant="fade-right" className="space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
@@ -334,29 +322,24 @@ export default function GrannyFlatsPage() {
       </section>
 
       {/* ── BENEFITS OF BUILDING A GRANNY FLAT ───────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-white py-14 sm:py-16">
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Benefits of Building a Granny Flat
             </h2>
-            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
-              Granny flats offer real, practical value. Here&apos;s what makes them a smart choice:
-            </p>
           </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
-            <ul className="space-y-3">
-              {benefits.map((item) => (
-                <li key={item} className="flex items-start gap-3 rounded-xl border border-[#eef2f6] bg-[#f9fafb] px-5 py-4 text-[15px] leading-relaxed text-[#2d4560]">
-                  <CheckIcon />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
-              For many Auckland homeowners, a granny flat just makes sense—whether it&apos;s about
-              keeping family close or getting more out of your property.
-            </p>
+          <AnimateOnScroll variant="fade-up" delay={100}>
+            <ServiceStoryChecklist
+              image="/services/Te-Wiata-Place-Avondale-Project-09-1024x682.jpg"
+              imageAlt="avondale project"
+              intro={<p>Granny flats offer real, practical value. Here&apos;s what makes them a smart choice:</p>}
+              items={benefits}
+              outro={<p>
+                For many Auckland homeowners, a granny flat just makes sense—whether it&apos;s about
+                keeping family close or getting more out of your property.
+              </p>}
+            />
           </AnimateOnScroll>
         </Container>
       </section>
@@ -364,7 +347,7 @@ export default function GrannyFlatsPage() {
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
-        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -379,7 +362,7 @@ export default function GrannyFlatsPage() {
               </h2>
               <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
-                {consultItems.map((item) => (
+                {consultItems.map((item, i) => (
                   <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
                     <CheckIcon />
                     {item}
@@ -398,9 +381,9 @@ export default function GrannyFlatsPage() {
       </section>
 
       {/* ── WHY CHOOSE JRA FOR YOUR GRANNY FLAT ──────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="space-y-8">
-          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+      <section className="bg-white py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Why Choose JRA Construction for Your Granny Flat?
             </h2>
@@ -431,11 +414,22 @@ export default function GrannyFlatsPage() {
               Read More <span aria-hidden="true">→</span>
             </Link>
           </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={120}>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[28px]">
+              <Image
+                src="/services/Media-Corner-Nook.webp"
+                alt="Cozy Media Corner"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-16 sm:py-20">
+      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-14 sm:py-16">
         <Container className="space-y-14">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <p className="section-tab mx-auto w-fit">Services</p>
@@ -444,13 +438,15 @@ export default function GrannyFlatsPage() {
             </h2>
           </AnimateOnScroll>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-x-10 gap-y-0 lg:grid-cols-2">
             {processSteps.map((s, i) => (
               <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                <div className="grid h-full grid-cols-[72px_1fr] border-t border-[#293a57]/15 py-7">
+                  <span className="border-r-2 border-emerald-400 text-[24px] font-extrabold tracking-tight text-[#293a57]/35">{s.step}</span>
+                  <div className="pl-6">
+                    <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                    <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                  </div>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -472,7 +468,7 @@ export default function GrannyFlatsPage() {
       />
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">
@@ -493,7 +489,7 @@ export default function GrannyFlatsPage() {
       <Testimonials heading="See What Others Are Saying" />
 
       {/* ── READY TO BUILD A GRANNY FLAT? (NEXT STEPS) ───────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
         <Container className="space-y-10">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
             <p className="section-tab mx-auto w-fit">What Are The Next Steps From Here?</p>
@@ -538,7 +534,7 @@ export default function GrannyFlatsPage() {
       </section>
 
       {/* ── DOWNLOAD YOUR FREE GUIDE ─────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="mx-auto max-w-3xl text-center space-y-6">
           <AnimateOnScroll variant="fade-up" className="space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">

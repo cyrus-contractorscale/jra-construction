@@ -5,7 +5,9 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Testimonials } from "@/components/sections/Testimonials";
 import {
-  ServiceVideo,
+  ServiceVideoPair,
+  ServiceFeatureStory,
+  ServiceStoryChecklist,
   EbookCta,
   WaysToConnect,
   FeaturedGallery,
@@ -35,13 +37,13 @@ const introParas = [
 ];
 
 const advantageItems = [
-  { icon: "📡", text: "Real-time construction updates" },
-  { icon: "🖥️", text: "Virtual walkthroughs of progress" },
-  { icon: "💬", text: "Direct communication with your project team" },
-  { icon: "📁", text: "Digital documentation access" },
-  { icon: "📍", text: "Milestone tracking and notifications" },
-  { icon: "✅", text: "Material selections and approvals" },
-  { icon: "📸", text: "Photo and video progress updates" },
+  { text: "Real-time construction updates" },
+  { text: "Virtual walkthroughs of progress" },
+  { text: "Direct communication with your project team" },
+  { text: "Digital documentation access" },
+  { text: "Milestone tracking and notifications" },
+  { text: "Material selections and approvals" },
+  { text: "Photo and video progress updates" },
 ];
 
 const standardItems = [
@@ -124,7 +126,7 @@ const consultItems = [
 
 function CheckIcon() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-400 text-[11px] text-emerald-400">
+    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-[11px] font-bold text-[#17243b]">
       ✓
     </span>
   );
@@ -195,7 +197,7 @@ export default function HomeMaintenancePage() {
       </section>
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
@@ -239,38 +241,20 @@ export default function HomeMaintenancePage() {
         bookTitle="Build Your Custom Home"
       />
 
-      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
-      <ServiceVideo
-        videoId="NAaXgHLW51Q"
-        title="JRA Construction | Business Showcase"
-        eyebrow="See JRA In Action"
-      />
+      {/* ── JRA STORY + PROCESS VIDEOS ───────────────────────────── */}
+      <ServiceVideoPair />
 
       {/* ── THE JRA ADVANTAGE ────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              The JRA Advantage: Your Home, Your Way
-            </h2>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantageItems.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-2xl">{item.icon}</span>
-                  <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ServiceFeatureStory
+        heading="The JRA Advantage: Your Home, Your Way"
+        items={advantageItems.map((item) => item.text)}
+        image="/services/Media-Corner-Nook-1024x683.webp"
+        imageAlt="Cozy Media Corner"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
-        className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.92), rgba(41,58,87,0.92)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -300,13 +284,6 @@ export default function HomeMaintenancePage() {
         </Container>
       </section>
 
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
-      />
-
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
       <WaysToConnect phoneDisplay="+64 9 884 0915" phoneTel="tel:+6498840915"
         image="/services/Media-Corner-Nook-1024x683.webp"
@@ -314,7 +291,7 @@ export default function HomeMaintenancePage() {
       />
 
       {/* ── COMPREHENSIVE PROPERTY CARE SOLUTIONS ────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
@@ -350,26 +327,21 @@ export default function HomeMaintenancePage() {
       </section>
 
       {/* ── PROPERTY CARE PROGRAMME + WHY CHOOSE ─────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <AnimateOnScroll variant="fade-right">
-            <div className="space-y-5">
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
+      <section className="bg-white py-14 sm:py-18">
+        <Container className="space-y-14">
+          <ServiceStoryChecklist
+            image="/services/leonards-bedroom-renovation-1024x700.jpg"
+            imageAlt="Elegant master bedroom interior"
+            intro={
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-white sm:text-[38px]">
                 Your Property Care Programme
               </h2>
-              <ul className="space-y-3">
-                {programmeItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
-                    <CheckIcon />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimateOnScroll>
+            }
+            items={programmeItems}
+          />
 
-          <AnimateOnScroll variant="fade-left" delay={150}>
-            <div className="space-y-5">
+          <AnimateOnScroll variant="fade-up">
+            <div className="grid gap-8 border-l-4 border-emerald-400 bg-[#f4f6f8] p-7 sm:p-10 lg:grid-cols-[0.8fr_1.2fr]">
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
                 Why Choose JRA&apos;s Maintenance Team
               </h2>
@@ -389,7 +361,7 @@ export default function HomeMaintenancePage() {
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
-        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -404,7 +376,7 @@ export default function HomeMaintenancePage() {
               </h2>
               <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
-                {consultItems.map((item) => (
+                {consultItems.map((item, i) => (
                   <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
                     <CheckIcon />
                     {item}
@@ -423,14 +395,12 @@ export default function HomeMaintenancePage() {
       </section>
 
       {/* ── PROFESSIONAL PROPERTY UPKEEP ─────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="mx-auto max-w-3xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-white py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-6">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
               Professional Property Upkeep
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-6">
             <ul className="space-y-3">
               {upkeepItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
@@ -446,18 +416,26 @@ export default function HomeMaintenancePage() {
               extend the lifespan of your property&rsquo;s key components.
             </p>
           </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100}>
+            <div className="relative min-h-[420px] overflow-hidden rounded-[28px]">
+              <Image src="/services/Copy-of-2A3A2941-scaled.jpg" alt="JRA Construction project exterior" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 48vw" />
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── EXCELLENCE IN PROPERTY PRESERVATION ──────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right">
+            <div className="relative min-h-[420px] overflow-hidden rounded-[28px]">
+              <Image src="/services/Patio-Outdoor-Living.webp" alt="Patio outdoor living area" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 42vw" />
+            </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100} className="space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Excellence in Property Preservation
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
             {preservationParas.map((para) => (
               <p key={para.slice(0, 40)} className="text-[17px] leading-[1.7] text-[#4d6277]">
                 {para}
@@ -468,9 +446,9 @@ export default function HomeMaintenancePage() {
       </section>
 
       {/* ── BUILDING PERFORMANCE & COMPLIANCE ASSURANCE ──────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="space-y-8">
-          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+      <section className="bg-white py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Building Performance &amp; Compliance Assurance
             </h2>
@@ -486,11 +464,16 @@ export default function HomeMaintenancePage() {
               Read More <span aria-hidden="true">→</span>
             </Link>
           </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100}>
+            <div className="relative h-full min-h-[500px] overflow-hidden rounded-[28px]">
+              <Image src="/services/Seacombe-11-scaled.jpg" alt="Seacombe project" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 42vw" />
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-16 sm:py-20">
+      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-14 sm:py-16">
         <Container className="space-y-14">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <p className="section-tab mx-auto w-fit">Services</p>
@@ -499,13 +482,15 @@ export default function HomeMaintenancePage() {
             </h2>
           </AnimateOnScroll>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-10 gap-y-0 lg:grid-cols-2">
             {processSteps.map((s, i) => (
               <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                <div className="group grid h-full grid-cols-[72px_1fr] border-t border-[#293a57]/15 py-7">
+                  <span className="text-[28px] font-black leading-none text-emerald-500">{s.step}</span>
+                  <div className="border-l-2 border-[#293a57]/15 pl-6 transition group-hover:border-emerald-400">
+                    <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                    <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                  </div>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -527,7 +512,7 @@ export default function HomeMaintenancePage() {
       />
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">

@@ -5,7 +5,9 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Testimonials } from "@/components/sections/Testimonials";
 import {
-  ServiceVideo,
+  ServiceVideoPair,
+  ServiceFeatureStory,
+  ServiceStoryChecklist,
   EbookCta,
   WaysToConnect,
   FeaturedGallery,
@@ -35,13 +37,13 @@ const introParas = [
 ];
 
 const advantageItems = [
-  { icon: "📡", text: "Real-time construction updates" },
-  { icon: "🖥️", text: "Virtual walkthroughs of progress" },
-  { icon: "💬", text: "Direct communication with your project team" },
-  { icon: "📁", text: "Digital documentation access" },
-  { icon: "📍", text: "Milestone tracking and notifications" },
-  { icon: "✅", text: "Material selections and approvals" },
-  { icon: "📸", text: "Photo and video progress updates" },
+  { text: "Real-time construction updates" },
+  { text: "Virtual walkthroughs of progress" },
+  { text: "Direct communication with your project team" },
+  { text: "Digital documentation access" },
+  { text: "Milestone tracking and notifications" },
+  { text: "Material selections and approvals" },
+  { text: "Photo and video progress updates" },
 ];
 
 const standardItems = [
@@ -126,7 +128,7 @@ const consultItems = [
 
 function CheckIcon() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-400 text-[11px] text-emerald-400">
+    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-[11px] font-bold text-[#17243b]">
       ✓
     </span>
   );
@@ -197,7 +199,7 @@ export default function QuantitySurveyingPage() {
       </section>
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
@@ -241,38 +243,20 @@ export default function QuantitySurveyingPage() {
         bookTitle="Build Your Custom Home"
       />
 
-      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
-      <ServiceVideo
-        videoId="NAaXgHLW51Q"
-        title="JRA Construction | Business Showcase"
-        eyebrow="See JRA In Action"
-      />
+      {/* ── JRA STORY + PROCESS VIDEOS ───────────────────────────── */}
+      <ServiceVideoPair />
 
       {/* ── THE JRA ADVANTAGE ────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              The JRA Advantage: Your Home, Your Way
-            </h2>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantageItems.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-2xl">{item.icon}</span>
-                  <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ServiceFeatureStory
+        heading="The JRA Advantage: Your Home, Your Way"
+        items={advantageItems.map((item) => item.text)}
+        image="/services/Copy-of-2A3A2794-scaled.jpg"
+        imageAlt="JRA Construction project living space"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
-        className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.92), rgba(41,58,87,0.92)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -302,13 +286,6 @@ export default function QuantitySurveyingPage() {
         </Container>
       </section>
 
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
-      />
-
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
       <WaysToConnect phoneDisplay="+64 9 884 0915" phoneTel="tel:+6498840915"
         image="/services/6406b86736711b0d60253049_JRA-Ward-Final-Website-Ready-46-p-800-768x1152.jpg"
@@ -316,20 +293,23 @@ export default function QuantitySurveyingPage() {
       />
 
       {/* ── STRATEGIC COST PLANNING AND CONTROL ──────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right">
+            <div className="relative min-h-[520px] overflow-hidden rounded-[28px]">
+              <Image src="/services/Copy-of-2A3A2941-scaled.jpg" alt="JRA Construction project exterior" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 44vw" />
+            </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100} className="space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Strategic Cost Planning and Control
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
             {strategicParas.map((para) => (
               <p key={para.slice(0, 40)} className="text-[17px] leading-[1.7] text-[#4d6277]">
                 {para}
               </p>
             ))}
-            <div className="text-center">
+            <div>
               <Link
                 href="/estimate"
                 className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
@@ -342,26 +322,21 @@ export default function QuantitySurveyingPage() {
       </section>
 
       {/* ── FINANCIAL MANAGEMENT JOURNEY + WHY TRUST ─────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <AnimateOnScroll variant="fade-right">
-            <div className="space-y-5">
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
+      <section className="bg-white py-14 sm:py-18">
+        <Container className="space-y-14">
+          <ServiceStoryChecklist
+            image="/services/Copy-of-2A3A2787-scaled.jpg"
+            imageAlt="JRA Construction project interior"
+            intro={
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-white sm:text-[38px]">
                 Your Financial Management Journey
               </h2>
-              <ul className="space-y-3">
-                {journeyItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
-                    <CheckIcon />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimateOnScroll>
+            }
+            items={journeyItems}
+          />
 
-          <AnimateOnScroll variant="fade-left" delay={150}>
-            <div className="space-y-5">
+          <AnimateOnScroll variant="fade-up">
+            <div className="grid gap-8 border-l-4 border-emerald-400 bg-[#f4f6f8] p-7 sm:p-10 lg:grid-cols-[0.8fr_1.2fr]">
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
                 Why Trust JRA&apos;s Cost Expertise
               </h2>
@@ -379,14 +354,12 @@ export default function QuantitySurveyingPage() {
       </section>
 
       {/* ── COMPREHENSIVE FINANCIAL OVERSIGHT ────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="mx-auto max-w-3xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-6">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
               Comprehensive Financial Oversight
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100}>
             <ul className="space-y-3">
               {oversightItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
@@ -396,13 +369,18 @@ export default function QuantitySurveyingPage() {
               ))}
             </ul>
           </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100}>
+            <div className="relative min-h-[380px] overflow-hidden rounded-[28px]">
+              <Image src="/services/Seacombe-11-scaled.jpg" alt="Seacombe project" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 48vw" />
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
-        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -417,7 +395,7 @@ export default function QuantitySurveyingPage() {
               </h2>
               <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
-                {consultItems.map((item) => (
+                {consultItems.map((item, i) => (
                   <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
                     <CheckIcon />
                     {item}
@@ -436,14 +414,17 @@ export default function QuantitySurveyingPage() {
       </section>
 
       {/* ── PRECISION IN EVERY CALCULATION ───────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-white py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right">
+            <div className="relative min-h-[420px] overflow-hidden rounded-[28px]">
+              <Image src="/services/Patio-Outdoor-Living.webp" alt="Patio outdoor living area" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 42vw" />
+            </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100} className="space-y-5">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Precision in Every Calculation
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
             {precisionParas.map((para) => (
               <p key={para.slice(0, 40)} className="text-[17px] leading-[1.7] text-[#4d6277]">
                 {para}
@@ -454,14 +435,12 @@ export default function QuantitySurveyingPage() {
       </section>
 
       {/* ── PROACTIVE FINANCIAL MANAGEMENT ───────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="mx-auto max-w-3xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
+        <Container className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-6">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
               Proactive Financial Management
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-6">
             <ul className="space-y-3">
               {proactiveItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
@@ -476,7 +455,7 @@ export default function QuantitySurveyingPage() {
               quality management principles, safeguarding financial integrity across every construction
               phase.
             </p>
-            <div className="text-center">
+            <div>
               <Link
                 href="/why-choose-us"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
@@ -485,11 +464,16 @@ export default function QuantitySurveyingPage() {
               </Link>
             </div>
           </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-left" delay={100}>
+            <div className="relative h-full min-h-[420px] overflow-hidden rounded-[28px]">
+              <Image src="/services/DSC00888-HDR-1-sharpen-scaled.jpg" alt="Architecturally designed residence" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 42vw" />
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
+      <section id="process" className="scroll-mt-24 bg-white py-14 sm:py-16">
         <Container className="space-y-14">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <p className="section-tab mx-auto w-fit">Services</p>
@@ -498,13 +482,15 @@ export default function QuantitySurveyingPage() {
             </h2>
           </AnimateOnScroll>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-10 gap-y-0 lg:grid-cols-2">
             {processSteps.map((s, i) => (
               <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                <div className="group grid h-full grid-cols-[72px_1fr] border-t border-[#293a57]/15 py-7">
+                  <span className="text-[28px] font-black leading-none text-emerald-500">{s.step}</span>
+                  <div className="border-l-2 border-[#293a57]/15 pl-6 transition group-hover:border-emerald-400">
+                    <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                    <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                  </div>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -526,7 +512,7 @@ export default function QuantitySurveyingPage() {
       />
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">

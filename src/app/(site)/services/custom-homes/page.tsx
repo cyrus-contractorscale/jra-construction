@@ -5,7 +5,9 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Testimonials } from "@/components/sections/Testimonials";
 import {
-  ServiceVideo,
+  ServiceVideoPair,
+  ServiceFeatureStory,
+  ServiceStoryChecklist,
   EbookCta,
   WaysToConnect,
   FeaturedGallery,
@@ -31,13 +33,13 @@ const painPoints = [
 ];
 
 const advantages = [
-  { icon: "📡", text: "Real-time construction updates" },
-  { icon: "🏠", text: "Virtual walkthroughs of progress" },
-  { icon: "💬", text: "Direct communication with your project team" },
-  { icon: "📁", text: "Digital documentation access" },
-  { icon: "📍", text: "Milestone tracking and notifications" },
-  { icon: "✅", text: "Material selections and approvals" },
-  { icon: "📸", text: "Photo and video progress updates" },
+  { text: "Real-time construction updates" },
+  { text: "Virtual walkthroughs of progress" },
+  { text: "Direct communication with your project team" },
+  { text: "Digital documentation access" },
+  { text: "Milestone tracking and notifications" },
+  { text: "Material selections and approvals" },
+  { text: "Photo and video progress updates" },
 ];
 
 const standards = [
@@ -59,10 +61,10 @@ const portalAccess = [
 ];
 
 const excellenceItems = [
-  { icon: "👤", text: "Personal project consultant" },
-  { icon: "📅", text: "Detailed timeline planning" },
-  { icon: "🏛️", text: "Council liaison expertise" },
-  { icon: "🔩", text: "Material procurement specialists" },
+  { text: "Personal project consultant" },
+  { text: "Detailed timeline planning" },
+  { text: "Council liaison expertise" },
+  { text: "Material procurement specialists" },
 ];
 
 const processSteps = [
@@ -96,7 +98,7 @@ const consultItems = [
 
 function CheckIcon() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-400 text-[11px] text-emerald-400">
+    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400 text-[11px] font-bold text-[#17243b]">
       ✓
     </span>
   );
@@ -167,7 +169,7 @@ export default function CustomHomesPage() {
       </section>
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
@@ -219,38 +221,20 @@ export default function CustomHomesPage() {
         bookTitle="Build Your Custom Home"
       />
 
-      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
-      <ServiceVideo
-        videoId="NAaXgHLW51Q"
-        title="JRA Construction | Business Showcase"
-        eyebrow="See JRA In Action"
-      />
+      {/* ── JRA STORY + PROCESS VIDEOS ───────────────────────────── */}
+      <ServiceVideoPair />
 
       {/* ── THE JRA ADVANTAGE ────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              The JRA Advantage
-            </h2>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-2xl">{item.icon}</span>
-                  <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ServiceFeatureStory
+        heading="The JRA Advantage"
+        items={advantages.map((item) => item.text)}
+        image="/projects/tiri-road-whangaparaoa/Copy-of-DSC05544-scaled.jpg"
+        imageAlt="JRA custom home project in Whangaparāoa"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
-        className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.92), rgba(41,58,87,0.92)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -280,18 +264,11 @@ export default function CustomHomesPage() {
         </Container>
       </section>
 
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
-      />
-
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
       <WaysToConnect phoneDisplay="+64 9 884 0915" phoneTel="tel:+6498840915" image="/services/Cabin-Facade-Wooded-683x1024.webp" imageAlt="Wooded Cabin Facade" />
 
       {/* ── BRINGING YOUR DREAM HOME TO LIFE ─────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
         <Container className="space-y-12">
           <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
@@ -348,47 +325,47 @@ export default function CustomHomesPage() {
           </div>
 
           <AnimateOnScroll variant="fade-up" delay={100}>
-            <div className="mx-auto max-w-4xl rounded-2xl border border-[#e8edf2] bg-white p-8 shadow-[0_8px_32px_rgba(41,58,87,0.08)] sm:p-10">
-              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+            <ServiceStoryChecklist
+              image="/projects/queensway/Void-Balustrade-01.jpg"
+              imageAlt="Architectural custom home interior by JRA Construction"
+              intro={
+                <p>
                 Throughout your new build journey, our advanced client communication system keeps you
                 informed and involved. From groundwork to final touches, you’ll have instant access to:
-              </p>
-              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                {portalAccess.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[15px] text-[#2d4560]">
-                    <CheckIcon />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-[16px] leading-[1.7] text-[#4d6277]">
+                </p>
+              }
+              items={portalAccess}
+              outro={
+                <p>
                 Whether you’re creating a compact urban dwelling or an expansive family residence, our
                 transparent approach ensures you’re always in control of your building journey. From
                 foundation to final handover, every detail of your new home’s progress is documented and
                 accessible, eliminating guesswork and providing peace of mind throughout the
                 construction process.
-              </p>
-              <Link
-                href="/estimate"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
-              >
-                Free Online Estimate <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+                </p>
+              }
+              action={
+                <Link href="/estimate" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-zinc-100">
+                  Free Online Estimate <span aria-hidden="true">→</span>
+                </Link>
+              }
+            />
           </AnimateOnScroll>
         </Container>
       </section>
 
       {/* ── NAVIGATING COUNCIL CONSENTS & COMPLIANCE ─────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="mx-auto max-w-4xl space-y-6">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Navigating Council Consents &amp; Compliance
-            </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
-            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
+      <section className="overflow-hidden bg-white py-14 sm:py-18">
+        <Container>
+          <div className="grid items-stretch gap-0 overflow-hidden rounded-[28px] bg-[#f4f6f8] lg:grid-cols-2">
+            <AnimateOnScroll variant="fade-right" className="relative min-h-[380px]">
+              <Image src="/projects/queensway/queensway-exterior-design.webp" alt="JRA architectural custom home project" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            </AnimateOnScroll>
+            <AnimateOnScroll variant="fade-left" delay={100} className="flex flex-col justify-center space-y-5 p-7 sm:p-10 lg:p-12">
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[44px]">
+                Navigating Council Consents &amp; Compliance
+              </h2>
+              <p className="text-[17px] leading-[1.7] text-[#4d6277]">
               Navigating the regulatory landscape is a critical part of any new build project. We
               leverage our in-depth knowledge of <strong>Auckland Council</strong> requirements and the{" "}
               <strong>New Zealand Building Code</strong> to streamline the consent process for your new
@@ -405,14 +382,15 @@ export default function CustomHomesPage() {
               can be confident your new home is fully approved and built to last in Auckland’s
               regulatory environment.
             </p>
-          </AnimateOnScroll>
+            </AnimateOnScroll>
+          </div>
         </Container>
       </section>
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
-        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-14 sm:py-16"
         style={{
           backgroundImage:
             "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
@@ -427,7 +405,7 @@ export default function CustomHomesPage() {
               </h2>
               <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
-                {consultItems.map((item) => (
+                {consultItems.map((item, i) => (
                   <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
                     <CheckIcon />
                     {item}
@@ -446,7 +424,7 @@ export default function CustomHomesPage() {
       </section>
 
       {/* ── OUR QUALITY PROMISE ──────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-14 sm:py-16">
         <Container className="space-y-8">
           <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
@@ -465,38 +443,20 @@ export default function CustomHomesPage() {
       </section>
 
       {/* ── BUILDING EXCELLENCE GUARANTEED ───────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="space-y-10">
-          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Building Excellence Guaranteed
-            </h2>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {excellenceItems.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-3xl">{item.icon}</span>
-                  <p className="text-[15px] font-semibold leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-
-          <AnimateOnScroll variant="fade-up" className="text-center">
-            <Link
-              href="/why-choose-us"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
-            >
-              Read More <span aria-hidden="true">→</span>
-            </Link>
-          </AnimateOnScroll>
-        </Container>
-      </section>
+      <ServiceFeatureStory
+        heading="Building Excellence Guaranteed"
+        items={excellenceItems.map((item) => item.text)}
+        image="/projects/bellevue/JRA-Belle-Vue-Website-Ready-39.jpg"
+        imageAlt="JRA Construction custom home exterior"
+        action={
+          <Link href="/why-choose-us" className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white">
+            Read More <span aria-hidden="true">→</span>
+          </Link>
+        }
+      />
 
       {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
+      <section id="process" className="scroll-mt-24 bg-white py-14 sm:py-16">
         <Container className="space-y-14">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <p className="section-tab mx-auto w-fit">Services</p>
@@ -505,13 +465,17 @@ export default function CustomHomesPage() {
             </h2>
           </AnimateOnScroll>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative grid gap-x-8 gap-y-4 lg:grid-cols-2">
             {processSteps.map((s, i) => (
               <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                <div className="group grid h-full grid-cols-[72px_1fr] overflow-hidden rounded-2xl border border-[#dfe5eb] bg-[#f7f8fa] transition duration-300 hover:border-[#293a57]/30 hover:bg-white hover:shadow-[0_16px_40px_rgba(41,58,87,0.1)]">
+                  <div className="flex items-center justify-center border-r border-[#dfe5eb] bg-[#293a57] text-[17px] font-bold tracking-[0.12em] text-white">
+                    {s.step}
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                    <p className="text-[14px] leading-[1.65] text-[#5f7286]">{s.body}</p>
+                  </div>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -533,7 +497,7 @@ export default function CustomHomesPage() {
       />
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-14 sm:py-16">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">
