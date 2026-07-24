@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,13 +21,11 @@ export const metadata: Metadata = {
 };
 
 const advantages = [
-  { icon: "👨‍👩‍👧", text: "Extra space for family members" },
-  { icon: "💰", text: "Rental income potential" },
-  { icon: "📈", text: "Adds property value" },
-  { icon: "🔄", text: "Flexible use — office, studio, or guest house" },
-  { icon: "💡", text: "Cost-effective vs. buying a second property" },
-  { icon: "🏛️", text: "Council compliance expertise" },
-  { icon: "✅", text: "Quality assurance and warranty coverage" },
+  { icon: "👤", text: "Dedicated Project Manager" },
+  { icon: "📡", text: "Real-Time Progress Updates" },
+  { icon: "🎨", text: "Professional Design Consultation" },
+  { icon: "🏛️", text: "Council Compliance Expertise" },
+  { icon: "✅", text: "Quality Assurance & Warranty Coverage" },
 ];
 
 const standards = [
@@ -189,6 +195,20 @@ export default function GrannyFlatsPage() {
         </Container>
       </section>
 
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/t-granny-970x1024.png"
+        imageAlt="Granny Flats Guide"
+        bookTitle="Homeowner’s Guide to Granny Flats and Minor Dwellings in Auckland"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
+
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
@@ -214,6 +234,14 @@ export default function GrannyFlatsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -253,6 +281,67 @@ export default function GrannyFlatsPage() {
                 </AnimateOnScroll>
               ))}
             </ul>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect
+        image="/services/sandringham-bedroom-renovation-683x1024.webp"
+        imageAlt="Cozy bedroom setup"
+      />
+
+      {/* ── WHY CHOOSE JRA FOR YOUR GRANNY FLAT ──────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-5">
+            <p className="section-tab w-fit">Why JRA</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
+              Why Choose JRA Construction for Your Granny Flat?
+            </h2>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              Building a granny flat in Auckland involves more than just good design&mdash;it requires a
+              builder who understands council rules, local site conditions, and how to make the most of
+              limited space. That&apos;s where JRA Construction comes in.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              We&apos;re a residential builder with years of experience delivering high-quality builds
+              across Auckland. Our team is hands-on from day one, helping you plan and build a granny
+              flat that fits your section and your needs. We handle the details&mdash;consents,
+              timelines, and coordination&mdash;so you can focus on how the space will work for you and
+              your family.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              Whether you want a compact, modern flat or something that complements your main home,
+              we&apos;ll work with you to bring it to life. Our approach is collaborative, transparent,
+              and focused on getting things done right the first time.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="/why-choose-us"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+              >
+                Read More <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-left" delay={150}>
+            <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+              <Image
+                src="/services/Media-Corner-Nook-1024x683.webp"
+                alt="Cozy Media Corner"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </AnimateOnScroll>
         </Container>
       </section>
@@ -308,8 +397,30 @@ export default function GrannyFlatsPage() {
               </AnimateOnScroll>
             ))}
           </div>
+
+          <AnimateOnScroll variant="fade-up" delay={100}>
+            <p className="mx-auto mt-10 max-w-3xl text-center text-[16px] leading-[1.7] text-[#4d6277]">
+              Some people call them minor dwellings or secondary units. Whether you&apos;re thinking
+              about a granny flat or a house with granny flat, the idea is the same&mdash;more usable
+              space on your existing land. In Auckland, there are specific council rules around size,
+              placement, and access, so it&apos;s important to plan with those in mind.
+            </p>
+          </AnimateOnScroll>
         </Container>
       </section>
+
+      {/* ── FEATURED GRANNY FLAT GALLERY ─────────────────────────── */}
+      <FeaturedGallery
+        heading="Featured Granny Flat"
+        images={[
+          { src: "/services/Cabin-Facade-Wooded-683x1024.webp", alt: "Standalone dwelling exterior" },
+          { src: "/services/Media-Corner-Nook-1024x683.webp", alt: "Cozy Media Corner" },
+          { src: "/services/eden-renovation-lounge-1024x683.webp", alt: "Comfortable lounge interior" },
+          { src: "/services/sandringham-bedroom-renovation-683x1024.webp", alt: "Cozy bedroom setup" },
+          { src: "/services/leonards-bedroom-renovation-1024x700.jpg", alt: "Elegant master bedroom interior" },
+          { src: "/services/sandringham-project-bookshelf-683x1024.webp", alt: "Custom bookshelf detail" },
+        ]}
+      />
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
@@ -367,6 +478,12 @@ export default function GrannyFlatsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

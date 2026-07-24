@@ -11,7 +11,7 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 const WIDGET_SRC =
   "https://reputationhub.site/reputation/widgets/review_widget/J3MyzsoPYhafh3FWfabM";
 
-export function Testimonials() {
+export function Testimonials({ heading = "Don't Take Our Word For It" }: { heading?: string }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = useState(false);
 
@@ -39,7 +39,7 @@ export function Testimonials() {
       <Container>
         <AnimateOnScroll variant="fade-up" className="space-y-4 text-center">
           <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[56px]">
-            Don&apos;t Take Our Word For It
+            {heading}
           </h2>
         </AnimateOnScroll>
 

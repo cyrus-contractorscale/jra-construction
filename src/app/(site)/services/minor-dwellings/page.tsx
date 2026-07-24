@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,13 +21,11 @@ export const metadata: Metadata = {
 };
 
 const advantages = [
-  { icon: "👨‍👩‍👧‍👦", text: "Multi-generational living — keep family close" },
-  { icon: "💰", text: "Rental income — long- or short-term" },
-  { icon: "🏢", text: "Work-from-home setup or creative studio" },
-  { icon: "🏨", text: "Guest space with full independence" },
-  { icon: "📈", text: "Increase property value" },
-  { icon: "🔮", text: "Future-proof your home" },
-  { icon: "✅", text: "Quality assurance and warranty coverage" },
+  { icon: "👤", text: "Dedicated Project Manager" },
+  { icon: "📡", text: "Real-Time Progress Updates" },
+  { icon: "🎨", text: "Professional Design Consultation" },
+  { icon: "🏛️", text: "Council Compliance Expertise" },
+  { icon: "✅", text: "Quality Assurance & Warranty Coverage" },
 ];
 
 const standards = [
@@ -190,6 +196,20 @@ export default function MinorDwellingsPage() {
         </Container>
       </section>
 
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/t-granny-970x1024.png"
+        imageAlt="Granny Flats Guide"
+        bookTitle="Homeowner’s Guide to Granny Flats and Minor Dwellings in Auckland"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
+
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
@@ -215,6 +235,14 @@ export default function MinorDwellingsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -254,6 +282,57 @@ export default function MinorDwellingsPage() {
                 </AnimateOnScroll>
               ))}
             </ul>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect
+        image="/services/Rustic-Faucets-819x1024.webp"
+        imageAlt="Vintage Brass Faucets"
+      />
+
+      {/* ── WHY CONSIDER A MINOR DWELLING ────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-5">
+            <p className="section-tab w-fit">Smart Investment</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
+              Why Consider Building a Minor Dwelling in Auckland?
+            </h2>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              Adding a minor dwelling in Auckland is a smart way to improve how your property works for
+              your family. It creates space without needing to buy a second property&mdash;and offers
+              privacy while staying connected. Whether you&apos;re housing extended family or giving
+              older children their own space, the benefits are practical and long-term.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              A minor dwelling also opens the door to future possibilities. You can rent it out or
+              repurpose it over time, depending on your needs. It&apos;s a flexible solution that works
+              with Auckland&apos;s changing housing landscape.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              With councils supporting smarter land use and infill housing, building a minor dwelling
+              can also contribute to more livable, connected Auckland neighbourhoods.
+            </p>
+            <Link
+              href="/estimate"
+              className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+            >
+              Free Online Estimate <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-left" delay={150}>
+            <div className="relative mx-auto aspect-[2/3] w-full max-w-[400px] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+              <Image
+                src="/services/Decorative-Bathroom-683x1024.webp"
+                alt="Luxurious Patterned Bathroom"
+                fill
+                className="object-cover"
+                sizes="400px"
+              />
+            </div>
           </AnimateOnScroll>
         </Container>
       </section>
@@ -312,6 +391,64 @@ export default function MinorDwellingsPage() {
         </Container>
       </section>
 
+      {/* ── WHY WORK WITH JRA ────────────────────────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Why JRA</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Why Work with JRA Construction for Your Minor Dwelling Project?
+            </h2>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Building a minor dwelling in Auckland involves more than just putting up a small
+              home&mdash;it requires experience, planning, and a deep understanding of local council
+              rules. JRA Construction has been working with homeowners across Auckland to deliver
+              well-built, fully consented minor dwellings that match their needs and maximise the
+              potential of their property.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              We take the time to understand your goals, your site, and your budget. From there, we
+              manage the entire process&mdash;from concept and council approvals to construction and
+              final walkthrough. Our team knows how to make tight spaces feel spacious and how to handle
+              tricky site constraints.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              What sets us apart is our practical approach, clear communication, and focus on quality.
+              We make sure your additional dwelling unit blends seamlessly with your main dwelling
+              house, both functionally and visually. Whether it&apos;s a rental unit, a place for
+              family, or a long-term investment, we&apos;ll build it to last.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 pt-2">
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+              <Link
+                href="/why-choose-us"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+              >
+                Read More <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── FEATURED MINOR DWELLINGS GALLERY ─────────────────────── */}
+      <FeaturedGallery
+        heading="Featured Minor Dwellings"
+        images={[
+          { src: "/services/Cabin-Facade-Wooded-683x1024.webp", alt: "Standalone dwelling exterior" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-08-1024x683.jpg", alt: "Te Wiata Place Avondale project" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-09-1024x682.jpg", alt: "Te Wiata Place Avondale interior" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-13-1024x682.jpg", alt: "Te Wiata Place Avondale living space" },
+          { src: "/services/taipari-road-te-atatu07-673a8cab8f4c5-1-1024x536.webp", alt: "Suburban Residence Exterior" },
+          { src: "/services/stylish-home-deck.jpg", alt: "Stylish home deck" },
+        ]}
+      />
+
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
@@ -368,6 +505,12 @@ export default function MinorDwellingsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

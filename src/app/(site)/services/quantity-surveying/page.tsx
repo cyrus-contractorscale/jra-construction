@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -52,6 +60,40 @@ const faqs = [
   { q: "How do you handle cost variations during construction?", a: "All changes are processed through formal variation registers with full cost impact analysis and client sign-off, maintaining contractual compliance and budget control." },
   { q: "Do you work with our existing architect and builder?", a: "Yes — our integrated project delivery model ensures cost alignment across all disciplines for seamless execution." },
   { q: "What documentation do you provide for cost tracking?", a: "Comprehensive monthly cost reports including budget vs actual analysis, progress claim summaries, and forecast-to-complete dashboards." },
+];
+
+const journeyItems = [
+  "Initial project feasibility and budget development using elemental cost planning",
+  "Detailed material take-offs and labour estimates verified against market rate databases",
+  "Tender documentation preparation and bid evaluation using competitive analysis",
+  "Contract cost analysis and recommendations aligned with NZS 3910 contract standards",
+  "Progress payment verification through on-site valuation inspections",
+  "Variation assessment and cost impact modelling",
+  "Final account preparation and reconciliation reporting",
+];
+
+const trustItems = [
+  "Chartered quantity surveyors (NZIQS-affiliated)",
+  "In-depth Auckland construction market intelligence",
+  "Transparent cost reporting through digital financial dashboards",
+  "Value engineering reviews and cost optimisation strategies",
+  "Fixed-price contract protection and variation management",
+];
+
+const oversightItems = [
+  "Pre-construction cost planning and budget modelling",
+  "Real-time expenditure monitoring using construction cost control software",
+  "Progress claim assessment and payment certification",
+  "Change order review and budget re-forecasting",
+  "Final account reconciliation and close-out documentation",
+];
+
+const proactiveItems = [
+  "Monthly budget performance reviews",
+  "Cost variance trend analysis and early-warning reporting",
+  "Payment milestone verification and retention tracking",
+  "Supplier rate negotiation and procurement review",
+  "Fixed-price contract protection and variation management",
 ];
 
 const consultItems = [
@@ -189,16 +231,30 @@ export default function QuantitySurveyingPage() {
         </Container>
       </section>
 
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/JRA-Custom-Home-ebook.png"
+        imageAlt="Custom Home Brochure"
+        bookTitle="Build Your Custom Home"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
+
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
           <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
             <p className="section-tab mx-auto w-fit mb-4">The JRA Advantage</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Your Financial Management Journey
+              Your Home, Your Way
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[17px] text-[#5f7286]">
-              A comprehensive scope of cost management services keeping your project financially on track.
+              Our advanced client communication system keeps you connected to every stage of your build.
             </p>
           </AnimateOnScroll>
 
@@ -214,6 +270,14 @@ export default function QuantitySurveyingPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -253,6 +317,63 @@ export default function QuantitySurveyingPage() {
                 </AnimateOnScroll>
               ))}
             </ul>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect
+        image="/services/6406b86736711b0d60253049_JRA-Ward-Final-Website-Ready-46-p-800-768x1152.jpg"
+        imageAlt="Auckland Home Quantity Surveying"
+      />
+
+      {/* ── FINANCIAL MANAGEMENT JOURNEY + WHY TRUST ─────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <AnimateOnScroll variant="fade-right">
+            <div className="space-y-5">
+              <p className="section-tab w-fit">End-To-End Oversight</p>
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
+                Your Financial Management Journey
+              </h2>
+              <p className="text-[16px] leading-[1.65] text-[#4d6277]">
+                Our comprehensive scope of cost management services keeps your project financially on track at every stage:
+              </p>
+              <ul className="space-y-3">
+                {journeyItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
+                    <CheckIcon />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-left" delay={150}>
+            <div className="space-y-5">
+              <p className="section-tab w-fit">Proven Expertise</p>
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
+                Why Trust JRA&apos;s Cost Expertise
+              </h2>
+              <p className="text-[16px] leading-[1.65] text-[#4d6277]">
+                Every project benefits from professional cost governance delivered by:
+              </p>
+              <ul className="space-y-3">
+                {trustItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
+                    <CheckIcon />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </AnimateOnScroll>
         </Container>
       </section>
@@ -318,6 +439,62 @@ export default function QuantitySurveyingPage() {
         </Container>
       </section>
 
+      {/* ── COMPREHENSIVE OVERSIGHT + PROACTIVE MANAGEMENT ───────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-12">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <AnimateOnScroll variant="fade-right">
+              <div className="space-y-5">
+                <p className="section-tab w-fit">Full Visibility</p>
+                <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
+                  Comprehensive Financial Oversight
+                </h2>
+                <p className="text-[16px] leading-[1.65] text-[#4d6277]">
+                  From the first feasibility study through to handover, our oversight framework covers every dollar of your build:
+                </p>
+                <ul className="space-y-3">
+                  {oversightItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
+                      <CheckIcon />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll variant="fade-left" delay={150}>
+              <div className="space-y-5">
+                <p className="section-tab w-fit">Staying Ahead</p>
+                <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-[1.12] tracking-tight text-[#293a57] sm:text-[38px]">
+                  Proactive Financial Management
+                </h2>
+                <p className="text-[16px] leading-[1.65] text-[#4d6277]">
+                  We don&apos;t just report on costs — we actively manage them to keep your budget protected:
+                </p>
+                <ul className="space-y-3">
+                  {proactiveItems.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
+                      <CheckIcon />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          <AnimateOnScroll variant="fade-up" className="text-center">
+            <Link
+              href="/why-choose-us"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            >
+              Read More <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
@@ -356,8 +533,21 @@ export default function QuantitySurveyingPage() {
         </Container>
       </section>
 
+      {/* ── FEATURED QUANTITY SURVEYING GALLERY ──────────────────── */}
+      <FeaturedGallery
+        heading="Featured Quantity Surveying"
+        images={[
+          { src: "/services/construction-project-space.webp", alt: "Construction project in progress" },
+          { src: "/services/Neighborhood-Development-1024x682.webp", alt: "New build development" },
+          { src: "/services/taipari-road-te-atatu07-673a8cab8f4c5-1-1024x536.webp", alt: "Suburban Residence Exterior" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-08-1024x683.jpg", alt: "Avondale project exterior" },
+          { src: "/services/stylish-home-deck.jpg", alt: "Stylish home deck" },
+          { src: "/services/DSC00888-HDR-1-sharpen-1024x683.jpg", alt: "Architecturally designed residence" },
+        ]}
+      />
+
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
             <p className="section-tab mx-auto w-fit">FAQs</p>
@@ -375,8 +565,14 @@ export default function QuantitySurveyingPage() {
         </Container>
       </section>
 
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
+
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-10">
+      <section className="bg-white py-10">
         <Container className="text-center">
           <Link
             href="/services"

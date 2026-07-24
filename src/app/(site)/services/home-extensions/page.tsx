@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -191,6 +199,20 @@ export default function HomeExtensionsPage() {
         </Container>
       </section>
 
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/3d-Home-Extension-Guide-1024x819.png"
+        imageAlt="Home Extension Guide"
+        bookTitle="The Ultimate Guide To Home Extension In Auckland"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
+
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
@@ -216,6 +238,14 @@ export default function HomeExtensionsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -256,6 +286,60 @@ export default function HomeExtensionsPage() {
               ))}
             </ul>
           </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect image="/services/Te-Wiata-Place-Avondale-Project-13-1024x682.jpg" imageAlt="Best home extensions Auckland" />
+
+      {/* ── WITHOUT THE STRESS OF MOVING ─────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-12">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Our Portfolio</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              House Extensions in Auckland Without the Stress of Moving
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <AnimateOnScroll variant="fade-right" className="space-y-5">
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Transform your living space without leaving the neighbourhood you love. We specialise in
+                Auckland house extensions that blend with the existing home while improving layout,
+                light, and resale value.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                From our Balmoral living and kitchen extension work to our Avondale bedroom rebuild, and
+                projects across Mount Eden, Point Chevalier, Waterview, and Sandringham, we understand
+                how to add space in established Auckland suburbs.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Whether you are planning a simple bedroom extension, open-plan rear addition, or full
+                house transformation, our digital-first process keeps everything visible from design
+                through handover. If you are still researching options, start with our home extensions
+                guide, then book a consultation when you want advice tailored to your home and budget.
+              </p>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll variant="fade-left" delay={150}>
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+                <Image
+                  src="/services/Te-Wiata-Place-Avondale-Project-09-1024x682.jpg"
+                  alt="Avondale home extension project"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </AnimateOnScroll>
+          </div>
         </Container>
       </section>
 
@@ -320,6 +404,84 @@ export default function HomeExtensionsPage() {
         </Container>
       </section>
 
+      {/* ── QUALITY GUARANTEE ────────────────────────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Our Promise</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Quality Guarantee
+            </h2>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              As Registered Master Builders, our work comes with comprehensive 10-year guarantees, full
+              professional indemnity, and contract works insurance. This means your house extension
+              Auckland project is protected against defects in materials and workmanship, giving you
+              complete peace of mind about your investment.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Our membership with the Registered Master Builders Association also means we adhere to the
+              highest industry standards and best practices in construction. Additionally, we maintain
+              strict quality control through our 287-point checklist system, ensuring every aspect of
+              your home addition meets our exacting standards before handover.
+            </p>
+            <Link
+              href="/why-choose-us"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            >
+              Read More <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── PROJECT MANAGEMENT EXCELLENCE ────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-10">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Digital-First Approach</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Project Management Excellence
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: "🖥️", text: "24/7 Access to Project Portal" },
+              { icon: "📡", text: "Live Updates and Progress Tracking" },
+              { icon: "📁", text: "Document Management" },
+              { icon: "💬", text: "Direct Communication Channel" },
+            ].map((item, i) => (
+              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
+                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
+                  <span className="text-2xl">{item.icon}</span>
+                  <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          <AnimateOnScroll variant="fade-up" delay={100} className="text-center">
+            <p className="mx-auto max-w-2xl text-[16px] leading-[1.7] text-[#4d6277]">
+              Perfect for living room extensions, second-storey additions, master suite expansions, and
+              full home additions across Auckland.
+            </p>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── FEATURED HOME EXTENSION GALLERY ──────────────────────── */}
+      <FeaturedGallery
+        heading="Featured Home Extension/Renovation"
+        images={[
+          { src: "/services/Te-Wiata-Place-Avondale-Project-08-1024x683.jpg", alt: "Auckland home extension" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-09-1024x682.jpg", alt: "Avondale project" },
+          { src: "/services/taipari-road-te-atatu07-673a8cab8f4c5-1-1024x536.webp", alt: "Suburban residence exterior" },
+          { src: "/services/mount-eden-woodwork-1024x682.webp", alt: "Wooden paneling detail" },
+          { src: "/services/leonards-bedroom-renovation-1024x700.jpg", alt: "Elegant master bedroom interior" },
+          { src: "/services/sandringham-bedroom-renovation-683x1024.webp", alt: "Cozy bedroom setup" },
+        ]}
+      />
+
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
@@ -376,6 +538,12 @@ export default function HomeExtensionsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

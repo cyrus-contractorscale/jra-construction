@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -75,11 +83,37 @@ const consultItems = [
   "Connection to our Preferred Partner Network",
 ];
 
+const faqs = [
+  { q: "How often should my home receive professional maintenance?", a: "Most homes benefit from quarterly maintenance cycles, though older or coastal properties may require more frequent inspection due to environmental exposure." },
+  { q: "What does a property condition report include?", a: "A comprehensive inspection of roofing, plumbing, electrical, weatherproofing, and structural elements — documented in a digital condition report with prioritised recommendations." },
+  { q: "Do you offer emergency maintenance services?", a: "Yes — we provide 24/7 emergency call-out services including make-safe repairs, leak remediation, and urgent weatherproofing." },
+  { q: "Can maintenance records help with insurance or resale?", a: "Absolutely. Our digital asset registers give you a verifiable record of upkeep for insurance, warranty, and resale documentation purposes." },
+  { q: "Are your maintenance professionals licensed and insured?", a: "All work is carried out by Licensed Building Practitioners (LBPs) and insured maintenance professionals, adhering to Master Builders and Healthy Homes Standards." },
+];
+
 function CheckIcon() {
   return (
     <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-400 text-[11px] text-emerald-400">
       ✓
     </span>
+  );
+}
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  return (
+    <details className="group rounded-2xl border border-[#eef2f6] bg-white transition-all duration-300 open:border-[#293a57] open:bg-[#293a57] open:shadow-lg open:shadow-[#293a57]/15">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 sm:px-7 sm:py-6">
+        <span className="text-[16px] font-semibold leading-snug text-[#293a57] group-open:text-white sm:text-[17px]">
+          {q}
+        </span>
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#eef2f6] text-xl font-light text-[#293a57] transition-all duration-300 group-open:rotate-45 group-open:bg-white/15 group-open:text-white">
+          +
+        </span>
+      </summary>
+      <div className="border-t border-white/10 px-6 pb-6 pt-4 sm:px-7">
+        <p className="text-[15px] leading-[1.65] text-white/80 sm:text-[16px]">{a}</p>
+      </div>
+    </details>
   );
 }
 
@@ -182,6 +216,20 @@ export default function HomeMaintenancePage() {
         </Container>
       </section>
 
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/JRA-Custom-Home-ebook.png"
+        imageAlt="Custom Home Brochure"
+        bookTitle="Build Your Custom Home"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
+
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
@@ -207,6 +255,14 @@ export default function HomeMaintenancePage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -250,8 +306,14 @@ export default function HomeMaintenancePage() {
         </Container>
       </section>
 
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect
+        image="/services/Media-Corner-Nook-1024x683.webp"
+        imageAlt="Cozy Media Corner"
+      />
+
       {/* ── CARE PROGRAMME + WHY CHOOSE ──────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
@@ -270,6 +332,12 @@ export default function HomeMaintenancePage() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </AnimateOnScroll>
 
@@ -302,7 +370,7 @@ export default function HomeMaintenancePage() {
       </section>
 
       {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-16 sm:py-20">
+      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
         <Container className="space-y-14">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <p className="section-tab mx-auto w-fit">How It Works</p>
@@ -317,7 +385,7 @@ export default function HomeMaintenancePage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {processSteps.map((s, i) => (
               <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
+                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
                   <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
                   <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
                   <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
@@ -357,6 +425,12 @@ export default function HomeMaintenancePage() {
               <p className="text-[15px] leading-[1.65] text-[#4d6277]">
                 Each inspection covers weathertightness, safety systems, and energy efficiency components, ensuring alignment with NZS 4299 and MBIE guidance on residential property maintenance.
               </p>
+              <Link
+                href="/why-choose-us"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+              >
+                Read More <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </AnimateOnScroll>
         </Container>
@@ -400,8 +474,46 @@ export default function HomeMaintenancePage() {
         </Container>
       </section>
 
+      {/* ── FEATURED HOME MAINTENANCE GALLERY ────────────────────── */}
+      <FeaturedGallery
+        heading="Featured Home Maintenance"
+        images={[
+          { src: "/services/leonards-bedroom-renovation-1024x700.jpg", alt: "Elegant master bedroom interior" },
+          { src: "/services/eden-renovation-lounge-1024x683.webp", alt: "Renovated lounge interior" },
+          { src: "/services/mount-eden-woodwork-1024x682.webp", alt: "Mount Eden woodwork detail" },
+          { src: "/services/saint-leonards-interior-1024x683.webp", alt: "Saint Leonards interior" },
+          { src: "/services/Rustic-Faucets-819x1024.webp", alt: "Rustic bathroom faucets" },
+          { src: "/services/Kitchen-Island-Interior-1024x683.webp", alt: "Kitchen island interior" },
+        ]}
+      />
+
+      {/* ── FAQ ──────────────────────────────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="max-w-3xl space-y-8">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
+            <p className="section-tab mx-auto w-fit">FAQs</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">
+              Frequently Asked Questions
+            </h2>
+          </AnimateOnScroll>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <AnimateOnScroll key={faq.q} variant="fade-up" delay={i * 80}>
+                <FaqItem q={faq.q} a={faq.a} />
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
+
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-10">
+      <section className="bg-white py-10">
         <Container className="text-center">
           <Link
             href="/services"

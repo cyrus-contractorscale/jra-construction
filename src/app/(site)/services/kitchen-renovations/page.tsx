@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,6 +28,7 @@ const advantages = [
   { icon: "🍳", text: "Smart appliance coordination" },
   { icon: "🔥", text: "Gas fitting and ventilation planning" },
   { icon: "💡", text: "Contemporary lighting integration" },
+  { icon: "✅", text: "Expert kitchen renovation quality checks" },
 ];
 
 const standards = [
@@ -46,6 +55,7 @@ const qualityPoints = [
   { icon: "🚪", title: "Bespoke Storage Solutions", body: "Custom cabinetry and pantry designs tailored to your cooking and entertaining habits." },
   { icon: "⚡", title: "Licensed Electricians", body: "All electrical work completed by certified professionals to the highest safety standards." },
   { icon: "🔧", title: "Certified Plumbers", body: "Expert plumbers handle all water connections, gas fittings, and drainage requirements." },
+  { icon: "🛠️", title: "Expert Installers", body: "Specialist installers for cabinetry, benchtops, and splashbacks deliver a flawless finish." },
 ];
 
 const faqs = [
@@ -173,7 +183,7 @@ export default function KitchenRenovationsPage() {
           <AnimateOnScroll variant="fade-left" delay={150}>
             <div className="space-y-5">
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Crafting Your Dream Auckland Kitchen
+                Kitchen Renovations Are Our Specialty
               </h2>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
                 Kitchen renovations in Auckland is our specialty. Creating exceptional spaces takes more than just construction expertise — it demands innovative kitchen design and meticulous planning. Our passion for modern kitchen designs drives every project, transforming ordinary kitchens into extraordinary living spaces.
@@ -190,6 +200,20 @@ export default function KitchenRenovationsPage() {
           </AnimateOnScroll>
         </Container>
       </section>
+
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/JRA-Home-Reno-PDF.png"
+        imageAlt="Auckland Renovation Guide Book"
+        bookTitle="The Ultimate Guide to Home Renovation in Auckland"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
 
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
@@ -216,6 +240,14 @@ export default function KitchenRenovationsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -256,6 +288,63 @@ export default function KitchenRenovationsPage() {
               ))}
             </ul>
           </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect image="/services/kitchen-interior-1024x683.webp" imageAlt="Stylish kitchen setup" />
+
+      {/* ── CRAFTING YOUR DREAM KITCHEN ──────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-12">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Our Portfolio</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Crafting Your Dream Auckland Kitchen
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <AnimateOnScroll variant="fade-right" className="space-y-5">
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                When it comes to Auckland kitchen makeovers, our portfolio showcases transformative
+                solutions across diverse homes and styles. From heritage villas to contemporary
+                apartments, we understand how to blend new-style kitchen elements with existing
+                architecture, incorporating features like kitchen islands and open-plan layouts that
+                suit modern living, creating spaces that feel both fresh and timeless.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Our expertise in kitchen renovations spans compact galley layouts to expansive
+                entertaining spaces. Each project begins with understanding your unique kitchen concepts
+                and lifestyle needs, ensuring every element&mdash;from cabinetry to lighting&mdash;enhances
+                both functionality and aesthetic appeal.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                By combining innovative modern kitchen solutions with practical layouts, we create
+                spaces that work as beautifully as they look. Whether you&apos;re planning a complete
+                transformation or targeted updates, our team brings creative vision and technical
+                expertise to every project.
+              </p>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll variant="fade-left" delay={150}>
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+                <Image
+                  src="/services/Kitchen-Island-Interior-1024x683.webp"
+                  alt="Elegant kitchen design"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </AnimateOnScroll>
+          </div>
         </Container>
       </section>
 
@@ -320,6 +409,51 @@ export default function KitchenRenovationsPage() {
         </Container>
       </section>
 
+      {/* ── QUALITY ASSURANCE ────────────────────────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Our Promise</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Quality Assurance
+            </h2>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Trust and craftsmanship define every Auckland kitchen renovation project we undertake. As
+              Master Builders, our work is backed by industry-leading guarantees, comprehensive
+              insurance, and a reputation for excellence. Each renovation undergoes our rigorous quality
+              control procedures, ensuring every detail&mdash;from cabinet installation to electrical
+              fittings&mdash;meets the highest standards of safety and finish.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              We stand behind our work long after project completion. Our dedicated aftercare programme
+              includes maintenance schedules, care guides for your new fixtures and surfaces, and
+              priority support for any questions you may have. This commitment to lasting quality,
+              combined with our thorough documentation and inspection protocols, ensures your kitchen
+              will maintain its beauty and functionality for years to come.
+            </p>
+            <Link
+              href="/why-choose-us"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            >
+              Read More <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── FEATURED KITCHEN RENOVATION GALLERY ──────────────────── */}
+      <FeaturedGallery
+        heading="Featured Kitchen Renovation"
+        images={[
+          { src: "/services/kitchen-interior-1024x683.webp", alt: "Stylish kitchen setup" },
+          { src: "/services/Kitchen-Island-Interior-1024x683.webp", alt: "Elegant kitchen design" },
+          { src: "/services/saint-leonards-interior-1024x683.webp", alt: "Elegant dining area" },
+          { src: "/services/Media-Corner-Nook-1024x683.webp", alt: "Cozy media corner" },
+          { src: "/services/mount-eden-woodwork-1024x682.webp", alt: "Wooden paneling detail" },
+          { src: "/services/Living-Room-Renovations-1024x683.webp", alt: "Modern open-plan living" },
+        ]}
+      />
+
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
         id="consultation"
@@ -376,6 +510,12 @@ export default function KitchenRenovationsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

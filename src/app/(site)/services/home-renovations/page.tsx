@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -191,6 +199,20 @@ export default function HomeRenovationsPage() {
         </Container>
       </section>
 
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/JRA-Home-Reno-PDF.png"
+        imageAlt="Auckland Renovation Guide Book"
+        bookTitle="The Ultimate Guide to Home Renovation in Auckland"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
+
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
@@ -216,6 +238,14 @@ export default function HomeRenovationsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -256,6 +286,65 @@ export default function HomeRenovationsPage() {
               ))}
             </ul>
           </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect image="/services/sandringham-project-bookshelf-683x1024.webp" imageAlt="Renovated study area" />
+
+      {/* ── EXPERIENCE THE DIFFERENCE ────────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-12">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Our Portfolio</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Experience the Difference in Auckland Home Renovations
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <AnimateOnScroll variant="fade-right" className="space-y-5">
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                When it comes to renovations Auckland, our portfolio showcases transformative projects
+                across the city&apos;s diverse neighbourhoods, from coastal Muriwai to urban centres. Our
+                expertise ranges from renovating an old house in heritage areas to enhancing outdoor
+                living spaces, demonstrating our versatility in handling house renovations Auckland of
+                any scale or style.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                As specialists in household renovations, we&apos;ve successfully transformed everything from
+                classic villas to contemporary homes, including comprehensive outdoor renovations that
+                harmoniously blend with natural surroundings. Our Muriwai project exemplifies this
+                approach, where we enhanced the property&apos;s functionality while ensuring every
+                element&mdash;from new fencing to storage solutions&mdash;complemented the natural environment.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Our comprehensive approach combines innovative design solutions with practical
+                craftsmanship, ensuring every renovation enhances both the aesthetic appeal and
+                functionality of your space. This attention to detail and respect for the environment
+                has helped us deliver results that exceed expectations while preserving the natural
+                beauty of each location.
+              </p>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll variant="fade-left" delay={150}>
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+                <Image
+                  src="/services/saint-leonards-interior-1024x683.webp"
+                  alt="Elegant dining area"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </AnimateOnScroll>
+          </div>
         </Container>
       </section>
 
@@ -301,6 +390,15 @@ export default function HomeRenovationsPage() {
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
                 Our team works closely with heritage architects and council heritage advisors to ensure any changes preserve the original character. From restoring ornate ceilings and timber floors to matching century-old mouldings, we take care to retain the charm that makes your home unique — while discreetly integrating modern amenities.
               </p>
+              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
+                Our experience with heritage home renovations means we understand the permit and consent processes that come with them. We prepare all necessary documentation for resource consents when altering protected structures and adhere to Heritage New Zealand guidelines during construction. JRA&apos;s knowledgeable, careful approach ensures your renovated character home meets today&apos;s standards for safety and livability, all while honouring the architecture and story of the original building.
+              </p>
+              <Link
+                href="/why-choose-us"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+              >
+                Read More <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </AnimateOnScroll>
 
@@ -319,6 +417,19 @@ export default function HomeRenovationsPage() {
           </AnimateOnScroll>
         </Container>
       </section>
+
+      {/* ── FEATURED HOME RENOVATION GALLERY ─────────────────────── */}
+      <FeaturedGallery
+        heading="Featured Home Renovation"
+        images={[
+          { src: "/services/eden-renovation-lounge-1024x683.webp", alt: "Living room renovation" },
+          { src: "/services/saint-leonards-interior-1024x683.webp", alt: "Elegant dining area" },
+          { src: "/services/leonards-bedroom-renovation-1024x700.jpg", alt: "Elegant master bedroom interior" },
+          { src: "/services/sandringham-bedroom-renovation-683x1024.webp", alt: "Cozy bedroom setup" },
+          { src: "/services/Living-Room-Renovations-1024x683.webp", alt: "Modern living room" },
+          { src: "/services/Media-Corner-Nook-1024x683.webp", alt: "Cozy media corner" },
+        ]}
+      />
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
@@ -376,6 +487,12 @@ export default function HomeRenovationsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

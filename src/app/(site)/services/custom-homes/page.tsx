@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -192,6 +200,20 @@ export default function CustomHomesPage() {
         </Container>
       </section>
 
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/JRA-Custom-Home-ebook.png"
+        imageAlt="Custom Home Brochure"
+        bookTitle="Build Your Custom Home"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
+
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
@@ -217,6 +239,14 @@ export default function CustomHomesPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -256,6 +286,107 @@ export default function CustomHomesPage() {
                 </AnimateOnScroll>
               ))}
             </ul>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect image="/services/Cabin-Facade-Wooded-683x1024.webp" imageAlt="Wooded Cabin Facade" />
+
+      {/* ── BRINGING YOUR DREAM HOME TO LIFE ─────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-12">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Our Portfolio</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Bringing Your Dream Home to Life
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <AnimateOnScroll variant="fade-right" className="space-y-5">
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Our portfolio of new build developments Auckland showcases the depth of our expertise and
+                commitment to excellence, incorporating sustainable, energy-efficient materials and
+                innovative technologies, as demonstrated in our{" "}
+                <Link href="/project/tiri-road-whangaparaoa" className="font-semibold text-[#293a57] underline decoration-[#293a57]/30 underline-offset-2 hover:decoration-[#293a57]">
+                  Whangaparāoa build
+                </Link>
+                . From our Regional Silver Award-winning project in Whangaparāoa to our architecturally
+                designed dual residences in Queensway, each home demonstrates our ability to bring unique
+                visions to life.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Working alongside renowned architects like Alignworks and ICR Studio Architectural Design,
+                we create new homes Auckland that harmoniously blend sophisticated design with practical
+                living. Our recent Tiri Road project exemplifies this approach, where meticulous attention
+                to detail resulted in an exquisite residence that maximises natural light and seamlessly
+                connects indoor and outdoor spaces.
+              </p>
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Every new build houses Auckland project benefits from our comprehensive approach to
+                construction. Whether we&apos;re incorporating sustainable materials and innovative
+                technologies, as demonstrated in our Whangaparāoa build, or creating multiple
+                architecturally designed residences like our Queensway development, we ensure every aspect
+                meets our exacting standards.
+              </p>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll variant="fade-left" delay={150}>
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+                <Image
+                  src="/services/Neighborhood-Development-1024x682.webp"
+                  alt="Suburban Construction View"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          <AnimateOnScroll variant="fade-up" delay={100}>
+            <div className="mx-auto max-w-4xl rounded-2xl border border-[#e8edf2] bg-white p-8 shadow-[0_8px_32px_rgba(41,58,87,0.08)] sm:p-10">
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                Throughout your new build journey, our advanced client communication system keeps you
+                informed and involved. From groundwork to final touches, you&apos;ll have instant access to:
+              </p>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {[
+                  "Daily site progress updates and photo documentation",
+                  "Material selection approvals and tracking",
+                  "Building consent status and compliance documents",
+                  "Direct messaging with your dedicated build team",
+                  "Construction schedule and milestone tracking",
+                  "Budget management and cost breakdowns",
+                  "Virtual site walk-throughs and progress reports",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[15px] text-[#2d4560]">
+                    <CheckIcon />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-[16px] leading-[1.7] text-[#4d6277]">
+                Whether you&apos;re creating a compact urban dwelling or an expansive family residence, our
+                transparent approach ensures you&apos;re always in control of your building journey. From
+                foundation to final handover, every detail of your new home&apos;s progress is documented
+                and accessible, eliminating guesswork and providing peace of mind throughout the
+                construction process.
+              </p>
+              <Link
+                href="/estimate"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </AnimateOnScroll>
         </Container>
       </section>
@@ -345,8 +476,12 @@ export default function CustomHomesPage() {
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Building Excellence Guaranteed
             </h2>
-            <p className="mx-auto max-w-2xl text-[17px] text-[#5f7286]">
-              Every new home comes with comprehensive Master Builders guarantees and a Code Compliance Certificate. Protection against structural defects for 10 years — absolute confidence in your investment.
+            <p className="mx-auto max-w-3xl text-[17px] leading-[1.7] text-[#5f7286]">
+              Every new home in Auckland comes with comprehensive Master Builders guarantees and is
+              delivered with a Code Compliance Certificate (CCC) from the council. This includes protection
+              against structural defects for 10 years, giving you absolute confidence in your investment.
+              Our membership in industry-leading associations ensures we maintain the highest construction
+              standards, while our extensive quality control system verifies every aspect of your build.
             </p>
           </AnimateOnScroll>
 
@@ -361,8 +496,30 @@ export default function CustomHomesPage() {
               </AnimateOnScroll>
             ))}
           </div>
+
+          <AnimateOnScroll variant="fade-up" className="text-center">
+            <Link
+              href="/why-choose-us"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            >
+              Read More <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
         </Container>
       </section>
+
+      {/* ── FEATURED CUSTOM HOME GALLERY ─────────────────────────── */}
+      <FeaturedGallery
+        heading="Featured Custom Home"
+        images={[
+          { src: "/services/Copy-of-2A3A2941-scaled.jpg", alt: "Custom home exterior" },
+          { src: "/services/Copy-of-2A3A2794-1024x683.jpg", alt: "Elegant outdoor space" },
+          { src: "/services/Copy-of-2A3A2787-1024x683.jpg", alt: "Custom home living area" },
+          { src: "/services/Seacombe-11-1024x683.jpg", alt: "Seacombe Road custom build" },
+          { src: "/services/Patio-Outdoor-Living-1024x683.webp", alt: "Modern patio design" },
+          { src: "/services/DSC00888-HDR-1-sharpen-1024x683.jpg", alt: "Architecturally designed residence" },
+        ]}
+      />
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
@@ -429,6 +586,12 @@ export default function CustomHomesPage() {
           </AnimateOnScroll>
         </Container>
       </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
 
       {/* ── NEXT STEPS / BACK TO SERVICES ────────────────────────── */}
       <section className="bg-white py-12 sm:py-14">

@@ -3,6 +3,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { Testimonials } from "@/components/sections/Testimonials";
+import {
+  ServiceVideo,
+  EbookCta,
+  WaysToConnect,
+  FeaturedGallery,
+  PlanningNextSteps,
+} from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -176,7 +184,7 @@ export default function BathroomRenovationsPage() {
                 Creating Exceptional Bathroom Solutions
               </h2>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Transform your bathroom into a stunning sanctuary with JRA Construction&apos;s bathroom renovation expertise. As specialists in Auckland bathroom renovations, we combine innovative New Zealand bathroom design principles with superior craftsmanship to create spaces that perfectly balance luxury with functionality.
+                Transform your bathroom into a stunning sanctuary with JRA Construction&apos;s bathroom renovations Auckland expertise. As specialists in Auckland bathroom renovations, we combine innovative New Zealand bathroom design principles with superior craftsmanship to create spaces that perfectly balance luxury with functionality, incorporating innovations like underfloor heating and high-efficiency ventilation to enhance comfort.
               </p>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
                 Our expertise spans everything from compact ensuites to luxury master bathrooms. Each project benefits from our detailed planning process, ensuring every element — from layout optimisation to fixture selection — works harmoniously to create your perfect bathroom.
@@ -190,6 +198,20 @@ export default function BathroomRenovationsPage() {
           </AnimateOnScroll>
         </Container>
       </section>
+
+      {/* ── E-BOOK CTA ───────────────────────────────────────────── */}
+      <EbookCta
+        image="/services/JRA-Home-Reno-PDF.png"
+        imageAlt="Auckland Renovation Guide Book"
+        bookTitle="The Ultimate Guide to Home Renovation in Auckland"
+      />
+
+      {/* ── VIDEO: BUSINESS SHOWCASE ─────────────────────────────── */}
+      <ServiceVideo
+        videoId="NAaXgHLW51Q"
+        title="JRA Construction | Business Showcase"
+        eyebrow="See JRA In Action"
+      />
 
       {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
@@ -216,6 +238,14 @@ export default function BathroomRenovationsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+        background="gray"
+      />
 
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
@@ -259,6 +289,61 @@ export default function BathroomRenovationsPage() {
         </Container>
       </section>
 
+      {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
+      <WaysToConnect
+        image="/services/westminster-bathroom-design-683x1024.webp"
+        imageAlt="Stylish bathroom renovation"
+      />
+
+      {/* ── BATHROOM REMODELING SOLUTIONS ────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right" className="space-y-5">
+            <p className="section-tab w-fit">Our Expertise</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
+              Creating Exceptional Bathroom Remodeling Auckland Solutions
+            </h2>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              With decades of experience in bathroom remodeling in Auckland, we specialise in elevating
+              ordinary bathrooms into sophisticated retreats. From bathroom renovation projects in
+              heritage villas to shower renovation solutions in contemporary homes, installing frameless
+              glass showers in tight en-suites to designing spa-like retreats in larger bathrooms, we
+              understand how to maximise space while creating stunning results.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              Our expertise in bathroom reconstruction spans everything from compact ensuites to luxury
+              master bathrooms. Each project benefits from our detailed planning process, ensuring every
+              element&mdash;from layout optimisation to fixture selection&mdash;works harmoniously to
+              create your perfect bathroom.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              We specialise in creating tailored solutions that match your lifestyle needs, whether
+              you&apos;re planning a complete bath renovation or targeted bathroom repairs. Our
+              comprehensive design approach ensures every renovation enhances both functionality and
+              aesthetic appeal.
+            </p>
+            <Link
+              href="/estimate"
+              className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+            >
+              Free Online Estimate <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-left" delay={150}>
+            <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+              <Image
+                src="/services/auckland-bathroom-upgrade-1024x677.webp"
+                alt="Luxurious bathroom renovation"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
       {/* ── PROCESS ─────────────────────────────────────────────── */}
       <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
         <Container className="space-y-14">
@@ -296,11 +381,17 @@ export default function BathroomRenovationsPage() {
                 Modern Bathroom Innovations
               </h2>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Elevate your bathroom renovation with the latest in modern amenities and design trends. We can incorporate smart thermostatic shower systems, touchscreen bathroom mirrors with integrated lighting, and sensor-activated faucets that combine convenience with water efficiency.
+                Elevate your bathroom renovation with the latest in modern amenities and design trends. Today&apos;s bathroom innovations can transform a standard bathroom into a luxury oasis. We can incorporate features like smart thermostatic shower systems, touchscreen bathroom mirrors with integrated lighting, and sensor-activated faucets that combine convenience with water efficiency. Popular in many Auckland bathroom makeovers is the addition of underfloor heating for those chilly mornings, as well as demister mirror technology to keep your vanity fog-free.
               </p>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Popular in many Auckland bathroom makeovers is underfloor heating for chilly mornings and demister mirror technology. Whether it&apos;s a curbless walk-in shower for a seamless look or a freestanding bathtub as a focal point, we marry form and function while paying special attention to moisture-resistant finishes that stand the test of time.
+                Design-wise, our team is adept at implementing contemporary trends in a practical way. Whether it&apos;s creating a curbless walk-in shower for a seamless look and improved accessibility, or installing a freestanding bathtub as a focal point, we marry form and function. We pay special attention to finishes that resist moisture and mould &mdash; from premium waterproof membranes behind the tiles to proper ventilation systems &mdash; so your beautiful new space stands the test of time.
               </p>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </AnimateOnScroll>
 
@@ -319,6 +410,47 @@ export default function BathroomRenovationsPage() {
           </AnimateOnScroll>
         </Container>
       </section>
+
+      {/* ── QUALITY ASSURANCE ────────────────────────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Our Promise</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Quality Assurance
+            </h2>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Every bathroom renovation project comes with comprehensive Master Builders guarantees and
+              full insurance coverage. Our meticulous attention to detail ensures your renovation meets
+              the highest standards of quality and compliance, including strict waterproofing to New
+              Zealand Building Code requirements, from waterproofing to final fixtures.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Beyond industry-standard warranties, we provide ongoing support and maintenance guidance.
+              Our quality control process includes detailed documentation, regular inspections, and
+              comprehensive final checks, giving you complete confidence in your bathroom&apos;s
+              longevity.
+            </p>
+            <Link
+              href="/why-choose-us"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            >
+              Read More <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── FEATURED BATHROOM RENOVATION GALLERY ─────────────────── */}
+      <FeaturedGallery
+        heading="Featured Bathroom Renovation"
+        images={[
+          { src: "/services/westminster-bathroom-design-683x1024.webp", alt: "Stylish bathroom renovation" },
+          { src: "/services/auckland-bathroom-upgrade-1024x677.webp", alt: "Luxurious bathroom renovation" },
+          { src: "/services/Decorative-Bathroom-683x1024.webp", alt: "Luxurious patterned bathroom" },
+          { src: "/services/Rustic-Faucets-819x1024.webp", alt: "Vintage brass faucets" },
+        ]}
+      />
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
@@ -376,6 +508,12 @@ export default function BathroomRenovationsPage() {
           </div>
         </Container>
       </section>
+
+      {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
+      <Testimonials heading="See What Others Are Saying" />
+
+      {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
+      <PlanningNextSteps />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

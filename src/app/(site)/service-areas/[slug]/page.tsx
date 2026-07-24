@@ -241,6 +241,19 @@ export default async function ServiceAreaPage({
                     ))}
                   </ul>
                 </AnimateOnScroll>
+
+                {/* Live-site hero image (same stock photo used on all suburb pages) */}
+                <AnimateOnScroll variant="fade-up">
+                  <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-lg shadow-[#293a57]/10">
+                    <Image
+                      src="/services/JRA-Belle-Vue-Website-Ready-27.jpg"
+                      alt="Open patio doors to living room"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 820px"
+                    />
+                  </div>
+                </AnimateOnScroll>
               </div>
 
               {/* Content sections */}
@@ -253,6 +266,18 @@ export default async function ServiceAreaPage({
                     >
                       {section.heading}
                     </h2>
+                    {/* Live-site interior image shown alongside the WHY US section */}
+                    {/why us/i.test(section.heading) ? (
+                      <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-lg shadow-[#293a57]/10">
+                        <Image
+                          src="/services/JRA-Belle-Vue-Website-Ready-2.jpg"
+                          alt="Custom Home Interior"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 820px"
+                        />
+                      </div>
+                    ) : null}
                     <SectionBody items={section.items} />
                   </AnimateOnScroll>
                 </div>
