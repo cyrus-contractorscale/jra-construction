@@ -44,6 +44,13 @@ const liveOrder = [
   "kingsland-nz",
   "herne-bay-nz",
   "grey-lynn-nz",
+  "home-renovation-builder-in-parnell",
+  "home-renovation-builder-in-eden-terrace",
+  "home-renovation-builder-in-royal-oak",
+  "home-renovation-builder-in-onehunga",
+  "home-renovation-builder-in-ellerslie",
+  "home-renovation-builder-in-orakei",
+  "home-renovation-builder-in-saint-johns",
 ];
 
 const bySlug = new Map(serviceAreas.map((a) => [a.slug, a]));

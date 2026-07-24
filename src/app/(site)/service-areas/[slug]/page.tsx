@@ -18,6 +18,14 @@ interface AreaSection {
   items: SectionItem[];
 }
 
+interface AreaClosing {
+  heading: string;
+  paragraphs: string[];
+  phone?: string;
+  email?: string;
+  office?: string;
+}
+
 interface ServiceArea {
   slug: string;
   name: string;
@@ -28,6 +36,9 @@ interface ServiceArea {
   trustPoints: string[];
   sections: AreaSection[];
   faqs: { q: string; a: string }[];
+  mapQuery?: string;
+  imageAlts?: string[];
+  closing?: AreaClosing;
 }
 
 const areas = serviceAreas as ServiceArea[];
@@ -73,7 +84,16 @@ function computeReadingMinutes(area: ServiceArea) {
     s.items.forEach((it) => (words += count(it.text) + count(it.title)));
   });
   area.faqs.forEach((f) => (words += count(f.q) + count(f.a)));
+  if (area.closing) {
+    words += count(area.closing.heading);
+    area.closing.paragraphs.forEach((p) => (words += count(p)));
+  }
   return Math.max(1, Math.round(words / 200));
+}
+
+function mapEmbedUrl(area: ServiceArea) {
+  const query = area.mapQuery ?? `${area.name.replace(/ NZ$/, "").trim()} Auckland, New Zealand`;
+  return `https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=14&output=embed`;
 }
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -164,6 +184,14 @@ export default async function ServiceAreaPage({
   if (area.faqs.length > 0) {
     toc.push({ id: "faqs", text: "Frequently Asked Questions" });
   }
+  if (area.closing) {
+    toc.push({ id: "discuss", text: area.closing.heading });
+  }
+  toc.push({ id: "location-map", text: `${area.name.replace(/ NZ$/, "")} Location` });
+
+  const heroAlt = area.imageAlts?.[0] ?? "Open patio doors to living room";
+  const interiorAlt = area.imageAlts?.[1] ?? "Custom Home Interior";
+  const mapQuery = area.mapQuery ?? `${area.name.replace(/ NZ$/, "").trim()} Auckland, New Zealand`;
 
   return (
     <>
@@ -247,7 +275,7 @@ export default async function ServiceAreaPage({
                   <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-lg shadow-[#293a57]/10">
                     <Image
                       src="/services/JRA-Belle-Vue-Website-Ready-27.jpg"
-                      alt="Open patio doors to living room"
+                      alt={heroAlt}
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 820px"
@@ -266,12 +294,12 @@ export default async function ServiceAreaPage({
                     >
                       {section.heading}
                     </h2>
-                    {/* Live-site interior image shown alongside the WHY US section */}
-                    {/why us/i.test(section.heading) ? (
+                    {/* Live-site interior image shown alongside the WHY section */}
+                    {/why (high-end|us)/i.test(section.heading) ? (
                       <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-lg shadow-[#293a57]/10">
                         <Image
                           src="/services/JRA-Belle-Vue-Website-Ready-2.jpg"
-                          alt="Custom Home Interior"
+                          alt={interiorAlt}
                           fill
                           className="object-cover"
                           sizes="(max-width: 1024px) 100vw, 820px"
@@ -300,6 +328,74 @@ export default async function ServiceAreaPage({
                   </div>
                 </div>
               ) : null}
+
+              {/* Closing discuss / contact block */}
+              {area.closing ? (
+                <div className="mt-16">
+                  <AnimateOnScroll variant="fade-up" className="space-y-5">
+                    <h2
+                      id="discuss"
+                      className="scroll-mt-36 font-[ui-sans-serif,system-ui,sans-serif] text-[28px] font-extrabold leading-[1.15] tracking-tight text-[#293a57] sm:text-[32px]"
+                    >
+                      {area.closing.heading}
+                    </h2>
+                    {area.closing.paragraphs.map((para) => (
+                      <p key={para.slice(0, 48)} className="text-[17px] leading-[1.65] text-[#4d6277]">
+                        {para}
+                      </p>
+                    ))}
+                    <ul className="space-y-3 rounded-2xl border border-[#eef2f6] bg-[#f9fafb] p-6">
+                      {area.closing.phone ? (
+                        <li className="text-[16px] text-[#2d4560]">
+                          <span className="font-semibold text-[#293a57]">Direct Line to Joe: </span>
+                          <a href={`tel:+${area.closing.phone.replace(/\D/g, "").replace(/^0/, "64")}`} className="underline-offset-2 hover:underline">
+                            {area.closing.phone}
+                          </a>
+                        </li>
+                      ) : null}
+                      {area.closing.email ? (
+                        <li className="text-[16px] text-[#2d4560]">
+                          <span className="font-semibold text-[#293a57]">Email: </span>
+                          <a href={`mailto:${area.closing.email}`} className="underline-offset-2 hover:underline">
+                            {area.closing.email}
+                          </a>
+                        </li>
+                      ) : null}
+                      {area.closing.office ? (
+                        <li className="text-[16px] text-[#2d4560]">
+                          <span className="font-semibold text-[#293a57]">Local Office: </span>
+                          {area.closing.office}
+                        </li>
+                      ) : null}
+                    </ul>
+                  </AnimateOnScroll>
+                </div>
+              ) : null}
+
+              {/* Google Map — every service area */}
+              <div className="mt-16">
+                <AnimateOnScroll variant="fade-up" className="space-y-5">
+                  <h2
+                    id="location-map"
+                    className="scroll-mt-36 font-[ui-sans-serif,system-ui,sans-serif] text-[28px] font-extrabold leading-tight tracking-tight text-[#293a57] sm:text-[32px]"
+                  >
+                    {`Serving ${area.name.replace(/ NZ$/, "")}, Auckland`}
+                  </h2>
+                  <p className="text-[16px] leading-[1.65] text-[#4d6277]">
+                    {`Find us on the map — ${mapQuery}.`}
+                  </p>
+                  <div className="overflow-hidden rounded-2xl border border-[#e8edf2] shadow-lg shadow-[#293a57]/10">
+                    <iframe
+                      title={`${mapQuery} map`}
+                      src={mapEmbedUrl(area)}
+                      className="h-[360px] w-full border-0 sm:h-[420px]"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      allowFullScreen
+                    />
+                  </div>
+                </AnimateOnScroll>
+              </div>
             </div>
 
             <ArticleSidebar readingMinutes={readingMinutes} toc={toc} />
