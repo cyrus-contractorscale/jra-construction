@@ -7,8 +7,8 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
    jraconstruction.co.nz service-page template (videos, e-book download,
    ways to connect, featured gallery, preliminary planning CTA). */
 
-const PHONE_DISPLAY = "+64 9 884 0915";
-const PHONE_TEL = "tel:+6498840915";
+const PHONE_DISPLAY = "021 276 9971";
+const PHONE_TEL = "tel:+64212769971";
 const BOOKING_URL = "https://go.jraconstruction.co.nz/book";
 
 /* ── YouTube video section ─────────────────────────────────────────── */
@@ -89,9 +89,13 @@ export function EbookCta({
 export function WaysToConnect({
   image,
   imageAlt,
+  phoneDisplay = PHONE_DISPLAY,
+  phoneTel = PHONE_TEL,
 }: {
   image?: string;
   imageAlt?: string;
+  phoneDisplay?: string;
+  phoneTel?: string;
 }) {
   return (
     <section className="bg-white py-16 sm:py-20">
@@ -105,10 +109,10 @@ export function WaysToConnect({
           </div>
           <div className="flex flex-col gap-4 sm:max-w-md">
             <a
-              href={PHONE_TEL}
+              href={phoneTel}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#293a57] px-7 py-4 text-[15px] font-semibold text-white transition hover:bg-[#1e2d47]"
             >
-              📞 Call Us Directly: {PHONE_DISPLAY}
+              📞 Call Us Directly: {phoneDisplay}
             </a>
             <a
               href={BOOKING_URL}
@@ -177,7 +181,7 @@ export function FeaturedGallery({
 }
 
 /* ── Preliminary planning / next steps CTA ─────────────────────────── */
-export function PlanningNextSteps() {
+export function PlanningNextSteps({ leadIn }: { leadIn?: string }) {
   return (
     <section className="bg-[#f9fafb] py-16 sm:py-20">
       <Container className="space-y-10">
@@ -202,7 +206,7 @@ export function PlanningNextSteps() {
             </div>
             <div className="space-y-5">
               <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-                Start by downloading our FREE Preliminary Planning Document. It&apos;s packed with useful
+                {leadIn ? `${leadIn} ` : ""}Start by downloading our FREE Preliminary Planning Document. It&apos;s packed with useful
                 insights to help you plan with confidence and avoid common pitfalls. Once you&apos;re ready,
                 book a no-obligation consultation with our team. We&apos;ll assess your goals, provide expert
                 advice, and give you a detailed project breakdown and timeline. It&apos;s a simple,
@@ -217,6 +221,30 @@ export function PlanningNextSteps() {
             </div>
           </div>
         </AnimateOnScroll>
+      </Container>
+    </section>
+  );
+}
+
+/* ── Global final CTA — appears on every live service page ─────────── */
+export function JourneyCta({ leadIn = "Thinking about extending your home?" }: { leadIn?: string }) {
+  return (
+    <section className="bg-[#293a57] py-14 sm:py-16">
+      <Container className="flex flex-col items-center gap-5 text-center">
+        <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[32px] font-extrabold leading-tight tracking-tight text-white sm:text-[38px]">
+          Start Your Home Extension Journey Today
+        </h2>
+        <p className="max-w-2xl text-[16px] leading-relaxed text-white/75">
+          {leadIn}
+          <br />
+          Start by downloading our FREE Preliminary Planning Document.
+        </p>
+        <Link
+          href="/contact"
+          className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#293a57] shadow-lg shadow-black/30 transition hover:bg-zinc-100"
+        >
+          Download Now
+        </Link>
       </Container>
     </section>
   );

@@ -10,6 +10,7 @@ import {
   WaysToConnect,
   FeaturedGallery,
   PlanningNextSteps,
+  JourneyCta,
 } from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
@@ -20,48 +21,77 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/bathroom-renovations" },
 };
 
-const advantages = [
-  { icon: "🎨", text: "Professional design consultation" },
-  { icon: "📐", text: "Custom layout planning" },
-  { icon: "🚿", text: "Premium fixture selection" },
-  { icon: "🪨", text: "Material and finish choices" },
-  { icon: "🏛️", text: "Council compliance management" },
-  { icon: "💧", text: "Waterproofing certification" },
-  { icon: "✅", text: "Quality assurance checks" },
+/* All copy on this page is verbatim from the live site
+   (jraconstruction.co.nz/services/bathroom-renovations/). */
+
+const painPoints = [
+  "Is your bathroom outdated, cramped, or not meeting your family's needs?",
+  "Dreaming of a modern, functional bathroom that adds value to your home?",
+  "Want to create a luxurious retreat within your existing space?",
 ];
 
-const standards = [
+const introParas = [
+  "Transform your bathroom into a stunning sanctuary with JRA Construction’s bathroom renovations Auckland expertise. As specialists in Auckland bathroom renovations, we combine innovative New Zealand bathroom design principles with superior craftsmanship to create spaces that perfectly balance luxury with functionality, incorporating innovations like underfloor heating and high-efficiency ventilation to enhance comfort. Our comprehensive approach to bathroom design renovation ensures every project delivers lasting value while maximising your space’s potential.",
+];
+
+const whyChooseItems = [
   "Fixed-price contracts",
   "287-point quality system",
   "Licensed practitioners",
   "Master Builders guarantee",
-  "Waterproofing expertise",
+  "Heritage expertise",
+];
+
+const excellenceItems = [
+  { icon: "👤", text: "Personal project consultant" },
+  { icon: "🎨", text: "Design collaboration" },
+  { icon: "🏛️", text: "Council compliance expertise" },
+  { icon: "🔩", text: "Material procurement specialists" },
+];
+
+const remodelingParas = [
+  "With decades of experience in bathroom remodeling in Auckland, we specialise in elevating ordinary bathrooms into sophisticated retreats. From bathroom renovation projects in heritage villas to shower renovation solutions in contemporary homes, installing frameless glass showers in tight en-suites to designing spa-like retreats in larger bathrooms, we understand how to maximise space while creating stunning results.",
+  "Our expertise in bathroom reconstruction spans everything from compact ensuites to luxury master bathrooms. Each project benefits from our detailed planning process, ensuring every element—from layout optimisation to fixture selection—works harmoniously to create your perfect bathroom.",
+  "We specialise in creating tailored solutions that match your lifestyle needs, whether you’re planning a complete bath renovation or targeted bathroom repairs. Our comprehensive design approach ensures every renovation enhances both functionality and aesthetic appeal.",
+];
+
+const journeyItems = [
+  "Professional design consultation",
+  "Custom layout planning",
+  "Premium fixture selection",
+  "Material and finish choices",
+  "Council compliance management",
+  "Waterproofing certification",
+  "Quality assurance checks",
+];
+
+const innovationsParas = [
+  "Elevate your bathroom renovation with the latest in modern amenities and design trends. Today’s bathroom innovations can transform a standard bathroom into a luxury oasis. We can incorporate features like smart thermostatic shower systems, touchscreen bathroom mirrors with integrated lighting, and sensor-activated faucets that combine convenience with water efficiency. Popular in many Auckland bathroom makeovers is the addition of underfloor heating for those chilly mornings, as well as demister mirror technology to keep your vanity fog-free. By staying up-to-date on cutting-edge fixtures and materials, we ensure your renovated bathroom is both stylish and future-proof.",
+  "Design-wise, our team is adept at implementing contemporary trends in a practical way. Whether it’s creating a curbless walk-in shower for a seamless look and improved accessibility, or installing a freestanding bathtub as a focal point, we marry form and function. We pay special attention to finishes that resist moisture and mould – from premium waterproof membranes behind the tiles to proper ventilation systems – so your beautiful new space stands the test of time. With JRA’s clear, knowledgeable guidance, you can choose modern features that not only elevate your daily routine but also add long-term value to your home.",
+];
+
+const qualityParas = [
+  "Every bathroom renovation project comes with comprehensive Master Builders guarantees and full insurance coverage. Our meticulous attention to detail ensures your renovation meets the highest standards of quality and compliance, including strict waterproofing to New Zealand Building Code requirements, from waterproofing to final fixtures.",
+  "Beyond industry-standard warranties, we provide ongoing support and maintenance guidance. Our quality control process includes detailed documentation, regular inspections, and comprehensive final checks, giving you complete confidence in your bathroom’s longevity.",
 ];
 
 const processSteps = [
   { step: "01", title: "Initial Contact", body: "We start with a free, no-obligation chat to understand your goals and see if we're the right fit." },
   { step: "02", title: "Site Meeting", body: "We visit your home to discuss your project in detail. We'll bring guides and examples to help you visualize the possibilities." },
   { step: "03", title: "Working with Consultants", body: "We collaborate with your existing architect or connect you with trusted consultants. Early involvement helps prevent costly design changes later." },
-  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses." },
-  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote including all subcontractor costs and assumptions." },
-  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract before construction begins." },
-  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and can discuss any changes or decisions as needed." },
-  { step: "08", title: "The Completion Phase", body: "We conduct a thorough walkthrough with you to ensure satisfaction and provide all necessary documentation and ongoing support." },
-];
-
-const qualityPoints = [
-  { icon: "👤", title: "Personal Project Consultant", body: "A dedicated consultant guides you through every stage of your bathroom transformation." },
-  { icon: "🎨", title: "Design Collaboration", body: "We blend your vision with our expertise to create a space that's both beautiful and functional." },
-  { icon: "🏛️", title: "Council Compliance Expertise", body: "We handle all consents and compliance documentation including waterproofing certifications." },
-  { icon: "🔩", title: "Material Procurement Specialists", body: "We source quality fixtures, tiles, and materials at competitive prices through our trusted network." },
+  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses down the line." },
+  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote. This includes subcontractor costs and a list of assumptions for full transparency." },
+  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract. This ensures all parties are aligned before construction begins." },
+  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and have the opportunity to discuss any changes or decisions as needed." },
+  { step: "08", title: "The Completion Phase", body: "Upon completion, we conduct a thorough walkthrough with you to ensure satisfaction. We provide all necessary documentation and remain available for any post-project support." },
 ];
 
 const faqs = [
-  { q: "How long does a bathroom renovation take?", a: "Typically 3–4 weeks, depending on scope and complexity of the design." },
-  { q: "Do I need council consent?", a: "We handle all necessary permits and ensure compliance with local regulations, including NZ Building Code waterproofing requirements." },
-  { q: "Can you help with design ideas?", a: "Yes, our design team will help you explore options that suit your style, space, and budget — from compact ensuites to luxury master bathrooms." },
-  { q: "How do you manage waterproofing?", a: "We use certified waterproofing systems and specialists to ensure long-lasting results compliant with New Zealand Building Code requirements." },
-  { q: "What about temporary facilities?", a: "We discuss options to minimise disruption during your renovation and help plan alternative arrangements where needed." },
+  { q: "How long does a bathroom renovation take?", a: "Typically 3-4 weeks, depending on scope and complexity." },
+  { q: "Do I need council consent?", a: "We handle all necessary permits and ensure compliance with local regulations." },
+  { q: "Can you help with design ideas?", a: "Yes, our design team will help you explore options that suit your style and budget." },
+  { q: "How do you manage waterproofing?", a: "We use certified waterproofing systems and specialists to ensure long-lasting results." },
+  { q: "What about temporary facilities?", a: "We can discuss options to minimise disruption during your renovation." },
 ];
 
 const consultItems = [
@@ -125,27 +155,21 @@ export default function BathroomRenovationsPage() {
           </nav>
 
           <div className="max-w-3xl space-y-6">
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[12px] font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-              Bathrooms · Auckland
-            </span>
             <h1 className="font-[ui-sans-serif,system-ui,sans-serif] text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
               Bathroom Renovations<br />in Auckland
             </h1>
-            <p className="max-w-xl text-[18px] leading-relaxed text-white/75">
-              Transform your bathroom into a stunning sanctuary — luxury meets functionality with lasting quality.
-            </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="#consultation"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-zinc-900 shadow-lg shadow-black/30 transition hover:bg-zinc-100"
               >
                 Free Consultation
               </Link>
               <Link
-                href="#process"
+                href="/estimate"
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
-                Our Process
+                Online Estimate
               </Link>
             </div>
           </div>
@@ -154,16 +178,11 @@ export default function BathroomRenovationsPage() {
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
       <section className="bg-white py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#293a57]/50">Sound Familiar?</p>
               <ul className="space-y-4">
-                {[
-                  "Is your bathroom outdated, cramped, or not meeting your family's needs?",
-                  "Dreaming of a modern, functional bathroom that adds value to your home?",
-                  "Want to create a luxurious retreat within your existing space?",
-                ].map((point) => (
+                {painPoints.map((point) => (
                   <li key={point} className="flex items-start gap-3 rounded-xl border border-[#eef2f6] bg-[#f9fafb] px-5 py-4">
                     <span className="mt-0.5 text-[#293a57]">
                       <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
@@ -180,15 +199,11 @@ export default function BathroomRenovationsPage() {
 
           <AnimateOnScroll variant="fade-left" delay={150}>
             <div className="space-y-5">
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Creating Exceptional Bathroom Solutions
-              </h2>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Transform your bathroom into a stunning sanctuary with JRA Construction&apos;s bathroom renovations Auckland expertise. As specialists in Auckland bathroom renovations, we combine innovative New Zealand bathroom design principles with superior craftsmanship to create spaces that perfectly balance luxury with functionality, incorporating innovations like underfloor heating and high-efficiency ventilation to enhance comfort.
-              </p>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Our expertise spans everything from compact ensuites to luxury master bathrooms. Each project benefits from our detailed planning process, ensuring every element — from layout optimisation to fixture selection — works harmoniously to create your perfect bathroom.
-              </p>
+              {introParas.map((para) => (
+                <p key={para.slice(0, 40)} className="text-[17px] leading-[1.65] text-[#4d6277]">
+                  {para}
+                </p>
+              ))}
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]">
                   Contact Us <span aria-hidden="true">→</span>
@@ -213,41 +228,7 @@ export default function BathroomRenovationsPage() {
         eyebrow="See JRA In Action"
       />
 
-      {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <p className="section-tab mx-auto w-fit mb-4">The JRA Advantage</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Your Bathroom Transformation Journey
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-[17px] text-[#5f7286]">
-              Our organised approach ensures a smooth bathroom renovation process from concept to completion.
-            </p>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-2xl">{item.icon}</span>
-                  <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
-        background="gray"
-      />
-
-      {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
+      {/* ── WHY CHOOSE JRA FOR HOUSE RENOVATIONS AUCKLAND ────────── */}
       <section
         className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
         style={{
@@ -258,25 +239,15 @@ export default function BathroomRenovationsPage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Our Commitment</p>
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
                 Why Choose JRA for House Renovations Auckland
               </h2>
-              <p className="text-[17px] leading-[1.65] text-white/70">
-                Every bathroom renovation project comes with comprehensive Master Builders guarantees and full insurance coverage. Our meticulous attention to detail ensures your renovation meets the highest standards of quality and compliance, including strict waterproofing to New Zealand Building Code requirements.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-zinc-100"
-              >
-                Start Your Journey <span aria-hidden="true">→</span>
-              </Link>
             </div>
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-left" delay={150}>
             <ul className="space-y-4">
-              {standards.map((item, i) => (
+              {whyChooseItems.map((item, i) => (
                 <AnimateOnScroll key={item} variant="fade-up" delay={i * 80}>
                   <li className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
                     <CheckIcon />
@@ -289,45 +260,93 @@ export default function BathroomRenovationsPage() {
         </Container>
       </section>
 
+      {/* ── EXCELLENCE IN HOME IMPROVEMENTS ──────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container>
+          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Excellence in Home Improvements
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {excellenceItems.map((item, i) => (
+              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
+                  <span className="text-3xl">{item.icon}</span>
+                  <p className="text-[15px] font-semibold leading-snug text-[#293a57]">{item.text}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+      />
+
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
-      <WaysToConnect
+      <WaysToConnect phoneDisplay="+64 9 884 0915" phoneTel="tel:+6498840915"
         image="/services/westminster-bathroom-design-683x1024.webp"
         imageAlt="Stylish bathroom renovation"
       />
 
       {/* ── BATHROOM REMODELING SOLUTIONS ────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-          <AnimateOnScroll variant="fade-right" className="space-y-5">
-            <p className="section-tab w-fit">Our Expertise</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
+        <Container className="mx-auto max-w-4xl space-y-6">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Creating Exceptional Bathroom Remodeling Auckland Solutions
             </h2>
-            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-              With decades of experience in bathroom remodeling in Auckland, we specialise in elevating
-              ordinary bathrooms into sophisticated retreats. From bathroom renovation projects in
-              heritage villas to shower renovation solutions in contemporary homes, installing frameless
-              glass showers in tight en-suites to designing spa-like retreats in larger bathrooms, we
-              understand how to maximise space while creating stunning results.
-            </p>
-            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-              Our expertise in bathroom reconstruction spans everything from compact ensuites to luxury
-              master bathrooms. Each project benefits from our detailed planning process, ensuring every
-              element&mdash;from layout optimisation to fixture selection&mdash;works harmoniously to
-              create your perfect bathroom.
-            </p>
-            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-              We specialise in creating tailored solutions that match your lifestyle needs, whether
-              you&apos;re planning a complete bath renovation or targeted bathroom repairs. Our
-              comprehensive design approach ensures every renovation enhances both functionality and
-              aesthetic appeal.
-            </p>
-            <Link
-              href="/estimate"
-              className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
-            >
-              Free Online Estimate <span aria-hidden="true">→</span>
-            </Link>
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
+            {remodelingParas.map((para) => (
+              <p key={para.slice(0, 40)} className="text-[17px] leading-[1.7] text-[#4d6277]">
+                {para}
+              </p>
+            ))}
+            <div className="text-center">
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── YOUR BATHROOM TRANSFORMATION JOURNEY ─────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <AnimateOnScroll variant="fade-right">
+            <div className="space-y-5">
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
+                Your Bathroom Transformation Journey
+              </h2>
+              <p className="text-[16px] leading-[1.65] text-[#4d6277]">
+                Our organized approach ensures a smooth bathroom renovation process:
+              </p>
+              <ul className="space-y-3">
+                {journeyItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#2d4560]">
+                    <CheckIcon />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-left" delay={150}>
@@ -344,113 +363,23 @@ export default function BathroomRenovationsPage() {
         </Container>
       </section>
 
-      {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
-        <Container className="space-y-14">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">How It Works</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
-              How We Put Your Bathroom Renovation Plan to Action
-            </h2>
-            <p className="mx-auto max-w-2xl text-[17px] text-[#5f7286]">
-              Our proven 8-step process ensures your bathroom renovation is delivered beautifully and on time.
-            </p>
-          </AnimateOnScroll>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((s, i) => (
-              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {/* ── MODERN BATHROOM INNOVATIONS ──────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-          <AnimateOnScroll variant="fade-right">
-            <div className="space-y-5">
-              <p className="section-tab w-fit">Modern Innovations</p>
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Modern Bathroom Innovations
-              </h2>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Elevate your bathroom renovation with the latest in modern amenities and design trends. Today&apos;s bathroom innovations can transform a standard bathroom into a luxury oasis. We can incorporate features like smart thermostatic shower systems, touchscreen bathroom mirrors with integrated lighting, and sensor-activated faucets that combine convenience with water efficiency. Popular in many Auckland bathroom makeovers is the addition of underfloor heating for those chilly mornings, as well as demister mirror technology to keep your vanity fog-free.
-              </p>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Design-wise, our team is adept at implementing contemporary trends in a practical way. Whether it&apos;s creating a curbless walk-in shower for a seamless look and improved accessibility, or installing a freestanding bathtub as a focal point, we marry form and function. We pay special attention to finishes that resist moisture and mould &mdash; from premium waterproof membranes behind the tiles to proper ventilation systems &mdash; so your beautiful new space stands the test of time.
-              </p>
-              <Link
-                href="/estimate"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
-              >
-                Free Online Estimate <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variant="fade-left" delay={150}>
-            <div className="grid grid-cols-2 gap-4">
-              {qualityPoints.map((pt, i) => (
-                <AnimateOnScroll key={pt.title} variant="scale-in" delay={i * 80}>
-                  <div className="flex flex-col gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm">
-                    <span className="text-3xl">{pt.icon}</span>
-                    <h3 className="text-[15px] font-bold text-[#293a57]">{pt.title}</h3>
-                    <p className="text-[14px] leading-relaxed text-[#5f7286]">{pt.body}</p>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </AnimateOnScroll>
-        </Container>
-      </section>
-
-      {/* ── QUALITY ASSURANCE ────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
-        <Container className="space-y-8">
-          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">Our Promise</p>
+        <Container className="mx-auto max-w-4xl space-y-6">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Quality Assurance
+              Modern Bathroom Innovations
             </h2>
-            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
-              Every bathroom renovation project comes with comprehensive Master Builders guarantees and
-              full insurance coverage. Our meticulous attention to detail ensures your renovation meets
-              the highest standards of quality and compliance, including strict waterproofing to New
-              Zealand Building Code requirements, from waterproofing to final fixtures.
-            </p>
-            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
-              Beyond industry-standard warranties, we provide ongoing support and maintenance guidance.
-              Our quality control process includes detailed documentation, regular inspections, and
-              comprehensive final checks, giving you complete confidence in your bathroom&apos;s
-              longevity.
-            </p>
-            <Link
-              href="/why-choose-us"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
-            >
-              Read More <span aria-hidden="true">→</span>
-            </Link>
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
+            {innovationsParas.map((para) => (
+              <p key={para.slice(0, 40)} className="text-[17px] leading-[1.7] text-[#4d6277]">
+                {para}
+              </p>
+            ))}
           </AnimateOnScroll>
         </Container>
       </section>
-
-      {/* ── FEATURED BATHROOM RENOVATION GALLERY ─────────────────── */}
-      <FeaturedGallery
-        heading="Featured Bathroom Renovation"
-        images={[
-          { src: "/services/westminster-bathroom-design-683x1024.webp", alt: "Stylish bathroom renovation" },
-          { src: "/services/auckland-bathroom-upgrade-1024x677.webp", alt: "Luxurious bathroom renovation" },
-          { src: "/services/Decorative-Bathroom-683x1024.webp", alt: "Luxurious patterned bathroom" },
-          { src: "/services/Rustic-Faucets-819x1024.webp", alt: "Vintage brass faucets" },
-        ]}
-      />
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
@@ -464,13 +393,11 @@ export default function BathroomRenovationsPage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Let&apos;s Get Started</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Let&apos;s Get Your Dream Started</p>
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
                 Claim Your Free Design &amp; Build Consultation
               </h2>
-              <p className="text-[17px] leading-[1.65] text-white/70">
-                This Design &amp; Build Consult covers everything you need to get started with confidence.
-              </p>
+              <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
                 {consultItems.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
@@ -490,11 +417,69 @@ export default function BathroomRenovationsPage() {
         </Container>
       </section>
 
+      {/* ── QUALITY ASSURANCE ────────────────────────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Quality Assurance
+            </h2>
+            {qualityParas.map((para) => (
+              <p key={para.slice(0, 40)} className="text-[17px] leading-[1.7] text-[#5f7286]">
+                {para}
+              </p>
+            ))}
+            <Link
+              href="/why-choose-us"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            >
+              Read More <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── PROCESS ─────────────────────────────────────────────── */}
+      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-14">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Services</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
+              How We Put Your Bathroom Renovation Plan to Action
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((s, i) => (
+              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
+                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
+                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
+                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── FEATURED BATHROOM RENOVATION GALLERY ─────────────────── */}
+      <FeaturedGallery
+        heading="Featured Bathroom Renovation"
+        images={[
+          { src: "/services/Decorative-Bathroom.webp", alt: "Decorative bathroom renovation" },
+          { src: "/services/bathroom-renovation-balmoral.webp", alt: "Balmoral bathroom renovation" },
+          { src: "/services/Modern-Bathroom-Vanity.webp", alt: "Modern bathroom vanity" },
+          { src: "/services/Bathtub-Modern-Bathroom.webp", alt: "Bathtub in modern bathroom" },
+          { src: "/services/Bathroom-Vanity-Design.webp", alt: "Bathroom vanity design" },
+          { src: "/services/JRA-15-Saint-Leonards-Website-15.jpg", alt: "Saint Leonards bathroom renovation" },
+        ]}
+      />
+
       {/* ── FAQ ──────────────────────────────────────────────────── */}
       <section className="bg-white py-16 sm:py-20">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
-            <p className="section-tab mx-auto w-fit">FAQs</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">
               Frequently Asked Questions
             </h2>
@@ -513,7 +498,10 @@ export default function BathroomRenovationsPage() {
       <Testimonials heading="See What Others Are Saying" />
 
       {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
-      <PlanningNextSteps />
+      <PlanningNextSteps leadIn="Thinking about extending your home?" />
+
+      {/* ── FINAL CTA ────────────────────────────────────────────── */}
+      <JourneyCta leadIn="Thinking about extending your home?" />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

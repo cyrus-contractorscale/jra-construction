@@ -10,6 +10,7 @@ import {
   WaysToConnect,
   FeaturedGallery,
   PlanningNextSteps,
+  JourneyCta,
 } from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
@@ -20,17 +21,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/home-renovations" },
 };
 
-const advantages = [
-  { icon: "📋", text: "Detailed project timeline and milestones" },
-  { icon: "📸", text: "Regular progress updates with photos" },
-  { icon: "👤", text: "Direct access to your renovation team" },
-  { icon: "🎨", text: "Material selection assistance" },
-  { icon: "🏛️", text: "Building consent management" },
-  { icon: "✅", text: "Quality assurance checks" },
-  { icon: "🏅", text: "287-point quality verification system" },
+/* All copy on this page is verbatim from the live site
+   (jraconstruction.co.nz/services/home-renovations/). */
+
+const painPoints = [
+  "Living in a space that no longer suits your family's needs?",
+  "Want to modernise your home while preserving its character?",
+  "Looking for trusted renovation builders in Auckland who can bring your vision to life?",
 ];
 
-const standards = [
+const whyChoose = [
   "Fixed-price contracts",
   "287-point quality system",
   "Licensed practitioners",
@@ -38,29 +38,38 @@ const standards = [
   "Heritage expertise",
 ];
 
+const excellenceItems = [
+  { icon: "👤", text: "Personal project consultant" },
+  { icon: "🎨", text: "Design collaboration" },
+  { icon: "🏛️", text: "Council compliance expertise" },
+  { icon: "🔩", text: "Material procurement specialists" },
+];
+
+const journeyItems = [
+  { icon: "📋", text: "Detailed project timeline and milestones" },
+  { icon: "📸", text: "Regular progress updates with photos" },
+  { icon: "👤", text: "Direct access to your renovation team" },
+  { icon: "🎨", text: "Material selection assistance" },
+  { icon: "🏛️", text: "Building consent management" },
+  { icon: "✅", text: "Quality assurance checks" },
+];
+
 const processSteps = [
   { step: "01", title: "Initial Contact", body: "We start with a free, no-obligation chat to understand your goals and see if we're the right fit." },
   { step: "02", title: "Site Meeting", body: "We visit your home to discuss your project in detail. We'll bring guides and examples to help you visualize the possibilities." },
   { step: "03", title: "Working with Consultants", body: "We collaborate with your existing architect or connect you with trusted consultants. Early involvement helps prevent costly design changes later." },
-  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses." },
-  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote including all subcontractor costs and assumptions." },
-  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract before construction begins." },
-  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and can discuss any changes or decisions as needed." },
-  { step: "08", title: "The Completion Phase", body: "We conduct a thorough walkthrough with you to ensure satisfaction and provide all necessary documentation and ongoing post-project support." },
-];
-
-const qualityPoints = [
-  { icon: "👤", title: "Personal Project Consultant", body: "A dedicated consultant guides you through every stage of your renovation." },
-  { icon: "🎨", title: "Design Collaboration", body: "We work alongside your design team or help connect you with trusted architects." },
-  { icon: "🏛️", title: "Council Compliance Expertise", body: "We navigate permits, consents, and heritage requirements so you don't have to." },
-  { icon: "🔩", title: "Material Procurement Specialists", body: "We source quality materials at competitive prices through our supplier network." },
+  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses down the line." },
+  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote. This includes subcontractor costs and a list of assumptions for full transparency." },
+  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract. This ensures all parties are aligned before construction begins." },
+  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and have the opportunity to discuss any changes or decisions as needed." },
+  { step: "08", title: "The Completion Phase", body: "Upon completion, we conduct a thorough walkthrough with you to ensure satisfaction. We provide all necessary documentation and remain available for any post-project support." },
 ];
 
 const faqs = [
-  { q: "How long does a typical renovation take?", a: "Timeline varies by scope, but most projects take 12–16 weeks from start to completion." },
-  { q: "Do I need council consent?", a: "We handle all necessary permits and ensure compliance with local regulations, including resource consents where required." },
-  { q: "Can we live in our home during renovations?", a: "Yes, most clients do. We implement strict safety protocols and minimise disruption to your daily routine." },
-  { q: "How do you manage costs?", a: "We provide fixed-price contracts with detailed breakdowns and transparent variation processes — no hidden surprises." },
+  { q: "How long does a typical renovation take?", a: "Timeline varies by scope, but most projects take 12-16 weeks from start to completion." },
+  { q: "Do I need council consent?", a: "We handle all necessary permits and ensure compliance with local regulations." },
+  { q: "Can we live in our home during renovations?", a: "Yes, most clients do. We implement strict safety protocols and minimise disruption." },
+  { q: "How do you manage costs?", a: "We provide fixed-price contracts with detailed breakdowns and transparent variation processes." },
   { q: "What about heritage properties?", a: "Our team has extensive experience with heritage homes, working under Heritage New Zealand guidelines to preserve character while adding modern comfort." },
 ];
 
@@ -125,27 +134,21 @@ export default function HomeRenovationsPage() {
           </nav>
 
           <div className="max-w-3xl space-y-6">
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[12px] font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-              Renovations · Auckland
-            </span>
             <h1 className="font-[ui-sans-serif,system-ui,sans-serif] text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
               Home Renovations<br />in Auckland
             </h1>
-            <p className="max-w-xl text-[18px] leading-relaxed text-white/75">
-              Breathing new life into your home — innovative design, masterful craftsmanship, and fixed-price certainty.
-            </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="#consultation"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-zinc-900 shadow-lg shadow-black/30 transition hover:bg-zinc-100"
               >
                 Free Consultation
               </Link>
               <Link
-                href="#process"
+                href="/estimate"
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
-                Our Process
+                Online Estimate
               </Link>
             </div>
           </div>
@@ -154,16 +157,20 @@ export default function HomeRenovationsPage() {
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
       <section className="bg-white py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
-            <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#293a57]/50">Sound Familiar?</p>
+            <div className="space-y-6">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
+                <Image
+                  src="/services/eden-renovation-lounge-1024x683.webp"
+                  alt="living room renovation"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
               <ul className="space-y-4">
-                {[
-                  "Living in a space that no longer suits your family's needs?",
-                  "Want to modernise your home while preserving its character?",
-                  "Looking for trusted renovation builders in Auckland who can bring your vision to life?",
-                ].map((point) => (
+                {painPoints.map((point) => (
                   <li key={point} className="flex items-start gap-3 rounded-xl border border-[#eef2f6] bg-[#f9fafb] px-5 py-4">
                     <span className="mt-0.5 text-[#293a57]">
                       <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
@@ -180,14 +187,17 @@ export default function HomeRenovationsPage() {
 
           <AnimateOnScroll variant="fade-left" delay={150}>
             <div className="space-y-5">
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Excellence in Home Renovations
-              </h2>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Breathing new life into existing spaces takes more than just construction skills — it demands creativity, precision, and deep understanding of local council regulations and compliance requirements. As specialists in home renovations in Auckland, we combine innovative design solutions with masterful craftsmanship to create homes that exceed expectations.
-              </p>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Our comprehensive approach ensures every project delivers lasting value while honouring your home's unique character. From coastal Muriwai to urban centres, our portfolio showcases transformative projects across Auckland's diverse neighbourhoods.
+                Breathing new life into existing spaces takes more than just{" "}
+                <Link href="/services/construction-management" className="font-semibold text-[#293a57] underline decoration-[#293a57]/30 underline-offset-2 hover:decoration-[#293a57]">
+                  construction skills
+                </Link>{" "}
+                it demands creativity, precision, and deep understanding of renovating houses, local
+                council regulations, and compliance requirements. As specialists in home renovations in
+                Auckland, we combine innovative design solutions with masterful craftsmanship to create
+                homes that exceed expectations. Our comprehensive approach to home and construction
+                ensures every project delivers lasting value while honouring your home’s unique
+                character.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]">
@@ -213,41 +223,7 @@ export default function HomeRenovationsPage() {
         eyebrow="See JRA In Action"
       />
 
-      {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <p className="section-tab mx-auto w-fit mb-4">The JRA Advantage</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Your Journey to a Transformed Home
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-[17px] text-[#5f7286]">
-              Our systematic approach to renovations keeps you informed and involved every step of the way.
-            </p>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-2xl">{item.icon}</span>
-                  <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
-        background="gray"
-      />
-
-      {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
+      {/* ── WHY CHOOSE JRA ───────────────────────────────────────── */}
       <section
         className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
         style={{
@@ -258,25 +234,15 @@ export default function HomeRenovationsPage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Our Commitment</p>
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
                 Why Choose JRA for House Renovations Auckland
               </h2>
-              <p className="text-[17px] leading-[1.65] text-white/70">
-                Our expertise spans renovating heritage villas to contemporary homes, including comprehensive outdoor renovations that harmoniously blend with natural surroundings. Our Muriwai project exemplifies this approach — enhancing functionality while ensuring every element complements its natural environment.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-zinc-100"
-              >
-                Start Your Journey <span aria-hidden="true">→</span>
-              </Link>
             </div>
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-left" delay={150}>
             <ul className="space-y-4">
-              {standards.map((item, i) => (
+              {whyChoose.map((item, i) => (
                 <AnimateOnScroll key={item} variant="fade-up" delay={i * 80}>
                   <li className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
                     <CheckIcon />
@@ -289,42 +255,105 @@ export default function HomeRenovationsPage() {
         </Container>
       </section>
 
+      {/* ── EXCELLENCE IN HOME IMPROVEMENTS ──────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container>
+          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Excellence in Home Improvements
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {excellenceItems.map((item, i) => (
+              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
+                  <span className="text-3xl">{item.icon}</span>
+                  <p className="text-[15px] font-semibold leading-snug text-[#293a57]">{item.text}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+      />
+
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
-      <WaysToConnect image="/services/sandringham-project-bookshelf-683x1024.webp" imageAlt="Renovated study area" />
+      <WaysToConnect phoneDisplay="+64 9 884 0915" phoneTel="tel:+6498840915" image="/services/sandringham-project-bookshelf-683x1024.webp" imageAlt="Renovated study area" />
 
       {/* ── EXPERIENCE THE DIFFERENCE ────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="space-y-12">
-          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">Our Portfolio</p>
+        <Container className="mx-auto max-w-4xl space-y-6">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Experience the Difference in Auckland Home Renovations
+            </h2>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              When it comes to renovations Auckland, our portfolio showcases transformative projects
+              across the city’s diverse neighbourhoods, from coastal Muriwai to urban centres. Our
+              expertise ranges from renovating an old house in heritage areas to enhancing outdoor
+              living spaces, demonstrating our versatility in handling house renovations Auckland of any
+              scale or style.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              As specialists in household renovations, we’ve successfully transformed everything from
+              classic villas to contemporary homes, including comprehensive outdoor renovations that
+              harmoniously blend with natural surroundings. Our Muriwai project exemplifies this
+              approach, where we enhanced the property’s functionality while ensuring every
+              element—from new fencing to storage solutions—complemented the natural environment.
+            </p>
+            <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+              Our comprehensive approach combines innovative design solutions with practical
+              craftsmanship, ensuring every renovation enhances both the aesthetic appeal and
+              functionality of your space. We pride ourselves on understanding the unique challenges
+              each project presents, whether it’s integrating new structures with existing architecture
+              or creating outdoor spaces that reflect the character of their surroundings. This
+              attention to detail and respect for the environment has helped us deliver results that
+              exceed expectations while preserving the natural beauty of each location.
+            </p>
+            <div className="pt-2 text-center">
+              <Link
+                href="/estimate"
+                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── YOUR JOURNEY ─────────────────────────────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-12">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Your Journey to Home Renovations in Auckland
             </h2>
           </AnimateOnScroll>
 
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <AnimateOnScroll variant="fade-right" className="space-y-5">
               <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-                When it comes to renovations Auckland, our portfolio showcases transformative projects
-                across the city&apos;s diverse neighbourhoods, from coastal Muriwai to urban centres. Our
-                expertise ranges from renovating an old house in heritage areas to enhancing outdoor
-                living spaces, demonstrating our versatility in handling house renovations Auckland of
-                any scale or style.
+                Our systematic approach to renovations on a house keeps you informed and involved:
               </p>
-              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-                As specialists in household renovations, we&apos;ve successfully transformed everything from
-                classic villas to contemporary homes, including comprehensive outdoor renovations that
-                harmoniously blend with natural surroundings. Our Muriwai project exemplifies this
-                approach, where we enhanced the property&apos;s functionality while ensuring every
-                element&mdash;from new fencing to storage solutions&mdash;complemented the natural environment.
-              </p>
-              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-                Our comprehensive approach combines innovative design solutions with practical
-                craftsmanship, ensuring every renovation enhances both the aesthetic appeal and
-                functionality of your space. This attention to detail and respect for the environment
-                has helped us deliver results that exceed expectations while preserving the natural
-                beauty of each location.
-              </p>
+              <ul className="space-y-3">
+                {journeyItems.map((item) => (
+                  <li key={item.text} className="flex items-start gap-3 text-[15px] text-[#2d4560]">
+                    <span className="text-xl">{item.icon}</span>
+                    {item.text}
+                  </li>
+                ))}
+              </ul>
               <Link
                 href="/estimate"
                 className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
@@ -348,88 +377,41 @@ export default function HomeRenovationsPage() {
         </Container>
       </section>
 
-      {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
-        <Container className="space-y-14">
+      {/* ── HERITAGE HOME RENOVATION EXPERTISE ───────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="mx-auto max-w-4xl space-y-6">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">How It Works</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
-              How We Put Your Home Renovations Plan to Action
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Heritage Home Renovation Expertise
             </h2>
-            <p className="mx-auto max-w-2xl text-[17px] text-[#5f7286]">
-              Our proven 8-step process removes the stress and guesswork from renovating your home.
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
+            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
+              Renovating heritage and character homes requires a specialised approach, and it’s an area
+              where JRA Construction truly excels. Auckland’s older villas and bungalows often come with
+              heritage overlays or special council rules – we navigate these complexities with
+              confidence. Our team works closely with heritage architects and council heritage advisors
+              to ensure any changes (such as extending a protected villa or modernising a bungalow’s
+              interior) preserve the original character. From restoring ornate ceilings and timber
+              floors to matching century-old mouldings, we take care to retain the charm that makes your
+              home unique. At the same time, we discreetly integrate modern amenities so you gain
+              comfort and efficiency without sacrificing history.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
+              Our experience with heritage home renovations means we understand the permit and consent
+              processes that come with them. We prepare all necessary documentation for resource
+              consents when altering protected structures and adhere to Heritage New Zealand guidelines
+              during construction. Renovating an old house might involve structural reinforcement,
+              retrofitting insulation into wall cavities, or upgrading to double-glazed windows – all
+              while maintaining the home’s authentic look. JRA’s knowledgeable, careful approach ensures
+              that your renovated character home meets today’s standards for safety and livability, all
+              while honouring the architecture and story of the original building. This balance of old
+              and new results in a home that continues to grace your neighbourhood for decades to come,
+              now enhanced for modern living.
             </p>
           </AnimateOnScroll>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((s, i) => (
-              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
         </Container>
       </section>
-
-      {/* ── HERITAGE EXPERTISE ──────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-          <AnimateOnScroll variant="fade-right">
-            <div className="space-y-5">
-              <p className="section-tab w-fit">Heritage Expertise</p>
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Heritage Home Renovation Expertise
-              </h2>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Renovating heritage and character homes requires a specialised approach, and it's an area where JRA Construction truly excels. Auckland's older villas and bungalows often come with heritage overlays or special council rules — we navigate these complexities with confidence.
-              </p>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Our team works closely with heritage architects and council heritage advisors to ensure any changes preserve the original character. From restoring ornate ceilings and timber floors to matching century-old mouldings, we take care to retain the charm that makes your home unique — while discreetly integrating modern amenities.
-              </p>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Our experience with heritage home renovations means we understand the permit and consent processes that come with them. We prepare all necessary documentation for resource consents when altering protected structures and adhere to Heritage New Zealand guidelines during construction. JRA&apos;s knowledgeable, careful approach ensures your renovated character home meets today&apos;s standards for safety and livability, all while honouring the architecture and story of the original building.
-              </p>
-              <Link
-                href="/why-choose-us"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
-              >
-                Read More <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variant="fade-left" delay={150}>
-            <div className="grid grid-cols-2 gap-4">
-              {qualityPoints.map((pt, i) => (
-                <AnimateOnScroll key={pt.title} variant="scale-in" delay={i * 80}>
-                  <div className="flex flex-col gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm">
-                    <span className="text-3xl">{pt.icon}</span>
-                    <h3 className="text-[15px] font-bold text-[#293a57]">{pt.title}</h3>
-                    <p className="text-[14px] leading-relaxed text-[#5f7286]">{pt.body}</p>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
-          </AnimateOnScroll>
-        </Container>
-      </section>
-
-      {/* ── FEATURED HOME RENOVATION GALLERY ─────────────────────── */}
-      <FeaturedGallery
-        heading="Featured Home Renovation"
-        images={[
-          { src: "/services/eden-renovation-lounge-1024x683.webp", alt: "Living room renovation" },
-          { src: "/services/saint-leonards-interior-1024x683.webp", alt: "Elegant dining area" },
-          { src: "/services/leonards-bedroom-renovation-1024x700.jpg", alt: "Elegant master bedroom interior" },
-          { src: "/services/sandringham-bedroom-renovation-683x1024.webp", alt: "Cozy bedroom setup" },
-          { src: "/services/Living-Room-Renovations-1024x683.webp", alt: "Modern living room" },
-          { src: "/services/Media-Corner-Nook-1024x683.webp", alt: "Cozy media corner" },
-        ]}
-      />
 
       {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
       <section
@@ -443,13 +425,11 @@ export default function HomeRenovationsPage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Let&apos;s Get Started</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Let&apos;s Get Your Dream Started</p>
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
                 Claim Your Free Design &amp; Build Consultation
               </h2>
-              <p className="text-[17px] leading-[1.65] text-white/70">
-                This Design &amp; Build Consult covers everything you need to get started with confidence.
-              </p>
+              <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
                 {consultItems.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
@@ -469,11 +449,79 @@ export default function HomeRenovationsPage() {
         </Container>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────── */}
+      {/* ── QUALITY GUARANTEE ────────────────────────────────────── */}
       <section className="bg-white py-16 sm:py-20">
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Quality Guarantee
+            </h2>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Every renovation project in Auckland comes with comprehensive Master Builders guarantees
+              and full insurance coverage. Our team specialises in building for renovation, ensuring
+              structural integrity while creating beautiful, functional spaces. From houses for
+              renovation to modern upgrades, we maintain the highest standards throughout every project
+              phase through our rigorous 287-point quality control system.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Beyond industry-standard warranties, we provide ongoing support and maintenance guidance
+              to protect your investment. Our quality assurance process includes detailed documentation,
+              regular inspections, and comprehensive final checks to ensure every aspect of your
+              renovation meets our exacting standards. This meticulous attention to detail, combined
+              with our Master Builders Association membership and full insurance coverage, gives you
+              complete confidence in the longevity and quality of your renovation.
+            </p>
+            <Link
+              href="/why-choose-us"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            >
+              Read More <span aria-hidden="true">→</span>
+            </Link>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── PROCESS ─────────────────────────────────────────────── */}
+      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-14">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Services</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
+              How We Put Your Home Renovations Plan to Action
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((s, i) => (
+              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
+                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
+                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
+                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── FEATURED HOME RENOVATION GALLERY ─────────────────────── */}
+      <FeaturedGallery
+        heading="Featured Home Renovation"
+        images={[
+          { src: "/services/Media-Corner-Nook.webp", alt: "Cozy media corner" },
+          { src: "/services/Library-Lounge-Area.webp", alt: "Library lounge area" },
+          { src: "/services/Bedroom-Interior-Design.webp", alt: "Bedroom interior design" },
+          { src: "/services/Bathroom-Vanity-Design.webp", alt: "Bathroom vanity design" },
+          { src: "/services/eden-renovation-lounge.webp", alt: "living room renovation" },
+          { src: "/services/construction-project-space.webp", alt: "Construction project space" },
+        ]}
+      />
+
+      {/* ── FAQ ──────────────────────────────────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
-            <p className="section-tab mx-auto w-fit">FAQs</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">
               Frequently Asked Questions
             </h2>
@@ -492,7 +540,10 @@ export default function HomeRenovationsPage() {
       <Testimonials heading="See What Others Are Saying" />
 
       {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
-      <PlanningNextSteps />
+      <PlanningNextSteps leadIn="Thinking about extending your home?" />
+
+      {/* ── FINAL CTA ────────────────────────────────────────────── */}
+      <JourneyCta leadIn="Thinking about extending your home?" />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

@@ -10,6 +10,7 @@ import {
   WaysToConnect,
   FeaturedGallery,
   PlanningNextSteps,
+  JourneyCta,
 } from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
@@ -20,7 +21,39 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/home-extensions" },
 };
 
-const advantages = [
+/* All copy on this page is verbatim from the live site
+   (report-audit/02-services.md · Home Extensions in Auckland). */
+
+const painPoints = [
+  "Are you struggling with a growing family but love your current neighbourhood too much to move?",
+  "Does your home's layout no longer suit your lifestyle, leaving you wondering about house extension options?",
+  "Are you seeking trusted home extension contractors in Auckland who can deliver quality work within budget?",
+];
+
+const introParas = [
+  "As trusted Auckland home extension builders, JRA Construction plans, costs, and delivers house extensions for growing families who want more space without leaving the suburb they love.",
+  "We combine design coordination, quantity surveying, council-consent support, and fixed-price construction management so your extension is practical, buildable, and aligned with your budget.",
+  "Unlike many contractors, we provide end-to-end project management through our digital platform, from initial architectural designs and council consents through to final construction, giving you clear visibility and control throughout the renovation journey.",
+  "With our team of Licensed Building Practitioners and dedication to transparent fixed-price contracts, we have helped Auckland families expand their homes without the stress of moving or hidden costs.",
+];
+
+const ourDifference = [
+  "Fixed-Price Contracts",
+  "287-Point Quality Checklist",
+  "Licensed Building Practitioners",
+  "Master Builders Guarantee",
+  "Transparent Project Management",
+];
+
+const whatYouGet = [
+  { icon: "👤", text: "Dedicated Project Manager" },
+  { icon: "📡", text: "Real-Time Progress Updates" },
+  { icon: "🎨", text: "Professional Design Consultation" },
+  { icon: "🏛️", text: "Council Compliance Expertise" },
+  { icon: "✅", text: "Quality Assurance & Warranty Coverage" },
+];
+
+const portalFeatures = [
   { icon: "📡", text: "Track real-time construction progress" },
   { icon: "📍", text: "View and approve project milestones" },
   { icon: "📁", text: "Access all project documentation and consents" },
@@ -30,35 +63,27 @@ const advantages = [
   { icon: "📸", text: "Access progress photos and updates" },
 ];
 
-const standards = [
-  "Fixed-Price Contracts",
-  "287-Point Quality Checklist",
-  "Licensed Building Practitioners",
-  "Master Builders Guarantee",
-  "Transparent Project Management",
-];
-
 const processSteps = [
   { step: "01", title: "Initial Contact", body: "We start with a free, no-obligation chat to understand your goals and see if we're the right fit." },
   { step: "02", title: "Site Meeting", body: "We visit your home to discuss your project in detail. We'll bring guides and examples to help you visualize the possibilities." },
   { step: "03", title: "Working with Consultants", body: "We collaborate with your existing architect and structural engineer, or connect you with trusted consultants. Early involvement helps prevent costly design changes later." },
-  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses." },
-  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote including all subcontractor costs and assumptions." },
-  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract before construction begins." },
-  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and can discuss any changes or decisions as needed." },
-  { step: "08", title: "The Completion Phase", body: "We conduct a thorough walkthrough with you to ensure satisfaction and provide all necessary documentation. We remain available for any post-project support." },
+  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses down the line." },
+  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote. This includes subcontractor costs and a list of assumptions for full transparency." },
+  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract. This ensures all parties are aligned before construction begins." },
+  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and have the opportunity to discuss any changes or decisions as needed." },
+  { step: "08", title: "The Completion Phase", body: "Upon completion, we conduct a thorough walkthrough with you to ensure satisfaction. We provide all necessary documentation and remain available for any post-project support." },
 ];
 
-const qualityPoints = [
-  { icon: "👤", title: "Dedicated Project Manager", body: "A single point of contact manages every detail of your extension from start to finish." },
-  { icon: "📡", title: "Real-Time Progress Updates", body: "Stay connected through our digital platform — milestones, photos, and documents at your fingertips." },
-  { icon: "🎨", title: "Professional Design Consultation", body: "We collaborate on designs that blend seamlessly with your existing home and neighbourhood character." },
-  { icon: "🏛️", title: "Council Compliance Expertise", body: "All consents, permits, and compliance documentation are handled by our experienced team." },
+const digitalFirst = [
+  { icon: "🖥️", text: "24/7 Access to Project Portal" },
+  { icon: "📡", text: "Live Updates and Progress Tracking" },
+  { icon: "📁", text: "Document Management" },
+  { icon: "💬", text: "Direct Communication Channel" },
 ];
 
 const faqs = [
-  { q: "How long does a typical house extension project take?", a: "Timeline varies depending on scope, but most extensions take 12–16 weeks from construction start to completion." },
-  { q: "What council permits are needed?", a: "Most extensions require building consent. We handle all paperwork and ensure compliance with local regulations, obtaining building consent and any required resource consents." },
+  { q: "How long does a typical house extension Auckland project take?", a: "Timeline varies depending on scope, but most extensions take 12-16 weeks from construction start to completion." },
+  { q: "What council permits are needed for adding a bedroom to a house New Zealand?", a: "Most extensions require building consent. We handle all paperwork and ensure compliance with local regulations, obtaining building consent and any required resource consents." },
   { q: "How do you manage project costs?", a: "We provide fixed-price contracts and transparent change orders, with detailed cost breakdowns at every stage." },
   { q: "Can we live in our home during construction?", a: "Yes, most clients do. We implement strict safety protocols and minimise disruption to your daily routine." },
   { q: "What warranties do you offer?", a: "Our work comes with comprehensive guarantees through the Registered Master Builders Association, protecting your investment for up to 10 years." },
@@ -125,27 +150,21 @@ export default function HomeExtensionsPage() {
           </nav>
 
           <div className="max-w-3xl space-y-6">
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[12px] font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-              Extensions · Auckland
-            </span>
             <h1 className="font-[ui-sans-serif,system-ui,sans-serif] text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
               Home Extensions<br />in Auckland
             </h1>
-            <p className="max-w-xl text-[18px] leading-relaxed text-white/75">
-              Add space without moving — seamless extensions that blend with your existing home and neighbourhood.
-            </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="#consultation"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-zinc-900 shadow-lg shadow-black/30 transition hover:bg-zinc-100"
               >
                 Free Consultation
               </Link>
               <Link
-                href="#process"
+                href="/estimate"
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
-                Our Process
+                Online Estimate
               </Link>
             </div>
           </div>
@@ -154,16 +173,11 @@ export default function HomeExtensionsPage() {
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
       <section className="bg-white py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#293a57]/50">Sound Familiar?</p>
               <ul className="space-y-4">
-                {[
-                  "Struggling with a growing family but love your current neighbourhood too much to move?",
-                  "Does your home's layout no longer suit your lifestyle?",
-                  "Seeking trusted home extension contractors in Auckland who deliver quality within budget?",
-                ].map((point) => (
+                {painPoints.map((point) => (
                   <li key={point} className="flex items-start gap-3 rounded-xl border border-[#eef2f6] bg-[#f9fafb] px-5 py-4">
                     <span className="mt-0.5 text-[#293a57]">
                       <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
@@ -180,15 +194,11 @@ export default function HomeExtensionsPage() {
 
           <AnimateOnScroll variant="fade-left" delay={150}>
             <div className="space-y-5">
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Your Trusted Partner for House Extensions
-              </h2>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                As premier house additions and renovation specialists, JRA Construction brings extensive expertise to every home extension project we undertake. Our proven track record combines innovative design solutions with practical functionality, ensuring your investment adds lasting value to your property.
-              </p>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Unlike other contractors, we provide end-to-end project management through our sophisticated digital platform — from initial architectural designs and council consents through to final construction, giving you unprecedented visibility and control throughout your renovation journey.
-              </p>
+              {introParas.map((para) => (
+                <p key={para.slice(0, 40)} className="text-[17px] leading-[1.65] text-[#4d6277]">
+                  {para}
+                </p>
+              ))}
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]">
                   Contact Us <span aria-hidden="true">→</span>
@@ -213,41 +223,7 @@ export default function HomeExtensionsPage() {
         eyebrow="See JRA In Action"
       />
 
-      {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container>
-          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <p className="section-tab mx-auto w-fit mb-4">The JRA Advantage</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Always Informed. Always in Control.
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-[17px] text-[#5f7286]">
-              From day one, you&apos;ll have access to our client portal for complete project transparency.
-            </p>
-          </AnimateOnScroll>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((item, i) => (
-              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
-                  <span className="text-2xl">{item.icon}</span>
-                  <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
-        background="gray"
-      />
-
-      {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
+      {/* ── WHY CHOOSE JRA: OUR DIFFERENCE ───────────────────────── */}
       <section
         className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
         style={{
@@ -258,25 +234,15 @@ export default function HomeExtensionsPage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Our Commitment</p>
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
-                Why Choose JRA Construction
+                Why Choose JRA Construction: Our Difference
               </h2>
-              <p className="text-[17px] leading-[1.65] text-white/70">
-                From our recent Balmoral modern living and kitchen extension project to our Avondale master bedroom rebuild, we understand how to maximise your home&apos;s potential. Our portfolio showcases successful home additions in Mount Eden, Point Chevalier, Waterview, and Sandringham — each demonstrating our ability to combine innovative design with practical functionality.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-zinc-100"
-              >
-                Start Your Journey <span aria-hidden="true">→</span>
-              </Link>
             </div>
           </AnimateOnScroll>
 
           <AnimateOnScroll variant="fade-left" delay={150}>
             <ul className="space-y-4">
-              {standards.map((item, i) => (
+              {ourDifference.map((item, i) => (
                 <AnimateOnScroll key={item} variant="fade-up" delay={i * 80}>
                   <li className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm">
                     <CheckIcon />
@@ -289,14 +255,42 @@ export default function HomeExtensionsPage() {
         </Container>
       </section>
 
+      {/* ── WHAT YOU GET WITH EVERY PROJECT ──────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container>
+          <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              What You Get with Every Project
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {whatYouGet.map((item, i) => (
+              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
+                  <span className="text-3xl">{item.icon}</span>
+                  <p className="text-[15px] font-semibold leading-snug text-[#293a57]">{item.text}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+      />
+
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
-      <WaysToConnect image="/services/Te-Wiata-Place-Avondale-Project-13-1024x682.jpg" imageAlt="Best home extensions Auckland" />
+      <WaysToConnect image="/services/Te-Wiata-Place-Avondale-Project-13-1024x682.jpg" imageAlt="best home extensions auckland" />
 
       {/* ── WITHOUT THE STRESS OF MOVING ─────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container className="space-y-12">
           <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">Our Portfolio</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               House Extensions in Auckland Without the Stress of Moving
             </h2>
@@ -314,25 +308,13 @@ export default function HomeExtensionsPage() {
                 projects across Mount Eden, Point Chevalier, Waterview, and Sandringham, we understand
                 how to add space in established Auckland suburbs.
               </p>
-              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-                Whether you are planning a simple bedroom extension, open-plan rear addition, or full
-                house transformation, our digital-first process keeps everything visible from design
-                through handover. If you are still researching options, start with our home extensions
-                guide, then book a consultation when you want advice tailored to your home and budget.
-              </p>
-              <Link
-                href="/estimate"
-                className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
-              >
-                Free Online Estimate <span aria-hidden="true">→</span>
-              </Link>
             </AnimateOnScroll>
 
             <AnimateOnScroll variant="fade-left" delay={150}>
               <div className="relative aspect-[3/2] overflow-hidden rounded-2xl shadow-xl shadow-[#293a57]/15">
                 <Image
                   src="/services/Te-Wiata-Place-Avondale-Project-09-1024x682.jpg"
-                  alt="Avondale home extension project"
+                  alt="avondale project"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -340,65 +322,102 @@ export default function HomeExtensionsPage() {
               </div>
             </AnimateOnScroll>
           </div>
+
+          <AnimateOnScroll variant="fade-up" delay={100}>
+            <div className="mx-auto max-w-4xl rounded-2xl border border-[#e8edf2] bg-white p-8 shadow-[0_8px_32px_rgba(41,58,87,0.08)] sm:p-10">
+              <p className="text-[16px] leading-[1.7] text-[#4d6277]">
+                From day one, you will have access to our client portal where you can:
+              </p>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {portalFeatures.map((item) => (
+                  <li key={item.text} className="flex items-start gap-3 text-[15px] text-[#2d4560]">
+                    <span className="text-xl">{item.icon}</span>
+                    {item.text}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-[16px] leading-[1.7] text-[#4d6277]">
+                Whether you are planning a simple bedroom extension, open-plan rear addition, or full
+                house transformation, our digital-first process keeps everything visible from design
+                through handover. If you are still researching options, start with our home extensions
+                guide, then book a consultation when you want advice tailored to your home and budget.
+              </p>
+              <Link
+                href="/estimate"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
+              >
+                Free Online Estimate <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </AnimateOnScroll>
         </Container>
       </section>
 
-      {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
-        <Container className="space-y-14">
+      {/* ── VERSATILE EXTENSION OPTIONS ──────────────────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="mx-auto max-w-4xl space-y-6">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">How It Works</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
-              How We Put Your Home Extension Plan to Action
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Versatile Extension Options for Your Home
             </h2>
-            <p className="mx-auto max-w-2xl text-[17px] text-[#5f7286]">
-              Our proven 8-step process takes your extension from concept to completion with total transparency.
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
+            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
+              Home additions come in many forms, and we have the expertise to execute them all. Whether
+              you&apos;re considering a second-storey addition to gain extra bedrooms or a ground-floor
+              extension to enlarge your living area, we tailor the solution to your needs. In
+              Auckland&apos;s urban environment, we&apos;ve designed creative rear extensions that add
+              open-plan kitchen and dining spaces, as well as side extensions that make room for home
+              offices, playrooms, or expanded garages. Each project is approached with an eye for
+              seamless integration – matching the new roofing, cladding, and style to your existing
+              structure so the addition looks and feels like a natural part of your home.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
+              We also advise on unique extension ideas to maximise your property&apos;s potential. For
+              example, converting an underutilised attic into a livable loft or extending outwards to
+              create an indoor-outdoor entertainment area with decking. Our experience includes
+              navigating height-to-boundary considerations for second levels and ensuring foundations
+              are reinforced for new loads. By exploring various house extension options with you – from
+              minor alterations to full-scale additions – we help determine the best way to achieve more
+              space and functionality. The result is a custom extension that enhances your lifestyle and
+              adds significant value to your Auckland home, all carried out with the quality and
+              professionalism you expect from JRA Construction.
             </p>
           </AnimateOnScroll>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((s, i) => (
-              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
         </Container>
       </section>
 
-      {/* ── EXTENSION OPTIONS ────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+      {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
+      <section
+        id="consultation"
+        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
+        }}
+      >
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           <AnimateOnScroll variant="fade-right">
-            <div className="space-y-5">
-              <p className="section-tab w-fit">Versatile Solutions</p>
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Versatile Extension Options for Your Home
+            <div className="space-y-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Let&apos;s Get Your Dream Started</p>
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
+                Claim Your Free Design &amp; Build Consultation
               </h2>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                Home additions come in many forms, and we have the expertise to execute them all. Whether you&apos;re considering a second-storey addition to gain extra bedrooms or a ground-floor extension to enlarge your living area, we tailor the solution to your needs.
-              </p>
-              <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                We also advise on unique extension ideas to maximise your property&apos;s potential — from converting an underutilised attic into a livable loft to extending outwards for indoor-outdoor entertaining areas. By exploring various house extension options with you, we help determine the best way to achieve more space and functionality.
-              </p>
+              <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
+              <ul className="space-y-3">
+                {consultItems.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
+                    <CheckIcon />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variant="fade-left" delay={150}>
-            <div className="grid grid-cols-2 gap-4">
-              {qualityPoints.map((pt, i) => (
-                <AnimateOnScroll key={pt.title} variant="scale-in" delay={i * 80}>
-                  <div className="flex flex-col gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm">
-                    <span className="text-3xl">{pt.icon}</span>
-                    <h3 className="text-[15px] font-bold text-[#293a57]">{pt.title}</h3>
-                    <p className="text-[14px] leading-relaxed text-[#5f7286]">{pt.body}</p>
-                  </div>
-                </AnimateOnScroll>
-              ))}
+          <AnimateOnScroll variant="fade-left" delay={200}>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
+              <ContactForm />
             </div>
           </AnimateOnScroll>
         </Container>
@@ -408,7 +427,6 @@ export default function HomeExtensionsPage() {
       <section className="bg-white py-16 sm:py-20">
         <Container className="space-y-8">
           <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">Our Promise</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Quality Guarantee
             </h2>
@@ -434,25 +452,43 @@ export default function HomeExtensionsPage() {
         </Container>
       </section>
 
+      {/* ── PROCESS ─────────────────────────────────────────────── */}
+      <section id="process" className="scroll-mt-24 bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-14">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Services</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
+              How We Put Your Home Extension Plan to Action
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((s, i) => (
+              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
+                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
+                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
+                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* ── PROJECT MANAGEMENT EXCELLENCE ────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
+      <section className="bg-white py-16 sm:py-20">
         <Container className="space-y-10">
           <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">Digital-First Approach</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Project Management Excellence
+              Project Management Excellence: Digital-First Approach
             </h2>
           </AnimateOnScroll>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: "🖥️", text: "24/7 Access to Project Portal" },
-              { icon: "📡", text: "Live Updates and Progress Tracking" },
-              { icon: "📁", text: "Document Management" },
-              { icon: "💬", text: "Direct Communication Channel" },
-            ].map((item, i) => (
+            {digitalFirst.map((item, i) => (
               <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
-                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
+                <div className="flex items-start gap-4 rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
                   <span className="text-2xl">{item.icon}</span>
                   <p className="text-[15px] font-medium leading-snug text-[#293a57]">{item.text}</p>
                 </div>
@@ -473,58 +509,19 @@ export default function HomeExtensionsPage() {
       <FeaturedGallery
         heading="Featured Home Extension/Renovation"
         images={[
-          { src: "/services/Te-Wiata-Place-Avondale-Project-08-1024x683.jpg", alt: "Auckland home extension" },
-          { src: "/services/Te-Wiata-Place-Avondale-Project-09-1024x682.jpg", alt: "Avondale project" },
-          { src: "/services/taipari-road-te-atatu07-673a8cab8f4c5-1-1024x536.webp", alt: "Suburban residence exterior" },
-          { src: "/services/mount-eden-woodwork-1024x682.webp", alt: "Wooden paneling detail" },
-          { src: "/services/leonards-bedroom-renovation-1024x700.jpg", alt: "Elegant master bedroom interior" },
-          { src: "/services/sandringham-bedroom-renovation-683x1024.webp", alt: "Cozy bedroom setup" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-06.jpg", alt: "Avondale home extension exterior" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-09-1024x682.jpg", alt: "avondale project" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-08-1024x683.jpg", alt: "Auckland Home Extension" },
+          { src: "/services/te-wiata-bedroom.webp", alt: "Te Wiata bedroom" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-15.jpg", alt: "Avondale extension interior" },
+          { src: "/services/Te-Wiata-Place-Avondale-Project-03.jpg", alt: "Avondale extension living area" },
         ]}
       />
 
-      {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
-      <section
-        id="consultation"
-        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
-        }}
-      >
-        <Container className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
-          <AnimateOnScroll variant="fade-right">
-            <div className="space-y-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Let&apos;s Get Started</p>
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
-                Claim Your Free Design &amp; Build Consultation
-              </h2>
-              <p className="text-[17px] leading-[1.65] text-white/70">
-                This Design &amp; Build Consult covers everything you need to get started with confidence.
-              </p>
-              <ul className="space-y-3">
-                {consultItems.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
-                    <CheckIcon />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variant="fade-left" delay={200}>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
-              <ContactForm />
-            </div>
-          </AnimateOnScroll>
-        </Container>
-      </section>
-
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container className="max-w-3xl space-y-8">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
-            <p className="section-tab mx-auto w-fit">FAQs</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">
               Frequently Asked Questions
             </h2>
@@ -543,7 +540,10 @@ export default function HomeExtensionsPage() {
       <Testimonials heading="See What Others Are Saying" />
 
       {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
-      <PlanningNextSteps />
+      <PlanningNextSteps leadIn="Thinking about extending your home?" />
+
+      {/* ── FINAL CTA ────────────────────────────────────────────── */}
+      <JourneyCta leadIn="Thinking about extending your home?" />
 
       {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-10">

@@ -10,6 +10,7 @@ import {
   WaysToConnect,
   FeaturedGallery,
   PlanningNextSteps,
+  JourneyCta,
 } from "@/components/services/ServiceShared";
 import type { Metadata } from "next";
 
@@ -19,6 +20,15 @@ export const metadata: Metadata = {
     "Explore custom homes Auckland with JRA Construction. Learn about our expert builders and quality assurance. Start your dream home today now.",
   alternates: { canonical: "/services/custom-homes" },
 };
+
+/* All copy on this page is verbatim from the live site
+   (jraconstruction.co.nz/services/custom-homes/). */
+
+const painPoints = [
+  "Dreaming of a custom-designed home but overwhelmed by the building process?",
+  "Concerned about budget overruns and construction delays?",
+  "Want to work with builders who understand your unique vision?",
+];
 
 const advantages = [
   { icon: "📡", text: "Real-time construction updates" },
@@ -38,30 +48,40 @@ const standards = [
   "Architectural partnerships",
 ];
 
+const portalAccess = [
+  "Daily site progress updates and photo documentation",
+  "Material selection approvals and tracking",
+  "Building consent status and compliance documents",
+  "Direct messaging with your dedicated build team",
+  "Construction schedule and milestone tracking",
+  "Budget management and cost breakdowns",
+  "Virtual site walk-throughs and progress reports",
+];
+
+const excellenceItems = [
+  { icon: "👤", text: "Personal project consultant" },
+  { icon: "📅", text: "Detailed timeline planning" },
+  { icon: "🏛️", text: "Council liaison expertise" },
+  { icon: "🔩", text: "Material procurement specialists" },
+];
+
 const processSteps = [
   { step: "01", title: "Initial Contact", body: "We start with a free, no-obligation chat to understand your goals and see if we're the right fit." },
   { step: "02", title: "Site Meeting", body: "We visit your home to discuss your project in detail. We'll bring guides and examples to help you visualize the possibilities." },
   { step: "03", title: "Working with Consultants", body: "We collaborate with your existing architect or connect you with trusted consultants. Early involvement helps prevent costly design changes later." },
-  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses." },
-  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote including all subcontractor costs." },
-  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract before construction begins." },
-  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and can discuss any changes as needed." },
-  { step: "08", title: "The Completion Phase", body: "We conduct a thorough walkthrough with you to ensure satisfaction and provide all necessary documentation including your CCC." },
-];
-
-const qualityPoints = [
-  { icon: "👤", title: "Personal Project Consultant", body: "A dedicated consultant guides you through every stage of your build." },
-  { icon: "📅", title: "Detailed Timeline Planning", body: "Precise scheduling ensures your project stays on track from day one." },
-  { icon: "🏛️", title: "Council Liaison Expertise", body: "We handle all consents and compliance documentation on your behalf." },
-  { icon: "🔩", title: "Material Procurement Specialists", body: "We source quality materials at competitive prices through our trusted network." },
+  { step: "04", title: "Estimate of Costs", body: "Before finalizing designs, we provide a cost estimate to ensure your plans align with your budget. This step helps avoid unexpected expenses down the line." },
+  { step: "05", title: "Quotation", body: "Once designs are ready and submitted to the council, we compile a detailed, fixed-price quote. This includes subcontractor costs and a list of assumptions for full transparency." },
+  { step: "06", title: "Contract Agreements", body: "With the design, pricing, and timeline agreed upon, we formalize everything in a clear contract. This ensures all parties are aligned before construction begins." },
+  { step: "07", title: "Construction Phase", body: "Our licensed builders execute the project according to plan. You'll receive regular updates and have the opportunity to discuss any changes or decisions as needed." },
+  { step: "08", title: "The Completion Phase", body: "Upon completion, we conduct a thorough walkthrough with you to ensure satisfaction. We provide all necessary documentation and remain available for any post-project support." },
 ];
 
 const faqs = [
-  { q: "What's the typical timeframe for a new build?", a: "Most projects take 8–12 months from consent to completion, depending on complexity and design requirements." },
-  { q: "How do you ensure budget accuracy?", a: "We provide detailed cost breakdowns and fixed-price contracts with fully transparent variation processes — no nasty surprises." },
-  { q: "What sustainable options do you offer?", a: "We incorporate energy-efficient design, sustainable materials, and future-proof technologies in all new builds." },
-  { q: "How do you handle council consents?", a: "Our team manages the entire consent process, including resource consent, building consent documentation, inspections, and the final CCC." },
-  { q: "What support do you provide post-completion?", a: "We offer comprehensive after-care service and maintain contact throughout your entire warranty period." },
+  { q: "What's the typical timeframe for a new build?", a: "Most projects take 8-12 months from consent to completion, depending on complexity." },
+  { q: "How do you ensure budget accuracy?", a: "We provide detailed cost breakdowns and fixed-price contracts with transparent variation processes." },
+  { q: "What sustainable options do you offer?", a: "We incorporate energy-efficient design, sustainable materials, and future-proof technologies." },
+  { q: "How do you handle council consents?", a: "Our team manages the entire consent process, including documentation and compliance requirements." },
+  { q: "What support do you provide post-completion?", a: "We offer comprehensive after-care service and maintain contact throughout your warranty period." },
 ];
 
 const consultItems = [
@@ -116,7 +136,6 @@ export default function CustomHomesPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent" />
 
         <Container className="relative z-10">
-          {/* Breadcrumb */}
           <nav className="mb-6 flex items-center gap-2 text-[13px] text-white/50">
             <Link href="/" className="transition hover:text-white">Home</Link>
             <span>/</span>
@@ -126,27 +145,21 @@ export default function CustomHomesPage() {
           </nav>
 
           <div className="max-w-3xl space-y-6">
-            <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[12px] font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-              New Builds · Auckland
-            </span>
             <h1 className="font-[ui-sans-serif,system-ui,sans-serif] text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">
               Custom Homes<br />in Auckland
             </h1>
-            <p className="max-w-xl text-[18px] leading-relaxed text-white/75">
-              From concept to completion — fixed-price contracts, licensed builders, and unwavering commitment to quality.
-            </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="#consultation"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-zinc-900 shadow-lg shadow-black/30 transition hover:bg-zinc-100"
               >
                 Free Consultation
               </Link>
               <Link
-                href="#process"
+                href="/estimate"
                 className="inline-flex items-center justify-center rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
-                Our Process
+                Online Estimate
               </Link>
             </div>
           </div>
@@ -155,16 +168,11 @@ export default function CustomHomesPage() {
 
       {/* ── PAIN POINTS + INTRO ──────────────────────────────────── */}
       <section className="bg-white py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#293a57]/50">Sound Familiar?</p>
               <ul className="space-y-4">
-                {[
-                  "Dreaming of a custom-designed home but overwhelmed by the building process?",
-                  "Concerned about budget overruns and construction delays?",
-                  "Want to work with builders who understand your unique vision?",
-                ].map((point) => (
+                {painPoints.map((point) => (
                   <li key={point} className="flex items-start gap-3 rounded-xl border border-[#eef2f6] bg-[#f9fafb] px-5 py-4">
                     <span className="mt-0.5 text-[#293a57]">
                       <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
@@ -181,14 +189,18 @@ export default function CustomHomesPage() {
 
           <AnimateOnScroll variant="fade-left" delay={150}>
             <div className="space-y-5">
-              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#293a57] sm:text-[42px]">
-                Creating Exceptional New Build Homes
-              </h2>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                At JRA Construction, we deliver vision, precision, and unwavering dedication to quality. Our comprehensive project management approach ensures complete transparency throughout your building journey — from securing Auckland Council building consents to final sign-off.
+                Creating exceptional new build homes in Auckland requires more than just construction
+                expertise – it demands vision, precision, and unwavering dedication to quality. At JRA
+                Construction, we deliver all three. Our comprehensive project management approach ensures
+                complete transparency throughout your building journey, from securing Auckland Council
+                building consents to final sign-off.
               </p>
               <p className="text-[17px] leading-[1.65] text-[#4d6277]">
-                With our team of Licensed Building Practitioners and partnerships with leading architects, we've established ourselves as trusted new builds Auckland specialists. Our fixed-price contracts, proven systems, and dedicated client support ensure your building experience is seamless.
+                With our team of Licensed Building Practitioners and partnerships with leading
+                architects, we’ve established ourselves as trusted new builds Auckland specialists. Our
+                fixed-price contracts, proven systems, and dedicated client support ensure your building
+                experience is seamless from foundation to final handover.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]">
@@ -214,17 +226,13 @@ export default function CustomHomesPage() {
         eyebrow="See JRA In Action"
       />
 
-      {/* ── JRA ADVANTAGE ────────────────────────────────────────── */}
+      {/* ── THE JRA ADVANTAGE ────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container>
           <AnimateOnScroll variant="fade-up" className="mb-12 text-center">
-            <p className="section-tab mx-auto w-fit mb-4">The JRA Advantage</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
-              Always Informed. Always in Control.
+              The JRA Advantage
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-[17px] text-[#5f7286]">
-              Our advanced client communication system keeps you connected to every stage of your build.
-            </p>
           </AnimateOnScroll>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -240,14 +248,6 @@ export default function CustomHomesPage() {
         </Container>
       </section>
 
-      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
-      <ServiceVideo
-        videoId="Fc3nnr7B4Hw"
-        title="JRA's 8-Step Client Process - How it works"
-        eyebrow="How We Work"
-        background="gray"
-      />
-
       {/* ── SETTING THE STANDARD ─────────────────────────────────── */}
       <section
         className="bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
@@ -259,19 +259,9 @@ export default function CustomHomesPage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <AnimateOnScroll variant="fade-right">
             <div className="space-y-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Our Commitment</p>
               <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
-                Setting the Standard in New Build Developments
+                Setting the Standard in New Build Developments Auckland
               </h2>
-              <p className="text-[17px] leading-[1.65] text-white/70">
-                Our portfolio showcases the depth of our expertise, incorporating sustainable, energy-efficient materials and innovative technologies. From our Regional Silver Award-winning project in Whangaparāoa to architecturally designed dual residences in Queensway, each home demonstrates our ability to bring unique visions to life.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-zinc-100"
-              >
-                Start Your Journey <span aria-hidden="true">→</span>
-              </Link>
             </div>
           </AnimateOnScroll>
 
@@ -290,14 +280,20 @@ export default function CustomHomesPage() {
         </Container>
       </section>
 
+      {/* ── VIDEO: 8-STEP CLIENT PROCESS ─────────────────────────── */}
+      <ServiceVideo
+        videoId="Fc3nnr7B4Hw"
+        title="JRA's 8-Step Client Process - How it works"
+        eyebrow="How We Work"
+      />
+
       {/* ── WAYS TO CONNECT ──────────────────────────────────────── */}
-      <WaysToConnect image="/services/Cabin-Facade-Wooded-683x1024.webp" imageAlt="Wooded Cabin Facade" />
+      <WaysToConnect phoneDisplay="+64 9 884 0915" phoneTel="tel:+6498840915" image="/services/Cabin-Facade-Wooded-683x1024.webp" imageAlt="Wooded Cabin Facade" />
 
       {/* ── BRINGING YOUR DREAM HOME TO LIFE ─────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
         <Container className="space-y-12">
           <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">Our Portfolio</p>
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Bringing Your Dream Home to Life
             </h2>
@@ -317,18 +313,18 @@ export default function CustomHomesPage() {
                 visions to life.
               </p>
               <p className="text-[16px] leading-[1.7] text-[#4d6277]">
-                Working alongside renowned architects like Alignworks and ICR Studio Architectural Design,
-                we create new homes Auckland that harmoniously blend sophisticated design with practical
-                living. Our recent Tiri Road project exemplifies this approach, where meticulous attention
-                to detail resulted in an exquisite residence that maximises natural light and seamlessly
-                connects indoor and outdoor spaces.
+                Working alongside renowned architects like Alignworks and ICR Studio Architectural
+                Design, we create new homes Auckland that harmoniously blend sophisticated design with
+                practical living. Our recent Tiri Road project exemplifies this approach, where
+                meticulous attention to detail resulted in an exquisite residence that maximises natural
+                light and seamlessly connects indoor and outdoor spaces.
               </p>
               <p className="text-[16px] leading-[1.7] text-[#4d6277]">
                 Every new build houses Auckland project benefits from our comprehensive approach to
-                construction. Whether we&apos;re incorporating sustainable materials and innovative
+                construction. Whether we’re incorporating sustainable materials and innovative
                 technologies, as demonstrated in our Whangaparāoa build, or creating multiple
-                architecturally designed residences like our Queensway development, we ensure every aspect
-                meets our exacting standards.
+                architecturally designed residences like our Queensway development, we ensure every
+                aspect meets our exacting standards.
               </p>
               <Link
                 href="/estimate"
@@ -355,18 +351,10 @@ export default function CustomHomesPage() {
             <div className="mx-auto max-w-4xl rounded-2xl border border-[#e8edf2] bg-white p-8 shadow-[0_8px_32px_rgba(41,58,87,0.08)] sm:p-10">
               <p className="text-[16px] leading-[1.7] text-[#4d6277]">
                 Throughout your new build journey, our advanced client communication system keeps you
-                informed and involved. From groundwork to final touches, you&apos;ll have instant access to:
+                informed and involved. From groundwork to final touches, you’ll have instant access to:
               </p>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Daily site progress updates and photo documentation",
-                  "Material selection approvals and tracking",
-                  "Building consent status and compliance documents",
-                  "Direct messaging with your dedicated build team",
-                  "Construction schedule and milestone tracking",
-                  "Budget management and cost breakdowns",
-                  "Virtual site walk-throughs and progress reports",
-                ].map((item) => (
+                {portalAccess.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[15px] text-[#2d4560]">
                     <CheckIcon />
                     {item}
@@ -374,15 +362,15 @@ export default function CustomHomesPage() {
                 ))}
               </ul>
               <p className="mt-5 text-[16px] leading-[1.7] text-[#4d6277]">
-                Whether you&apos;re creating a compact urban dwelling or an expansive family residence, our
-                transparent approach ensures you&apos;re always in control of your building journey. From
-                foundation to final handover, every detail of your new home&apos;s progress is documented
-                and accessible, eliminating guesswork and providing peace of mind throughout the
+                Whether you’re creating a compact urban dwelling or an expansive family residence, our
+                transparent approach ensures you’re always in control of your building journey. From
+                foundation to final handover, every detail of your new home’s progress is documented and
+                accessible, eliminating guesswork and providing peace of mind throughout the
                 construction process.
               </p>
               <Link
                 href="/estimate"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-[#293a57] px-6 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
               >
                 Free Online Estimate <span aria-hidden="true">→</span>
               </Link>
@@ -391,107 +379,106 @@ export default function CustomHomesPage() {
         </Container>
       </section>
 
-      {/* ── PROCESS ─────────────────────────────────────────────── */}
-      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
-        <Container className="space-y-14">
+      {/* ── NAVIGATING COUNCIL CONSENTS & COMPLIANCE ─────────────── */}
+      <section className="bg-white py-16 sm:py-20">
+        <Container className="mx-auto max-w-4xl space-y-6">
           <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">How It Works</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
-              How We Put Your Custom Home to Action
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Navigating Council Consents &amp; Compliance
             </h2>
-            <p className="mx-auto max-w-2xl text-[17px] text-[#5f7286]">
-              Our proven 8-step process removes the stress and guesswork from building your new home.
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="fade-up" delay={100} className="space-y-5">
+            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
+              Navigating the regulatory landscape is a critical part of any new build project. We
+              leverage our in-depth knowledge of <strong>Auckland Council</strong> requirements and the{" "}
+              <strong>New Zealand Building Code</strong> to streamline the consent process for your new
+              home. From preparing documentation for resource and building consents to coordinating
+              council inspections, our team handles it all. This means your project stays on track with
+              all permits in place and no compliance surprises.
+            </p>
+            <p className="text-[17px] leading-[1.7] text-[#4d6277]">
+              Our expertise as Licensed Building Practitioners and <strong>Registered Master
+              Builders</strong> includes liaising with council officials and obtaining the Code
+              Compliance Certificate (CCC) at project completion. We ensure every aspect of your new
+              build meets or exceeds local building standards – from structural integrity and insulation
+              values to safety and accessibility codes. With JRA managing consents and compliance, you
+              can be confident your new home is fully approved and built to last in Auckland’s
+              regulatory environment.
             </p>
           </AnimateOnScroll>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((s, i) => (
-              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
-                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
-                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
         </Container>
       </section>
 
-      {/* ── COUNCIL CONSENTS ─────────────────────────────────────── */}
-      <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center lg:gap-16">
-          <AnimateOnScroll variant="fade-right" className="space-y-6">
-            <p className="section-tab w-fit">Consents & Compliance</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
-              Navigating Council Consents & Compliance
-            </h2>
-            <div className="space-y-4 text-[17px] leading-[1.65] text-[#4d6277]">
-              <p>
-                Navigating the regulatory landscape is a critical part of any new build project. We leverage our in-depth knowledge of Auckland Council requirements and the New Zealand Building Code to streamline the consent process.
-              </p>
-              <p>
-                From preparing documentation for resource and building consents to coordinating council inspections, our team handles it all — so your project stays on track with all permits in place and no compliance surprises.
-              </p>
-              <p>
-                Our expertise as Licensed Building Practitioners and Registered Master Builders includes liaising with council officials and obtaining the Code Compliance Certificate (CCC) at project completion.
-              </p>
-            </div>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variant="scale-in" delay={200}>
-            <div className="rounded-2xl border border-[#e8edf2] bg-white p-8 shadow-[0_8px_32px_rgba(41,58,87,0.08)] space-y-5">
-              <h3 className="text-[22px] font-extrabold text-[#293a57]">What We Manage For You</h3>
+      {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
+      <section
+        id="consultation"
+        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center py-16 sm:py-20"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(41,58,87,0.93), rgba(41,58,87,0.93)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
+        }}
+      >
+        <Container className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <AnimateOnScroll variant="fade-right">
+            <div className="space-y-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Let&apos;s Get Your Dream Started</p>
+              <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[48px]">
+                Claim Your Free Design &amp; Build Consultation
+              </h2>
+              <p className="text-[17px] leading-[1.65] text-white/70">This Design &amp; Build Consult covers…</p>
               <ul className="space-y-3">
-                {[
-                  "Resource consent documentation",
-                  "Building consent applications",
-                  "Council inspection scheduling",
-                  "NZ Building Code compliance",
-                  "Code Compliance Certificate (CCC)",
-                  "Structural & safety standards",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-[15px] text-[#2d4560]">
+                {consultItems.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-[16px] text-white/85">
                     <CheckIcon />
                     {item}
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact"
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
-              >
-                Discuss Your Project <span aria-hidden="true">→</span>
-              </Link>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-left" delay={200}>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
+              <ContactForm />
             </div>
           </AnimateOnScroll>
         </Container>
       </section>
 
-      {/* ── QUALITY PROMISE ──────────────────────────────────────── */}
+      {/* ── OUR QUALITY PROMISE ──────────────────────────────────── */}
       <section className="bg-white py-16 sm:py-20">
-        <Container className="space-y-12">
-          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
-            <p className="section-tab mx-auto w-fit">Our Promise</p>
+        <Container className="space-y-8">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
+              Our Quality Promise
+            </h2>
+            <p className="text-[17px] leading-[1.7] text-[#5f7286]">
+              Every new home in Auckland comes with comprehensive Master Builders guarantees and is
+              delivered with a Code Compliance Certificate (CCC) from the council. This includes
+              protection against structural defects for 10 years, giving you absolute confidence in your
+              investment. Our membership in industry-leading associations ensures we maintain the highest
+              construction standards, while our extensive quality control system verifies every aspect of
+              your build.
+            </p>
+          </AnimateOnScroll>
+        </Container>
+      </section>
+
+      {/* ── BUILDING EXCELLENCE GUARANTEED ───────────────────────── */}
+      <section className="bg-[#f9fafb] py-16 sm:py-20">
+        <Container className="space-y-10">
+          <AnimateOnScroll variant="fade-up" className="mx-auto max-w-3xl text-center space-y-4">
             <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[48px]">
               Building Excellence Guaranteed
             </h2>
-            <p className="mx-auto max-w-3xl text-[17px] leading-[1.7] text-[#5f7286]">
-              Every new home in Auckland comes with comprehensive Master Builders guarantees and is
-              delivered with a Code Compliance Certificate (CCC) from the council. This includes protection
-              against structural defects for 10 years, giving you absolute confidence in your investment.
-              Our membership in industry-leading associations ensures we maintain the highest construction
-              standards, while our extensive quality control system verifies every aspect of your build.
-            </p>
           </AnimateOnScroll>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {qualityPoints.map((item, i) => (
-              <AnimateOnScroll key={item.title} variant="scale-in" delay={i * 80}>
-                <div className="flex flex-col gap-4 rounded-2xl border border-[#eef2f6] bg-[#f9fafb] p-6 text-center transition duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#293a57]/8">
-                  <span className="mx-auto text-4xl">{item.icon}</span>
-                  <h3 className="text-[16px] font-bold text-[#293a57]">{item.title}</h3>
-                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{item.body}</p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {excellenceItems.map((item, i) => (
+              <AnimateOnScroll key={item.text} variant="scale-in" delay={i * 70}>
+                <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[#e8edf2] bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-[#293a57]/8">
+                  <span className="text-3xl">{item.icon}</span>
+                  <p className="text-[15px] font-semibold leading-snug text-[#293a57]">{item.text}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -508,82 +495,58 @@ export default function CustomHomesPage() {
         </Container>
       </section>
 
+      {/* ── PROCESS ─────────────────────────────────────────────── */}
+      <section id="process" className="scroll-mt-24 bg-white py-16 sm:py-20">
+        <Container className="space-y-14">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-4">
+            <p className="section-tab mx-auto w-fit">Services</p>
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[42px] font-extrabold leading-[1.04] tracking-tight text-[#293a57] sm:text-[52px]">
+              How We Put Your Custom Home to Action
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((s, i) => (
+              <AnimateOnScroll key={s.step} variant="fade-up" delay={i * 60}>
+                <div className="flex h-full flex-col rounded-2xl border border-[#e8edf2] bg-[#f9fafb] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#293a57]/20 hover:shadow-lg hover:shadow-[#293a57]/8">
+                  <span className="mb-4 text-[13px] font-bold uppercase tracking-[0.18em] text-[#293a57]/30">{s.step}</span>
+                  <h3 className="mb-2 text-[18px] font-bold text-[#293a57]">{s.title}</h3>
+                  <p className="text-[14px] leading-[1.6] text-[#5f7286]">{s.body}</p>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* ── FEATURED CUSTOM HOME GALLERY ─────────────────────────── */}
       <FeaturedGallery
         heading="Featured Custom Home"
         images={[
           { src: "/services/Copy-of-2A3A2941-scaled.jpg", alt: "Custom home exterior" },
-          { src: "/services/Copy-of-2A3A2794-1024x683.jpg", alt: "Elegant outdoor space" },
-          { src: "/services/Copy-of-2A3A2787-1024x683.jpg", alt: "Custom home living area" },
-          { src: "/services/Seacombe-11-1024x683.jpg", alt: "Seacombe Road custom build" },
-          { src: "/services/Patio-Outdoor-Living-1024x683.webp", alt: "Modern patio design" },
-          { src: "/services/DSC00888-HDR-1-sharpen-1024x683.jpg", alt: "Architecturally designed residence" },
+          { src: "/services/Copy-of-2A3A2794-scaled.jpg", alt: "Custom home outdoor space" },
+          { src: "/services/Copy-of-2A3A2787-scaled.jpg", alt: "Custom home living area" },
+          { src: "/services/Seacombe-11-scaled.jpg", alt: "Seacombe custom build" },
+          { src: "/services/Patio-Outdoor-Living.webp", alt: "Patio outdoor living" },
+          { src: "/services/DSC00888-HDR-1-sharpen-scaled.jpg", alt: "Architecturally designed residence" },
         ]}
       />
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
       <section className="bg-[#f9fafb] py-16 sm:py-20">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-16">
-          <AnimateOnScroll variant="fade-right" className="space-y-5 lg:sticky lg:top-28">
-            <p className="section-tab w-fit">FAQ</p>
-            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[38px] font-extrabold leading-[1.08] tracking-tight text-[#293a57] sm:text-[46px]">
-              Common Questions About Custom Homes
+        <Container className="max-w-3xl space-y-8">
+          <AnimateOnScroll variant="fade-up" className="text-center space-y-3">
+            <h2 className="font-[ui-sans-serif,system-ui,sans-serif] text-[40px] font-extrabold leading-tight tracking-tight text-[#293a57]">
+              Frequently Asked Questions
             </h2>
-            <p className="text-[17px] leading-relaxed text-[#5f7286]">
-              Have more questions? Our team is ready to walk you through every detail of your new build journey.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-[#293a57] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#1e2d47]"
-            >
-              Ask Us Anything <span aria-hidden="true">→</span>
-            </Link>
           </AnimateOnScroll>
-
-          <AnimateOnScroll variant="fade-left" delay={100} className="space-y-3">
-            {faqs.map((item) => (
-              <FaqItem key={item.q} q={item.q} a={item.a} />
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <AnimateOnScroll key={faq.q} variant="fade-up" delay={i * 80}>
+                <FaqItem q={faq.q} a={faq.a} />
+              </AnimateOnScroll>
             ))}
-          </AnimateOnScroll>
-        </Container>
-      </section>
-
-      {/* ── CONSULTATION CTA ─────────────────────────────────────── */}
-      <section
-        id="consultation"
-        className="scroll-mt-24 bg-[#293a57] bg-cover bg-center bg-no-repeat py-14 sm:py-16"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(41,58,87,0.86), rgba(41,58,87,0.86)), url('/JRA-Belle-Vue-Website-Ready-27-e4e5bfc3-49d4-4872-b806-0fe6aa29407b.png')",
-        }}
-      >
-        <Container className="grid gap-8 lg:grid-cols-[1fr_520px] lg:items-start">
-          <AnimateOnScroll variant="fade-right" className="pt-2 text-white">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-300">
-              Let&apos;s get your dream started
-            </p>
-            <h2 className="mt-2 max-w-xl font-[ui-sans-serif,system-ui,sans-serif] text-[48px] font-extrabold leading-[1.02] tracking-tight text-white sm:text-[54px]">
-              Claim Your Free Design &amp; Build Consultation
-            </h2>
-            <p className="mt-5 text-[17px] text-zinc-200">This Design &amp; Build Consult covers…</p>
-            <ul className="mt-5 space-y-3 text-[16px] text-zinc-100">
-              {consultItems.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckIcon />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variant="fade-left" delay={150} className="flex justify-center lg:justify-center">
-            <div className="w-full max-w-[520px] rounded-xl bg-white p-5 shadow-2xl shadow-black/35 sm:p-6">
-              <ContactForm />
-              <div className="mt-3 text-center text-[11px] text-zinc-400">
-                We respect your privacy. No spam, ever.
-              </div>
-            </div>
-          </AnimateOnScroll>
+          </div>
         </Container>
       </section>
 
@@ -591,20 +554,19 @@ export default function CustomHomesPage() {
       <Testimonials heading="See What Others Are Saying" />
 
       {/* ── PRELIMINARY PLANNING NEXT STEPS ──────────────────────── */}
-      <PlanningNextSteps />
+      <PlanningNextSteps leadIn="Thinking about extending your home?" />
 
-      {/* ── NEXT STEPS / BACK TO SERVICES ────────────────────────── */}
-      <section className="bg-white py-12 sm:py-14">
-        <Container className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <p className="text-[13px] font-semibold uppercase tracking-widest text-[#8a9aab]">Explore More</p>
-            <h3 className="mt-1 text-[22px] font-extrabold text-[#293a57]">View All Our Services</h3>
-          </div>
+      {/* ── FINAL CTA ────────────────────────────────────────────── */}
+      <JourneyCta leadIn="Thinking about extending your home?" />
+
+      {/* ── BACK TO SERVICES ─────────────────────────────────────── */}
+      <section className="bg-[#f9fafb] py-10">
+        <Container className="text-center">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-[#293a57] px-7 py-3 text-sm font-semibold text-[#293a57] transition hover:bg-[#293a57] hover:text-white"
+            className="inline-flex items-center gap-2 text-[15px] font-semibold text-[#293a57] transition hover:gap-4"
           >
-            ← Back to Services
+            <span aria-hidden="true">←</span> Back to All Services
           </Link>
         </Container>
       </section>
